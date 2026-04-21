@@ -1,0 +1,24 @@
+{
+  "short_name": "AK.Archive",
+  "name": "Arianit Krasniqi | Ultra-Kinetic Archive",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/1041/1041916.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/1041/1041916.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#030303",
+  "display": "standalone",
+  "scope": "./",
+  "theme_color": "#030303",
+  "description": "Platformë elite e inxhinierisë digjitale dhe arkivës kinetike.",
+  "orientation": "portrait-primary"
+}
