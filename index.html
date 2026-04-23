@@ -1,264 +1,329 @@
 <!DOCTYPE html>
-<html lang="sq" class="dark">
+<html lang="sq">
 <head>
-
-
-<link rel="manifest" href="manifest.json">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="AK Archive">
-<link rel="apple-touch-icon" href="https://img.icons8.com/?size=100&id=BxYGfRWckJCP&format=png&color=000000">
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Arianit Krasniçi</title>
-    
+    <title>Arianit Krasniqi | Professional Portfolio</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Plus+Jakarta+Sans:wght@200;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <style>
-        :root { --bg: #030303; --accent: #ffffff; --card-bg: #0a0a0a; }
-        body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        :root { 
+            --bg: #F5F5F7; 
+            --text: #1D1D1F; 
+            --accent: #0071E3;
+            --glass: rgba(255, 255, 255, 0.7);
+            --dark-section: #121212;
+        }
         
-        /* Premium Background */
-        .noise {
-            position: fixed; inset: 0; opacity: 0.04; pointer-events: none; z-index: 999;
-            background: url('https://grainy-gradients.vercel.app/noise.svg');
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* 3D Stage for Mobile */
-        .mobile-stack-container {
-            perspective: 1500px;
-            padding: 0 5vw;
-        }
+        .font-display { font-family: 'Syne', sans-serif; }
 
-        .project-card-mobile {
-            position: sticky; top: 12vh;
-            width: 100%; height: 72vh;
-            background: var(--card-bg);
-            border-radius: 32px; border: 1px solid rgba(255,255,255,0.05);
-            margin-bottom: 15vh; overflow: hidden;
-            transform-style: preserve-3d;
-            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.5);
-        }
+        /* Hide Scrollbar */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Desktop Horizontal Engine */
+        /* Apple-Style Glass Card */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 28px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        
+        .glass-card:active { transform: scale(0.97); background: rgba(255,255,255,0.4); }
+
+        /* Advanced Horizontal Swipe */
+        .horizontal-engine {
+            display: flex; gap: 1.5rem; padding: 0 2rem;
+            scroll-snap-type: x mandatory; overflow-x: auto;
+        }
+        .project-item {
+            flex: 0 0 82vw; scroll-snap-align: center;
+            height: 55vh; position: relative;
+        }
         @media (min-width: 1024px) {
-            .main-wrapper { display: flex; flex-wrap: nowrap; width: 1600vw; height: 100vh; }
-            .section-web { width: 100vw; height: 100vh; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-            .project-card-mobile { position: relative; top: 0; height: 75vh; width: 62vw; margin-bottom: 0; border-radius: 20px; }
+            .project-item { flex: 0 0 28vw; height: 65vh; }
         }
 
-        /* Image Parallax Effect */
-        .img-parallax-container { width: 100%; height: 120%; position: absolute; top: -10%; left: 0; overflow: hidden; }
-        .img-parallax-container img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) brightness(0.6); transition: filter 1s ease; }
-        .project-card-mobile:hover img { filter: grayscale(0%) brightness(1); }
-
-        .content-hud {
-            position: absolute; inset: 0; z-index: 10;
-            display: flex; flex-direction: column; justify-content: flex-end;
-            padding: 3rem; background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 60%);
+        /* Floating Nav */
+        .floating-nav {
+            position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
+            background: rgba(255,255,255,0.8); backdrop-filter: blur(15px);
+            border: 1px solid rgba(0,0,0,0.1); padding: 0.7rem 1.5rem;
+            border-radius: 100px; z-index: 1000; display: flex; gap: 1.5rem;
         }
 
-        /* Magnetic Nav HUD */
-        .premium-nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center;
-            mix-blend-mode: difference;
+        /* Section Transition */
+        .dark-transition-block {
+            background: var(--dark-section);
+            color: white;
+            border-radius: 60px 60px 0 0;
+            padding: 100px 2rem; margin-top: 50px;
         }
 
-        .nav-link { font-size: 10px; font-weight: 800; letter-spacing: 0.3em; cursor: pointer; transition: 0.3s opacity; }
-        .nav-link:hover { opacity: 0.5; }
-
-        /* Custom Scrollbar for Premium Feel */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        /* Portal Detail View */
+        #portal-view {
+            position: fixed; inset: 0; z-index: 2000; background: var(--bg);
+            display: none; transform: translateY(100%); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #portal-view.active { display: block; transform: translateY(0); }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <div class="noise"></div>
-
-    <nav class="premium-nav">
-        <div class="nav-link font-display text-2xl tracking-tighter" id="logo-mag">AK.</div>
-        <div class="flex items-center gap-12">
-            <div onclick="toggleLang()" id="lang-btn" class="nav-link">SQ</div>
-            <div class="w-1 h-1 bg-white rounded-full"></div>
-        </div>
+    <nav class="floating-nav shadow-lg">
+        <a href="#code-section" class="text-[9px] font-extrabold tracking-widest opacity-40 hover:opacity-100">KODI</a>
+        <div class="w-[1px] h-3 bg-black/10"></div>
+        <a href="#platform-section" class="text-[9px] font-extrabold tracking-widest opacity-40 hover:opacity-100">DIZAJNI</a>
     </nav>
 
-    <div id="master-wrapper" class="main-wrapper">
+    <section class="h-[80vh] flex flex-col justify-center px-8 lg:px-24">
+        <div class="overflow-hidden">
+            <span class="text-[11px] tracking-[0.7em] uppercase opacity-40 block mb-6 translate-y-full animate-reveal">Creative Developer</span>
+        </div>
+        <h1 class="text-[14vw] lg:text-[9vw] font-display font-extrabold leading-[0.85] tracking-tighter">
+            ARIANIT<br><span class="opacity-10">KRASNIQI</span>
+        </h1>
+    </section>
+
+    <section id="code-section" class="pb-20">
+        <div class="px-8 lg:px-24 mb-10">
+            <h2 class="text-[10px] tracking-[0.4em] font-bold opacity-30 uppercase italic">Inxhinieria (HTML, Tailwind, JS)</h2>
+        </div>
         
-        <section class="section-web h-screen flex items-center justify-center px-10">
-            <div class="max-w-7xl w-full">
-                <div class="overflow-hidden">
-                    <p id="h-sub" class="text-[10px] tracking-[0.9em] text-white/30 uppercase mb-8 translate-y-full">Web Designer</p>
-                </div>
-                <h1 id="h-title" class="text-[16vw] lg:text-[12vw] font-display font-extrabold leading-[0.75] tracking-tighter italic">
-                    Arianit<br>Krasniçi
-                </h1>
+        <div class="horizontal-engine hide-scroll" id="code-projects">
             </div>
-        </section>
+    </section>
 
-        <div id="dynamic-grid" class="mobile-stack-container lg:flex lg:flex-row lg:p-0 lg:gap-[10vw] lg:px-[10vw]">
-            </div>
 
-        <section class="section-web h-screen flex items-center justify-center px-10">
-            <div class="text-center">
-                <h2 id="f-cta" class="text-[12vw] lg:text-[8vw] font-display font-bold italic tracking-tighter leading-none mb-12">START<br>NOW</h2>
-                <a href="mailto:arianit.krasniqi@tekton.com" class="text-white/40 hover:text-white transition-colors duration-500 text-lg font-light tracking-widest border-b border-white/10 pb-2">arianit.krasniqi@tekton.com</a>
-            </div>
-        </section>
 
+
+<div class="tech-marquee-wrapper py-16 overflow-hidden relative border-y border-black/[0.03] bg-white/30 backdrop-blur-sm">
+    
+    <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#F5F5F7] to-transparent z-10"></div>
+    <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#F5F5F7] to-transparent z-10"></div>
+
+    <div class="flex whitespace-nowrap animate-fast-scroll">
+        <div class="flex items-center space-x-16 px-8">
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"><span>HTML5</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"><span>CSS3</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"><span>JavaScript</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind"><span>TailwindCSS</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"><span>PHP</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><span>MySQL</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" alt="WordPress"><span>WordPress</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"><span>Figma</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva"><span>Canva</span></div>
+            <div class="tech-box border border-black/10 rounded-lg px-2 text-[12px] font-bold">WIX</div>
+            <div class="tech-box border border-black/10 rounded-lg px-2 text-[12px] font-bold">UMSO</div>
+        </div>
+        
+        <div class="flex items-center space-x-16 px-8">
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"><span>HTML5</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"><span>CSS3</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"><span>JavaScript</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind"><span>TailwindCSS</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"><span>PHP</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><span>MySQL</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" alt="WordPress"><span>WordPress</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"><span>Figma</span></div>
+            <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva"><span>Canva</span></div>
+            <div class="tech-box border border-black/10 rounded-lg px-2 text-[12px] font-bold">WIX</div>
+            <div class="tech-box border border-black/10 rounded-lg px-2 text-[12px] font-bold">UMSO</div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Stilizimi i Kutisë së Teknologjive */
+    .tech-box {
+        display: flex;
+        items-center: center;
+        gap: 12px;
+        opacity: 0.4;
+        filter: grayscale(100%);
+        transition: all 0.4s ease;
+    }
+
+    .tech-box img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+
+    .tech-box span {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
+    .tech-box:hover {
+        opacity: 1;
+        filter: grayscale(0%);
+        transform: scale(1.1);
+    }
+
+    /* Shpejtësia e lëvizjes - 15 sekonda për një loop të plotë (më shpejt se paraprakja) */
+    .animate-fast-scroll {
+        animation: marquee-fast 15s linear infinite;
+    }
+
+    @keyframes marquee-fast {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    /* Përshtatja për Dark Mode (kur lëviz te platformat) */
+    .dark-mode-active .tech-marquee-wrapper {
+        background: #0F0F0F;
+        border-color: rgba(255,255,255,0.05);
+    }
+    .dark-mode-active .tech-box {
+        filter: grayscale(100%) invert(1);
+    }
+    .dark-mode-active .tech-box:hover {
+        filter: grayscale(0%) invert(0);
+    }
+</style>
+
+
+    
+            <p class="text-white/30 tracking-[0.3em] uppercase text-[10px]">Eksploroni Platformat e Dizajnit</p>
+        </div>
     </div>
 
-    <div id="portal" class="fixed inset-0 z-[2000] hidden bg-[#030303] p-6 lg:p-24 overflow-y-auto lg:overflow-hidden">
-        <div class="w-full h-full flex flex-col lg:flex-row gap-16">
-            <div class="w-full lg:w-3/5 h-[50vh] lg:h-full rounded-2xl overflow-hidden shadow-2xl">
-                <img id="p-img" src="" class="w-full h-full object-cover">
+    <section id="platform-section" class="bg-[#121212] pb-32">
+        <div class="px-8 lg:px-24 py-12">
+            <h2 class="text-[10px] tracking-[0.4em] font-bold opacity-30 uppercase italic text-white/50">Wix, Canva, Umso</h2>
+        </div>
+        
+        <div class="horizontal-engine hide-scroll" id="platform-projects">
             </div>
-            <div class="w-full lg:w-2/5 flex flex-col justify-center">
-                <span id="p-cat" class="text-[10px] tracking-[0.6em] text-white/20 font-bold uppercase mb-6">Category</span>
-                <h2 id="p-title" class="text-6xl lg:text-8xl font-display font-bold mb-8 tracking-tighter leading-none italic"></h2>
-                <p id="p-desc" class="text-xl text-white/40 font-light leading-relaxed mb-12 max-w-md"></p>
-                <div class="flex flex-col gap-4">
-                    <button class="bg-white text-black py-6 text-[10px] font-bold tracking-[0.4em] uppercase hover:scale-105 transition duration-500">Launch Experience</button>
-                    <button onclick="closePortal()" class="border border-white/10 py-6 text-[10px] font-bold tracking-[0.4em] uppercase hover:bg-white/5 transition duration-500">Back to Archive</button>
+    </section>
+
+    <div id="portal-view" class="p-8 lg:p-24 overflow-y-auto">
+        <div class="max-w-5xl mx-auto">
+            <button onclick="closePortal()" class="mb-12 text-[10px] font-bold tracking-widest opacity-40 uppercase border-b border-black/10 pb-1">&larr; Kthehu</button>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="glass-card aspect-square overflow-hidden">
+                    <img id="p-img" src="" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <span id="p-tag" class="text-[10px] tracking-[0.5em] text-blue-600 font-bold uppercase mb-4 block">Kategoria</span>
+                    <h2 id="p-title" class="text-6xl lg:text-8xl font-display font-bold tracking-tighter italic mb-8">Titulli</h2>
+                    <p id="p-desc" class="text-lg text-black/60 leading-relaxed mb-10 font-light"></p>
+                    <a id="p-link" href="#" target="_blank" class="inline-block bg-black text-white px-10 py-5 rounded-full text-[10px] font-bold tracking-[0.3em] uppercase shadow-xl hover:bg-blue-600 transition">Vizito Projektin</a>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        gsap.registerPlugin(ScrollTrigger);
+    // Shtova fushën 'link' për secilin projekt
+    const codeData = [
+        { title: "Kalkulo", tag: "Finance App", desc: "Aplikacion i plotë për kalkulime financiare dhe doganore.", img: "Images/KALKULO1.png", link: "https://kalkulo.vercel.app/" },
+        { title: "FaturaIME", tag: "Invoicing", desc: "Gjenerues profesional i faturave digjitale.", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800", link: "https://fatura-ime.vercel.app/" },
+        { title: "Xhamia Ratkocit", tag: "Community", desc: "Portali i komunitetit për njoftime dhe orare.", img: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800", link: "https://xhamiaratkoc.vercel.app/" },
+        { title: "PerkujtuesiDitor", tag: "Utility", desc: "Menaxhuesi i taskeve me njoftime në kohë reale.", img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800", link: "https://perkujtuesiditor.vercel.app/" },
+        { title: "Vaktia Ramazanit", tag: "Faith Utility", desc: "Orare precize dhe njoftime bazuar në lokacionin.", img: "https://images.unsplash.com/photo-1564120282405-fba930960573?w=800", link: "https://ramazani2026.vercel.app/" },
+        { title: "Meso Namazin", tag: "Education", desc: "Platformë edukative interaktive për mësim.", img: "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=800", link: "https://namazi-im.vercel.app/" },
+        { title: "boneMENU", tag: "Gastronomy", desc: "Menu digjitale QR për biznese moderne.", img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800", link: "https://bonemenu.vercel.app/" },
+        { title: "boneCV", tag: "Career Tool", desc: "Krijues i CV-ve me dizajn të nivelit të lartë.", img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800", link: "https://bone-cv.vercel.app/" },
+        { title: "TEKTON Arch", tag: "Architecture", desc: "Sistemi i menaxhimit të projekteve arkitekturore.", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800", link: "https://tekton-arch.vercel.app/" },
+        { title: "Barbershop LENDI", tag: "Service Branding", desc: "Dizajni i plotë i brendit dhe UI i rezervimeve.", img: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800", link: "https://frizerlendi.vercel.app/" },
+        { title: "Fshati Ratkoc", tag: "Local Portal", desc: "Platforma informative për të gjithë banorët.", img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?w=800", link: "https://ratkoci.vercel.app/" }
+    ];
 
-        let currentLang = 'sq';
-        const projectData = [
-            { id: 0, title: 'TEKTON STUDIO', cat: 'Arkitekturë', catEn: 'Architecture', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200', desc: 'Sistemi i menaxhimit të projekteve arkitekturore me vizualizim 3D.' },
-            { id: 1, title: 'NTP RATKOCI', cat: 'E-Commerce', catEn: 'Retail', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200', desc: 'Platformë tregtare me performancë të lartë dhe siguri maksimale.' },
-            { id: 2, title: 'FRIZER LENDI', cat: 'UI/UX Design', catEn: 'Interface', img: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200', desc: 'Ndërfaqe premium për rezervime dhe menaxhim të stafit.' },
-            { id: 3, title: 'KALKULO APP', cat: 'Financë', catEn: 'Fintech', img: 'Images/Screenshot 2026-04-13 234903.png', desc: 'Analizë financiare dhe llogaritje të saktësisë së lartë.' }
-        ];
+    const platformData = [
+        { title: "BurgerSTOP", tag: "Canva Design", desc: "Brendimi vizual dhe menytë për BurgerSTOP.", img: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=800", link: "https://arianitk.my.canva.site/burger-stop" },
+        { title: "Ha Mir", tag: "Wix Platform", desc: "Uebfaqe për porosi ushqimi me eksperiencë premium.", img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800", link: "https://nitikras9.wixsite.com/arianit" },
+        { title: "MsoDiçka", tag: "Umso Landing", desc: "Faqe prezantuese për kurse online.", img: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800", link: "https://msodiqka.umso.co/" },
+        { title: "NTP Ratkoci", tag: "Umso Platform", desc: "Prezantimi zyrtar i biznesit NTP Ratkoci.", img: "https://images.unsplash.com/photo-1541888941255-2324e96d18a2?w=800", link: "https://ntpratkoci.umso.co/" }
+    ];
 
-        const projects = Array.from({length: 13}, (_, i) => ({
-            ...projectData[i % projectData.length],
-            id: i,
-            title: projectData[i % projectData.length].title + (i > 3 ? ` VOL.${i}` : '')
-        }));
+    function init() {
+        const codeContainer = document.getElementById('code-projects');
+        const platformContainer = document.getElementById('platform-projects');
 
-        function render() {
-            const grid = document.getElementById('dynamic-grid');
-            grid.innerHTML = '';
-            projects.forEach(p => {
-                const card = document.createElement('div');
-                card.className = "project-card-mobile group section-web";
-                card.onclick = () => openPortal(p);
-                card.innerHTML = `
-                    <div class="img-parallax-container">
-                        <img src="${p.img}" class="parallax-img" alt="${p.title}">
+        codeData.forEach(p => {
+            codeContainer.innerHTML += `
+                <div class="project-item glass-card overflow-hidden cursor-pointer" onclick="openPortal('${p.title}', 'code')">
+                    <img src="${p.img}" class="w-full h-full object-cover opacity-80">
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-white/90 via-white/20 to-transparent">
+                        <span class="text-[8px] tracking-[0.4em] font-bold uppercase opacity-40 mb-1">${p.tag}</span>
+                        <h3 class="font-display text-3xl uppercase tracking-tighter italic">${p.title}</h3>
                     </div>
-                    <div class="content-hud">
-                        <span class="text-[9px] tracking-[0.5em] text-white/40 font-bold uppercase mb-3 block">${currentLang === 'sq' ? p.cat : p.catEn}</span>
-                        <h3 class="text-5xl lg:text-6xl font-display font-bold uppercase tracking-tighter italic leading-[0.8]">${p.title}</h3>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-            initAnimations();
-        }
-
-        function initAnimations() {
-            // Intro Animation
-            gsap.to("#h-sub", { y: 0, duration: 1.5, ease: "expo.out" });
-            gsap.from("#h-title", { opacity: 0, y: 100, duration: 1.5, delay: 0.2, ease: "expo.out" });
-
-            if (window.innerWidth >= 1024) {
-                // Desktop Horizontal + Parallax
-                const wrapper = document.getElementById('master-wrapper');
-                gsap.to(wrapper, {
-                    x: () => -(wrapper.scrollWidth - window.innerWidth),
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: wrapper,
-                        pin: true, scrub: 1,
-                        end: () => "+=" + wrapper.scrollWidth
-                    }
-                });
-
-                document.querySelectorAll('.parallax-img').forEach(img => {
-                    gsap.to(img, {
-                        x: -100,
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: img,
-                            containerAnimation: gsap.to(wrapper, {x: -(wrapper.scrollWidth - window.innerWidth)}), // sync with horizontal
-                            scrub: true
-                        }
-                    });
-                });
-            } else {
-                // Mobile 3D Stacking
-                document.querySelectorAll('.project-card-mobile').forEach((card) => {
-                    gsap.to(card, {
-                        scale: 0.8,
-                        rotationX: -10,
-                        opacity: 0,
-                        scrollTrigger: {
-                            trigger: card,
-                            start: "top 5%",
-                            end: "bottom top",
-                            scrub: true
-                        }
-                    });
-                });
-            }
-        }
-
-        function toggleLang() {
-            currentLang = currentLang === 'sq' ? 'en' : 'sq';
-            document.getElementById('lang-btn').innerText = currentLang === 'sq' ? 'ALB / SQ' : 'ENG / US';
-            document.getElementById('h-sub').innerText = currentLang === 'sq' ? 'Inxhinieri Vizionare' : 'Visionary Engineering';
-            document.getElementById('h-title').innerHTML = currentLang === 'sq' ? 'ARKIVË<br>ELITË' : 'ELITE<br>ARCHIVE';
-            document.getElementById('f-cta').innerHTML = currentLang === 'sq' ? 'NISU<br>TANI' : 'START<br>NOW';
-            render();
-        }
-
-        function openPortal(p) {
-            const portal = document.getElementById('portal');
-            document.getElementById('p-title').innerText = p.title;
-            document.getElementById('p-cat').innerText = currentLang === 'sq' ? p.cat : p.catEn;
-            document.getElementById('p-desc').innerText = p.desc;
-            document.getElementById('p-img').src = p.img;
-            portal.classList.remove('hidden');
-            gsap.fromTo(portal, { clipPath: "circle(0% at 50% 50%)" }, { clipPath: "circle(150% at 50% 50%)", duration: 1, ease: "expo.inOut" });
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePortal() {
-            gsap.to("#portal", { clipPath: "circle(0% at 50% 50%)", duration: 0.8, ease: "expo.inOut", onComplete: () => {
-                document.getElementById('portal').classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }});
-        }
-
-        // Magnetic Effect Logic
-        const logo = document.getElementById('logo-mag');
-        document.addEventListener('mousemove', (e) => {
-            const { clientX, clientY } = e;
-            if (window.innerWidth >= 1024) {
-                const rect = logo.getBoundingClientRect();
-                const x = (clientX - (rect.left + rect.width / 2)) * 0.2;
-                const y = (clientY - (rect.top + rect.height / 2)) * 0.2;
-                gsap.to(logo, { x, y, duration: 0.5 });
-            }
+                </div>
+            `;
         });
 
-        render();
-        window.addEventListener('resize', () => location.reload());
-    </script>
+        platformData.forEach(p => {
+            platformContainer.innerHTML += `
+                <div class="project-item glass-card overflow-hidden !bg-white/5 !border-white/10 cursor-pointer" onclick="openPortal('${p.title}', 'plat')">
+                    <img src="${p.img}" class="w-full h-full object-cover opacity-50">
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black via-transparent">
+                        <span class="text-[8px] tracking-[0.4em] font-bold uppercase text-white/40 mb-1">${p.tag}</span>
+                        <h3 class="font-display text-3xl uppercase tracking-tighter italic text-white">${p.title}</h3>
+                    </div>
+                </div>
+            `;
+        });
+
+        gsap.to(".animate-reveal", { y: 0, duration: 1, ease: "expo.out" });
+    }
+
+    function openPortal(title, type) {
+        const data = type === 'code' ? codeData : platformData;
+        const project = data.find(p => p.title === title);
+        
+        document.getElementById('p-img').src = project.img;
+        document.getElementById('p-title').innerText = project.title;
+        document.getElementById('p-tag').innerText = project.tag;
+        document.getElementById('p-desc').innerText = project.desc;
+        
+        // Ky rresht lidh butonin 'Vizito Projektin' me linkun e projektit
+        const linkBtn = document.getElementById('p-link');
+        linkBtn.href = project.link;
+
+        // Logjikë për të treguar nëse projekti është live apo jo
+        if(project.link === "#") {
+            linkBtn.innerText = "Së Shpejti";
+            linkBtn.style.opacity = "0.5";
+            linkBtn.style.pointerEvents = "none";
+        } else {
+            linkBtn.innerText = "Vizito Projektin";
+            linkBtn.style.opacity = "1";
+            linkBtn.style.pointerEvents = "auto";
+        }
+        
+        const portal = document.getElementById('portal-view');
+        portal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePortal() {
+        const portal = document.getElementById('portal-view');
+        portal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    init();
+</script>
 </body>
 </html>
