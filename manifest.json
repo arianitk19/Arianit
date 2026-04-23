@@ -1,18 +1,24 @@
 {
   "short_name": "Arianit Krasniçi",
   "name": "Arianit Krasniçi",
+  "description": "Professional Front-end Developer & UI/UX Designer",
   "icons": [
     {
       "src": "https://img.icons8.com/?size=100&id=ZFTfczklV96I&format=png&color=000000",
       "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://img.icons8.com/?size=100&id=ZFTfczklV96I&format=png&color=000000",
+      "type": "image/png",
       "sizes": "512x512",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ],
-  "start_url": "index.html",
+  "start_url": "/index.html",
   "background_color": "#F5F5F7",
   "display": "standalone",
   "scope": "/",
   "theme_color": "#0071E3",
-  "description": "Professional Front-end Developer & UI/UX Designer"
+  "orientation": "portrait"
 }
