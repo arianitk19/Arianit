@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
+
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0071E3">
+    
+
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Arianit Krasniqi | Professional Portfolio</title>
@@ -324,6 +331,28 @@
     }
 
     init();
+
+
+
+
+
+
+
+
+
+
+
+// Regjistrimi i Service Worker-it
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+            .then(reg => console.log('Service Worker u regjistrua me sukses!'))
+            .catch(err => console.log('Dështoi regjistrimi:', err));
+    });
+}
+
+
+        
 </script>
 </body>
 </html>
