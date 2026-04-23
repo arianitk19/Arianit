@@ -1,24 +1,18 @@
 {
-  "short_name": "AK.Archive",
-  "name": "Arianit Krasniqi | Ultra-Kinetic Archive",
+  "short_name": "Arianit K.",
+  "name": "Arianit Krasniqi | Portfolio",
   "icons": [
     {
-      "src": "https://img.icons8.com/?size=100&id=BxYGfRWckJCP&format=png&color=000000",
+      "src": "https://cdn-icons-png.flaticon.com/512/1157/1157109.png",
       "type": "image/png",
-      "sizes": "192x192",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "https://img.icons8.com/?size=100&id=BxYGfRWckJCP&format=png&color=000000",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
-  "start_url": "./index.html",
-  "background_color": "#030303",
+  "start_url": "index.html",
+  "background_color": "#F5F5F7",
   "display": "standalone",
-  "scope": "./",
-  "theme_color": "#030303",
-  "description": "Platformë elite e inxhinierisë digjitale dhe arkivës kinetike.",
-  "orientation": "portrait-primary"
+  "scope": "/",
+  "theme_color": "#0071E3",
+  "description": "Professional Front-end Developer & UI/UX Designer Portfolio"
 }
