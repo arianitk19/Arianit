@@ -645,7 +645,7 @@ body{
 <div id="splash" aria-hidden="true">
   <div class="flex flex-col items-center">
     <div class="splash-logo">Arianit<span style="color:#5eb1ff">.</span></div>
-    <div class="splash-sub" data-i18n="splash.sub">Building cinematic experiences</div>
+    <div class="splash-sub" data-i18n="splash.sub"></div>
     <div class="splash-bar"></div>
   </div>
 </div>
@@ -1439,27 +1439,8 @@ function applyTranslations(){
    PROJECT DATA
 ========================================================= */
 const PROJECTS = [
-  { id:'frizer-lendi', cat:'business', tagSq:'Biznes · Booking', tagEn:'Business · Booking', title:'Frizer Lendi', url:'https://frizerlendi.vercel.app',
-    descSq:'Platformë moderne për sallon parukerie me fokus në vizibilitet biznesi dhe rrjedhë rezervimesh.',
-    descEn:'Modern barbershop platform focused on business visibility and a smooth booking flow.',
-    problemSq:'Klientët kishin nevojë për një kanal të qartë rezervimi dhe një prezantim profesional që e dallon biznesin nga konkurrenca.',
-    problemEn:'Clients needed a clear booking channel and a professional presentation that sets the brand apart.',
-    featSq:['Shfaqje shërbimesh me çmime','Integrim rezervimesh','Sistem UI të pastër','Galeri pune','CTA për WhatsApp'],
-    featEn:['Service & pricing display','Booking integration','Clean UI system','Work gallery','WhatsApp CTA'],
-    uiuxSq:'Ndërfaqe minimale me kontrast të lartë, navigim intuitiv dhe ritëm vizual që fton në rezervim.',
-    uiuxEn:'Minimal high-contrast interface, intuitive navigation and a visual rhythm that invites bookings.'
-  },
-  { id:'endrit-arch', cat:'portfolio', tagSq:'Portofol · Arkitekturë', tagEn:'Portfolio · Architecture', title:'Endrit Arch', url:'https://endritarch.vercel.app',
-    descSq:'Portofol arkitektonik për prezantim vizual të punëve dhe identitetit profesional.',
-    descEn:'Architectural portfolio for visual presentation of projects and professional identity.',
-    problemSq:'Studioja kërkonte një vitrinë digjitale që respekton hapësirën, dritën dhe kompozimin.',
-    problemEn:'The studio needed a digital showcase that respects space, light and composition.',
-    featSq:['Galeri projektesh','Dizajn minimal','Layout profesional','Tipografi e kuruar','Foto-narrativë'],
-    featEn:['Project gallery','Minimal design','Professional layout','Curated typography','Photo-narrative'],
-    uiuxSq:'Sistemi është një kornizë e qetë për punën — pa zhurmë vizuale, me hapësirë negative dhe peshë tipografike.',
-    uiuxEn:'The system is a quiet frame for the work — no noise, generous negative space, typographic weight.'
-  },
-  { id:'tekton-arch', cat:'business', tagSq:'Biznes · Studio', tagEn:'Business · Studio', title:'Tekton Arch', url:'https://tektonarch.vercel.app',
+ 
+  { id:'tekton-arch', cat:'business', tagSq:'Biznes · Studio', tagEn:'Business · Studio', title:'Tekton Arch', url:'https://tekton-arch.vercel.app',
     descSq:'Faqe studio arkitekture me identitet korporativ dhe display projektesh të strukturuar.',
     descEn:'Architecture studio website with corporate identity and structured project display.',
     problemSq:'Identitet i fortë vizual për një studio në rritje me nevojë për besueshmëri korporative.',
@@ -1469,16 +1450,7 @@ const PROJECTS = [
     uiuxSq:'Modular dhe i strukturuar — bllokje të mëdha, fotografi heroike, navigim i thjeshtë por elegant.',
     uiuxEn:'Modular and structured — large blocks, hero photography, simple yet elegant navigation.'
   },
-  { id:'bonemenu', cat:'web-app', tagSq:'Web App · Restorant', tagEn:'Web App · Restaurant', title:'boneMENU', url:'https://bonemenu.vercel.app',
-    descSq:'Sistem digjital menyje për restorante me eksperiencë QR-base.',
-    descEn:'Digital menu system for restaurants with a QR-based experience.',
-    problemSq:'Mënyrë e shpejtë, mobile-first dhe e pastër për të shfaqur menynë pa printime.',
-    problemEn:'A fast, mobile-first, clean way to present menus without paper printing.',
-    featSq:['Kategori dinamike','UX e shpejtë','Dizajn mobile-first','QR friendly','Përditësime në kohë reale'],
-    featEn:['Dynamic categories','Fast UX','Mobile-first design','QR friendly','Real-time updates'],
-    uiuxSq:'Ndërfaqe me prekje me dorë në mendje — kontrast, target të mëdha, scroll i lëmuar.',
-    uiuxEn:'Interface designed for touch — contrast, large targets, smooth scroll.'
-  },
+
   { id:'bonecv', cat:'web-app', tagSq:'Web App · CV', tagEn:'Web App · CV', title:'boneCV', url:'https://bonecv.vercel.app',
     descSq:'Platformë interaktive për CV digjitale dhe prezantim profesional.',
     descEn:'Interactive platform for digital CVs and professional presentation.',
@@ -1489,16 +1461,7 @@ const PROJECTS = [
     uiuxSq:'Stil editorial — peshë tipografike, hierarki e qartë, animacione subtile reveal.',
     uiuxEn:'Editorial style — typographic weight, clear hierarchy, subtle reveal animations.'
   },
-  { id:'ramazani-2026', cat:'community', tagSq:'Komunitet · Islame', tagEn:'Community · Islamic', title:'Ramazani 2026', url:'https://ramazani2026.vercel.app',
-    descSq:'Platformë informative për Ramazanin me orare dhe përmbajtje shpirtërore.',
-    descEn:'Informational platform for Ramadan with schedules and spiritual content.',
-    problemSq:'Komuniteti kishte nevojë për një burim të pastër e të besueshëm gjatë muajit të Ramazanit.',
-    problemEn:'The community needed a clean, trustworthy source during the month of Ramadan.',
-    featSq:['Orari ditor','Përkujtues','Përmbajtje shpirtërore','UI me qetësi','Dark mode'],
-    featEn:['Daily timetable','Reminders','Spiritual content','Calm UI','Dark mode'],
-    uiuxSq:'Estetikë e qetë, tipografi e respektshme, ngjyra që ftojnë reflektim.',
-    uiuxEn:'Calm aesthetics, respectful typography, colors that invite reflection.'
-  },
+
   { id:'kalkulo', cat:'utility', tagSq:'Utility · Kalkulator', tagEn:'Utility · Calculator', title:'Kalkulo', url:'https://kalkulo.vercel.app',
     descSq:'Web aplikacion utility për llogaritje të shpejta matematikore dhe praktike.',
     descEn:'Utility web app for fast mathematical and practical calculations.',
@@ -1559,6 +1522,50 @@ const PROJECTS = [
     uiuxSq:'Korporative por jo e ftohtë — strukturë e qartë, ngjyra premium, ritëm i besueshëm.',
     uiuxEn:'Corporate but not cold — clear structure, premium colors, trustworthy rhythm.'
   }
+
+  { id:'ramazani-2026', cat:'community', tagSq:'Komunitet · Islame', tagEn:'Community · Islamic', title:'Ramazani 2026', url:'https://ramazani2026.vercel.app',
+    descSq:'Platformë informative për Ramazanin me orare dhe përmbajtje shpirtërore.',
+    descEn:'Informational platform for Ramadan with schedules and spiritual content.',
+    problemSq:'Komuniteti kishte nevojë për një burim të pastër e të besueshëm gjatë muajit të Ramazanit.',
+    problemEn:'The community needed a clean, trustworthy source during the month of Ramadan.',
+    featSq:['Orari ditor','Përkujtues','Përmbajtje shpirtërore','UI me qetësi','Dark mode'],
+    featEn:['Daily timetable','Reminders','Spiritual content','Calm UI','Dark mode'],
+    uiuxSq:'Estetikë e qetë, tipografi e respektshme, ngjyra që ftojnë reflektim.',
+    uiuxEn:'Calm aesthetics, respectful typography, colors that invite reflection.'
+  },
+  
+  { id:'bonemenu', cat:'web-app', tagSq:'Web App · Restorant', tagEn:'Web App · Restaurant', title:'boneMENU', url:'https://bonemenu.vercel.app',
+    descSq:'Sistem digjital menyje për restorante me eksperiencë QR-base.',
+    descEn:'Digital menu system for restaurants with a QR-based experience.',
+    problemSq:'Mënyrë e shpejtë, mobile-first dhe e pastër për të shfaqur menynë pa printime.',
+    problemEn:'A fast, mobile-first, clean way to present menus without paper printing.',
+    featSq:['Kategori dinamike','UX e shpejtë','Dizajn mobile-first','QR friendly','Përditësime në kohë reale'],
+    featEn:['Dynamic categories','Fast UX','Mobile-first design','QR friendly','Real-time updates'],
+    uiuxSq:'Ndërfaqe me prekje me dorë në mendje — kontrast, target të mëdha, scroll i lëmuar.',
+    uiuxEn:'Interface designed for touch — contrast, large targets, smooth scroll.'
+  },
+  
+ { id:'frizer-lendi', cat:'business', tagSq:'Biznes · Booking', tagEn:'Business · Booking', title:'Frizer Lendi', url:'https://frizerlendi.vercel.app',
+    descSq:'Platformë moderne për sallon parukerie me fokus në vizibilitet biznesi dhe rrjedhë rezervimesh.',
+    descEn:'Modern barbershop platform focused on business visibility and a smooth booking flow.',
+    problemSq:'Klientët kishin nevojë për një kanal të qartë rezervimi dhe një prezantim profesional që e dallon biznesin nga konkurrenca.',
+    problemEn:'Clients needed a clear booking channel and a professional presentation that sets the brand apart.',
+    featSq:['Shfaqje shërbimesh me çmime','Integrim rezervimesh','Sistem UI të pastër','Galeri pune','CTA për WhatsApp'],
+    featEn:['Service & pricing display','Booking integration','Clean UI system','Work gallery','WhatsApp CTA'],
+    uiuxSq:'Ndërfaqe minimale me kontrast të lartë, navigim intuitiv dhe ritëm vizual që fton në rezervim.',
+    uiuxEn:'Minimal high-contrast interface, intuitive navigation and a visual rhythm that invites bookings.'
+  },
+  { id:'endrit-arch', cat:'portfolio', tagSq:'Portofol · Arkitekturë', tagEn:'Portfolio · Architecture', title:'Endrit Arch', url:'https://endritarch.vercel.app',
+    descSq:'Portofol arkitektonik për prezantim vizual të punëve dhe identitetit profesional.',
+    descEn:'Architectural portfolio for visual presentation of projects and professional identity.',
+    problemSq:'Studioja kërkonte një vitrinë digjitale që respekton hapësirën, dritën dhe kompozimin.',
+    problemEn:'The studio needed a digital showcase that respects space, light and composition.',
+    featSq:['Galeri projektesh','Dizajn minimal','Layout profesional','Tipografi e kuruar','Foto-narrativë'],
+    featEn:['Project gallery','Minimal design','Professional layout','Curated typography','Photo-narrative'],
+    uiuxSq:'Sistemi është një kornizë e qetë për punën — pa zhurmë vizuale, me hapësirë negative dhe peshë tipografike.',
+    uiuxEn:'The system is a quiet frame for the work — no noise, generous negative space, typographic weight.'
+  },
+  
 ];
 
 /* =========================================================
