@@ -67,14 +67,12 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 :focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
 .skip{position:absolute;left:-999px;top:8px;z-index:999;background:var(--acc);color:#fff;padding:8px 16px;border-radius:8px}
 .skip:focus{left:8px}
-
 /* ---------- texture & atmosphere ---------- */
 body::before{
   content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.032'/%3E%3C/svg%3E");
 }
 .wrap{width:min(1200px,92%);margin-inline:auto;position:relative;z-index:2}
-
 /* ---------- typography ---------- */
 .eyebrow{
   display:inline-flex;align-items:center;gap:10px;
@@ -89,21 +87,18 @@ body::before{
 .t-dim{color:var(--mut)}
 .sec-sub{color:var(--mut);max-width:560px;margin-top:18px;font-size:1.02rem}
 .sec-head{margin-bottom:56px}
-
 /* ---------- reveal system ---------- */
 .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.in{opacity:1;transform:none}
 .rv-blur{opacity:0;filter:blur(14px);transform:translateY(20px);transition:opacity 1s var(--ease),filter 1s var(--ease),transform 1s var(--ease)}
 .rv-blur.in{opacity:1;filter:blur(0);transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
-
 /* ---------- cursor ---------- */
 .cur-dot,.cur-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
 .cur-dot{width:6px;height:6px;background:#fff;transition:opacity .3s}
 .cur-ring{width:38px;height:38px;border:1px solid rgba(255,255,255,.28);transition:width .35s var(--ease),height .35s var(--ease),border-color .35s,background .35s}
 .cur-ring.hov{width:64px;height:64px;border-color:rgba(124,108,255,.7);background:rgba(124,108,255,.08)}
 @media (hover:none),(pointer:coarse){.cur-dot,.cur-ring{display:none}}
-
 /* ---------- preloader ---------- */
 #loader{position:fixed;inset:0;z-index:1000;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:26px;transition:opacity .7s var(--ease),visibility .7s}
 #loader.done{opacity:0;visibility:hidden}
@@ -113,7 +108,6 @@ body::before{
 #loader .bar{width:180px;height:2px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}
 #loader .bar i{display:block;height:100%;width:0;background:var(--grad);animation:loadBar 1.4s var(--ease) forwards .2s}
 @keyframes loadBar{to{width:100%}}
-
 /* ---------- navigation ---------- */
 nav#topnav{
   position:fixed;top:0;left:0;right:0;z-index:200;
@@ -201,7 +195,6 @@ nav#topnav.scrolled{background:rgba(6,6,10,.72);backdrop-filter:blur(18px);-webk
 }
 .m-menu .foot a:hover,.m-menu .foot a:active{color:#fff;border-color:rgba(124,108,255,.55);box-shadow:0 0 18px rgba(124,108,255,.25);transform:translateY(-2px)}
 #totop.hid{opacity:0!important;visibility:hidden!important}
-
 /* ---------- buttons ---------- */
 .btn{
   position:relative;display:inline-flex;align-items:center;gap:10px;overflow:hidden;
@@ -247,7 +240,6 @@ nav#topnav.scrolled{background:rgba(6,6,10,.72);backdrop-filter:blur(18px);-webk
 }
 @property --a{syntax:'<angle>';initial-value:0deg;inherits:false}
 @keyframes spin{to{--a:360deg}}
-
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:130px 0 80px}
 .mesh{position:absolute;inset:0;z-index:0;overflow:hidden}
@@ -295,7 +287,6 @@ nav#topnav.scrolled{background:rgba(6,6,10,.72);backdrop-filter:blur(18px);-webk
 .scroll-hint .sline{position:relative;width:1.5px;height:48px;border-radius:2px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.14));overflow:hidden}
 .scroll-hint .sline i{position:absolute;left:0;top:-14px;width:100%;height:14px;border-radius:2px;background:var(--grad);box-shadow:0 0 10px rgba(124,108,255,.8);animation:sdrop 2.2s cubic-bezier(.6,.05,.35,1) infinite}
 @keyframes sdrop{0%{top:-14px;opacity:0}18%{opacity:1}80%{opacity:1}100%{top:48px;opacity:0}}
-
 /* ---------- marquee premium: dy shirita të kundërt ---------- */
 .marquee{
   border-block:1px solid var(--line-soft);padding:20px 0;overflow:hidden;position:relative;z-index:2;
@@ -326,11 +317,9 @@ nav#topnav.scrolled{background:rgba(6,6,10,.72);backdrop-filter:blur(18px);-webk
 @keyframes spinStar{to{transform:rotate(360deg)}}
 @keyframes mq{to{transform:translateX(-50%)}}
 @keyframes mq2{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-
 /* ---------- sections ---------- */
 section{position:relative;padding:86px 0}
 .glow-line{height:1px;width:100%;background:linear-gradient(90deg,transparent,rgba(124,108,255,.35),transparent)}
-
 /* about */
 .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
 @media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:40px}}
@@ -346,7 +335,6 @@ section{position:relative;padding:86px 0}
 .principle .n{font-family:var(--font-m);font-size:.75rem;color:var(--acc);padding-top:4px}
 .principle h4{font-family:var(--font-d);font-weight:500;font-size:1.05rem}
 .principle p{font-size:.88rem;color:var(--mut);margin-top:4px}
-
 /* services */
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media(max-width:1000px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
@@ -371,7 +359,6 @@ section{position:relative;padding:86px 0}
 .svc h3{font-family:var(--font-d);font-weight:500;font-size:1.14rem}
 .svc p{font-size:.9rem;color:var(--mut);margin-top:10px}
 .svc .tagline{margin-top:18px;font-family:var(--font-m);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut-2)}
-
 /* projects — filtra me glider të animuar */
 .filters{
   position:relative;display:inline-flex;gap:4px;margin-bottom:40px;
@@ -468,7 +455,6 @@ section{position:relative;padding:86px 0}
 .badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
 .badge{font-family:var(--font-m);font-size:10px;padding:5px 11px;border-radius:99px;border:1px solid var(--line-soft);color:var(--mut);background:rgba(255,255,255,.02);transition:border-color .3s,color .3s}
 .proj:hover .badge{border-color:rgba(124,108,255,.35);color:#cfcaff}
-
 /* tech */
 .tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
 .tech{
@@ -479,7 +465,6 @@ section{position:relative;padding:86px 0}
 .tech .g{font-size:1.5rem;display:block;margin-bottom:10px}
 .tech b{font-family:var(--font-d);font-weight:500;font-size:.95rem;display:block}
 .tech small{color:var(--mut-2);font-size:.72rem;font-family:var(--font-m);letter-spacing:.08em}
-
 /* process */
 .steps{position:relative;display:grid;gap:0;counter-reset:step}
 .step{
@@ -497,7 +482,6 @@ section{position:relative;padding:86px 0}
 .step p{color:var(--mut);margin-top:8px;max-width:640px;font-size:.94rem}
 .step .dur{font-family:var(--font-m);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);margin-top:12px;display:inline-block}
 @media(max-width:640px){.step{grid-template-columns:60px 1fr;gap:16px}.step .num{font-size:1.9rem}}
-
 /* why + stats */
 .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 @media(max-width:800px){.why-grid{grid-template-columns:1fr}}
@@ -520,7 +504,6 @@ section{position:relative;padding:86px 0}
 .stat:hover{border-color:rgba(124,108,255,.4);box-shadow:0 0 30px rgba(124,108,255,.12)}
 .stat .v{font-family:var(--font-d);font-weight:500;font-size:clamp(2.2rem,4vw,3rem);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .stat small{display:block;margin-top:8px;color:var(--mut);font-size:.85rem}
-
 /* faq */
 .faq-list{max-width:760px;margin-inline:auto;display:grid;gap:12px}
 .faq{
@@ -535,7 +518,6 @@ section{position:relative;padding:86px 0}
 .faq.open .pm{transform:rotate(45deg);background:rgba(124,108,255,.2);border-color:rgba(124,108,255,.5);color:#fff}
 .faq .a{max-height:0;overflow:hidden;transition:max-height .55s var(--ease)}
 .faq .a p{padding:0 24px 24px;color:var(--mut);font-size:.92rem}
-
 /* CTA band */
 .cta-band{
   position:relative;border-radius:28px;overflow:hidden;padding:clamp(50px,8vw,90px) clamp(24px,6vw,80px);
@@ -545,7 +527,6 @@ section{position:relative;padding:86px 0}
 .cta-band h2{font-family:var(--font-d);font-weight:500;letter-spacing:-.02em;font-size:clamp(2rem,5vw,3.6rem);line-height:1.06}
 .cta-band p{color:var(--mut);max-width:520px;margin:20px auto 0}
 .cta-band .ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:38px}
-
 /* contact */
 .ct-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:44px;align-items:start}
 @media(max-width:900px){.ct-grid{grid-template-columns:1fr}}
@@ -572,7 +553,6 @@ section{position:relative;padding:86px 0}
 .field select{appearance:none}
 .field select option{background:#101018;color:#fff}
 .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:rgba(124,108,255,.6);box-shadow:0 0 0 3px rgba(124,108,255,.14)}
-
 /* footer */
 footer{border-top:1px solid var(--line-soft);padding:70px 0 34px;position:relative;overflow:hidden}
 footer .big-brand{
@@ -590,7 +570,6 @@ footer .big-brand{
 .f-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:30px;color:var(--mut-2);font-size:.8rem}
 .f-bottom .sig{font-family:var(--font-m);font-size:.74rem;letter-spacing:.12em}
 .f-bottom .sig b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-
 /* logo & brand elements */
 .logo .mark-img{width:34px;height:34px;filter:drop-shadow(0 0 12px rgba(124,108,255,.5));transition:transform .5s var(--ease)}
 .logo:hover .mark-img{transform:rotate(360deg) scale(1.08)}
@@ -600,10 +579,8 @@ footer .big-brand{
   animation:floaty 6s ease-in-out infinite, logoIn 1.2s var(--ease) both;
 }
 @keyframes logoIn{from{opacity:0;transform:scale(.6) rotate(-14deg);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0) drop-shadow(0 0 34px rgba(124,108,255,.6))}}
-
 /* scroll progress */
 #sprog{position:fixed;top:0;left:0;height:2.5px;width:0;background:var(--grad);z-index:300;box-shadow:0 0 14px rgba(124,108,255,.7);transition:width .12s linear}
-
 /* shimmer on hero gradient text */
 .hero h1 .t-grad{
   background:linear-gradient(100deg,#8b7cff,#c084fc,#38d4ff,#c084fc,#8b7cff);
@@ -611,7 +588,6 @@ footer .big-brand{
   animation:shimmer 7s linear infinite;
 }
 @keyframes shimmer{to{background-position:260% 0}}
-
 /* premium icons */
 .ico svg,.tech .g svg,.wic svg,.ct-card .ic svg{overflow:visible}
 .svc:hover .ico svg{animation:wob .7s var(--ease)}
@@ -633,7 +609,6 @@ footer .big-brand{
 .ct-card:hover .ic{box-shadow:0 0 20px rgba(124,108,255,.3)}
 .ct-card .ic{transition:box-shadow .4s,transform .4s var(--ease)}
 .ct-card:hover .ic{transform:scale(1.08)}
-
 /* pakot */
 .pk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media(max-width:900px){.pk-grid{grid-template-columns:1fr}}
@@ -661,7 +636,6 @@ footer .big-brand{
 .pk li{display:flex;align-items:flex-start;gap:10px;color:var(--mut);font-size:.9rem;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04)}
 .pk li::before{content:"";flex:none;width:16px;height:16px;margin-top:3px;border-radius:50%;background:linear-gradient(140deg,rgba(124,108,255,.25),rgba(56,212,255,.15));border:1px solid rgba(124,108,255,.4);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 12.5 4 4 8-9' fill='none' stroke='%23b9aeff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-size:10px;background-position:center;background-repeat:no-repeat}
 .pk .btn{margin-top:auto}
-
 /* së shpejti */
 .soon{
   margin-top:20px;text-align:center;padding:44px 28px;border-radius:var(--r);
@@ -673,7 +647,6 @@ footer .big-brand{
 .soon h3{font-family:var(--font-d);font-weight:500;font-size:1.25rem}
 .soon p{color:var(--mut);font-size:.92rem;max-width:480px;margin:10px auto 0}
 .soon p a{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:500}
-
 /* butoni lart */
 #totop{
   position:fixed;right:22px;bottom:22px;z-index:250;width:46px;height:46px;border-radius:50%;
@@ -687,10 +660,8 @@ footer .big-brand{
 #totop:active{transform:scale(.9)}
 #totop svg{transition:transform .4s var(--ease)}
 #totop:hover svg{transform:translateY(-2px)}
-
 /* tilt */
 .tilt{transform-style:preserve-3d;will-change:transform}
-
 /* ---------- kurim për mobile ---------- */
 @media(max-width:640px){
   section{padding:60px 0}
@@ -715,7 +686,6 @@ footer .big-brand{
   footer .big-brand{font-size:19vw;margin-bottom:40px}
   .scroll-hint{display:none}
 }
-
 /* reduced motion */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important;scroll-behavior:auto!important}
@@ -726,7 +696,6 @@ footer .big-brand{
 <body>
 <a class="skip" href="#main">Kalo te përmbajtja</a>
 <div id="sprog" aria-hidden="true"></div>
-
 <!-- Gradientët globalë për ikonat -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <linearGradient id="ig1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b7cff"/><stop offset="1" stop-color="#38d4ff"/></linearGradient>
@@ -735,20 +704,16 @@ footer .big-brand{
 <linearGradient id="ig4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb27a"/><stop offset="1" stop-color="#c084fc"/></linearGradient>
 <linearGradient id="igr" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#4a6cf7"/><stop offset=".55" stop-color="#7b5cf0"/><stop offset="1" stop-color="#8b3fe4"/></linearGradient>
 </defs></svg>
-
 <!-- Preloader -->
 <div id="loader" aria-hidden="true">
   <svg width="76" height="76" viewBox="0 0 512 512" aria-hidden="true" style="filter:drop-shadow(0 0 26px rgba(124,108,255,.55));animation:floaty 3s ease-in-out infinite"><circle cx="256" cy="256" r="250" fill="#050507"/><circle cx="256" cy="256" r="240" fill="none" stroke="url(#igr)" stroke-width="12"/><g stroke="#f2f2f7" stroke-width="46" fill="none"><path d="M150 166 332 348"/><path d="M150 238v134"/><path d="M332 142v134"/></g></svg>
   <div class="brand"><span>builtby<em style="font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent">niti</em></span></div>
   <div class="bar"><i></i></div>
 </div>
-
 <script>/* siguri: fshih loader-in gjithsesi */setTimeout(function(){var l=document.getElementById('loader');if(l)l.classList.add('done');},2400);</script>
-
 <!-- Cursor -->
 <div class="cur-dot" aria-hidden="true"></div>
 <div class="cur-ring" aria-hidden="true"></div>
-
 <!-- Navigation -->
 <nav id="topnav" aria-label="Navigimi kryesor">
   <div class="nav-in">
@@ -764,7 +729,6 @@ footer .big-brand{
     <button class="burger" id="burger" aria-label="Hap menynë" aria-expanded="false"><span class="bx"><i></i><i></i><i></i></span></button>
   </div>
 </nav>
-
 <!-- Mobile menu -->
 <div class="m-menu" id="mmenu">
   <span class="m-orb" aria-hidden="true"></span>
@@ -781,9 +745,7 @@ footer .big-brand{
     <a href="mailto:arianitk2005@gmail.com"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="4.5" width="19" height="15" rx="3" stroke="url(#ig1)" stroke-width="1.7"/><path d="m2.5 7.5 8.3 5.6a2 2 0 0 0 2.4 0l8.3-5.6" stroke="url(#ig1)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Email</a>
   </div>
 </div>
-
 <main id="main">
-
 <!-- ================= HERO ================= -->
 <header class="hero" id="home">
   <div class="mesh" aria-hidden="true">
@@ -810,7 +772,6 @@ footer .big-brand{
   </div>
   <div class="scroll-hint" aria-hidden="true"><span class="sline"><i></i></span>Scroll</div>
 </header>
-
 <!-- ================= MARQUEE ================= -->
 <div class="marquee" aria-hidden="true">
   <div class="mq-track">
@@ -820,7 +781,6 @@ footer .big-brand{
     <span>Performancë</span><span>Precizion</span><span>Elegancë</span><span>Inovacion</span><span>Strategji</span><span>Kreativitet</span><span>Cilësi Premium</span><span>Eksperiencë</span>
   </div>
 </div>
-
 <!-- ================= ABOUT ================= -->
 <section id="about" class="about">
   <div class="wrap">
@@ -842,9 +802,7 @@ footer .big-brand{
     </div>
   </div>
 </section>
-
 <div class="glow-line"></div>
-
 <!-- ================= SERVICES ================= -->
 <section id="services">
   <div class="wrap">
@@ -856,9 +814,7 @@ footer .big-brand{
     <div class="svc-grid" id="svcgrid"></div>
   </div>
 </section>
-
 <div class="glow-line"></div>
-
 <!-- ================= PROJECTS ================= -->
 <section id="projects">
   <div class="wrap">
@@ -875,9 +831,7 @@ footer .big-brand{
     </div>
   </div>
 </section>
-
 <div class="glow-line"></div>
-
 <!-- ================= PROCESS ================= -->
 <section id="process">
   <div class="wrap">
@@ -894,9 +848,7 @@ footer .big-brand{
     </div>
   </div>
 </section>
-
 <div class="glow-line"></div>
-
 <!-- ================= PAKOT ================= -->
 <section id="pakot">
   <div class="wrap">
@@ -953,9 +905,7 @@ footer .big-brand{
     </div>
   </div>
 </section>
-
 <div class="glow-line"></div>
-
 <!-- ================= FAQ ================= -->
 <section id="faq">
   <div class="wrap">
@@ -971,7 +921,6 @@ footer .big-brand{
     </div>
   </div>
 </section>
-
 <!-- ================= CTA ================= -->
 <section id="cta" style="padding-top:40px">
   <div class="wrap">
@@ -988,7 +937,6 @@ footer .big-brand{
     </div>
   </div>
 </section>
-
 <!-- ================= CONTACT ================= -->
 <section id="contact">
   <div class="wrap">
@@ -1039,14 +987,11 @@ footer .big-brand{
     </div>
   </div>
 </section>
-
 </main>
-
 <!-- Butoni Lart -->
 <button id="totop" aria-label="Kthehu lart">
   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="url(#ig1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V4M5 11l7-7 7 7"/></svg>
 </button>
-
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="wrap">
@@ -1078,7 +1023,6 @@ footer .big-brand{
     </div>
   </div>
 </footer>
-
 <script>
 /* ============================================================
    builtbyniti — Interactions
@@ -1086,13 +1030,14 @@ footer .big-brand{
 'use strict';
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const touch = matchMedia('(hover: none), (pointer: coarse)').matches;
-
 /* ---------- data ---------- */
 const PROJECTS = [
   {id:'kalkulo',cat:'utility',catL:'Utility',title:'Kalkulo',url:'https://kalkulo.vercel.app',mono:'K=',c:['#38d4ff','#8b7cff'],
    desc:'Web aplikacion utility për llogaritje të shpejta — minimal funksional, punon offline në çdo pajisje.',tech:['Offline','Instant','PWA']},
   {id:'bonecv',cat:'web-app',catL:'Web App',title:'boneCV',url:'https://bone-cv.vercel.app',mono:'bC',c:['#7c6cff','#38d4ff'],
-   desc:'Platformë interaktive për CV digjitale me stil editorial, tema të personalizueshme dhe link të ndashëm.',tech:['Editorial UI','Themes','Shareable']}
+   desc:'Platformë interaktive për CV digjitale me stil editorial, tema të personalizueshme dhe link të ndashëm.',tech:['Editorial UI','Themes','Shareable']},
+  {id:'tekton',cat:'web-app',catL:'Website',title:'TEKTON',url:'https://tekton-arch.vercel.app',mono:'TK',c:['#c084fc','#38d4ff'],
+   desc:'Website prezantues për studio arkitekture — dizajn editorial minimalist, dygjuhësh (SQ/EN), me fokus te drita, hapësira dhe forma.',tech:['Editorial','Bilingual','Responsive']}
 ];
 const SERVICES = [
   {t:'Zhvillim Website',d:'Faqe biznesi, portofole dhe sisteme prezantuese me dizajn premium dhe performancë ekstreme.',tag:'Web · Landing · Corporate',
@@ -1122,7 +1067,6 @@ const TECH = [
   {g:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="5" y="5" width="14" height="14" rx="4" stroke="url(#ig2)" stroke-width="1.4" fill="url(#ig2)" fill-opacity=".12"/><circle cx="9.5" cy="10.5" r="1.2" fill="url(#ig1)"/><circle cx="14.5" cy="10.5" r="1.2" fill="url(#ig1)"/><path d="M9.5 14.5c1.6 1.2 3.4 1.2 5 0" stroke="url(#ig1)" stroke-width="1.4" stroke-linecap="round"/><path d="M12 5V2.8M12 2.8h3.5M5 12H2.5M21.5 12H19" stroke="url(#ig2)" stroke-width="1.3" stroke-linecap="round" opacity=".7"/></svg>',b:'AI APIs',s:'Integration'},
   {g:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="7" stroke="url(#ig3)" stroke-width="1.5" fill="url(#ig3)" fill-opacity=".1"/><path d="m15.8 15.8 5 5" stroke="url(#ig3)" stroke-width="1.7" stroke-linecap="round"/><path d="M7.5 12.5v-2M10.5 12.5v-4M13.5 12.5v-3" stroke="url(#ig1)" stroke-width="1.4" stroke-linecap="round"/></svg>',b:'SEO',s:'Technical'}
 ];
-
 /* ---------- render services ---------- */
 document.getElementById('svcgrid').innerHTML = SERVICES.map((s,i)=>`
   <div class="svc rv d${i%3+1}">
@@ -1130,12 +1074,10 @@ document.getElementById('svcgrid').innerHTML = SERVICES.map((s,i)=>`
     <h3>${s.t}</h3><p>${s.d}</p>
     <span class="tagline">${s.tag}</span>
   </div>`).join('');
-
 /* ---------- render tech (seksioni i hequr — mbetet i gatshëm) ---------- */
 const techgrid = document.getElementById('techgrid');
 if(techgrid){ techgrid.innerHTML = TECH.map((t,i)=>`
   <div class="tech rv d${i%4+1}"><span class="g" aria-hidden="true">${t.g}</span><b>${t.b}</b><small>${t.s}</small></div>`).join(''); }
-
 /* ---------- render projects ---------- */
 const grid = document.getElementById('projgrid');
 function renderProjects(){
@@ -1166,7 +1108,6 @@ function renderProjects(){
   grid.querySelectorAll('.rv').forEach((el,i)=>setTimeout(()=>el.classList.add('in'),120+i*110));
   bindTilt(grid);
 }
-
 /* ---------- filters + glider ---------- */
 const fglide = document.getElementById('fglide');
 function moveGlide(btn){
@@ -1190,7 +1131,6 @@ document.querySelectorAll('.filter').forEach(f=>{
     });
   });
 });
-
 /* ---------- reveal observer ---------- */
 const io = new IntersectionObserver(es=>{
   es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
@@ -1198,7 +1138,6 @@ const io = new IntersectionObserver(es=>{
 function observeAll(root=document){ root.querySelectorAll('.rv,.rv-blur').forEach(el=>io.observe(el)); }
 renderProjects();
 observeAll();
-
 /* ---------- counters ---------- */
 const cio = new IntersectionObserver(es=>{
   es.forEach(e=>{
@@ -1213,7 +1152,6 @@ const cio = new IntersectionObserver(es=>{
   });
 },{threshold:.6});
 document.querySelectorAll('.cnt').forEach(el=>cio.observe(el));
-
 /* ---------- nav ---------- */
 const nav = document.getElementById('topnav');
 const links = [...document.querySelectorAll('.nav-link')];
@@ -1229,7 +1167,6 @@ addEventListener('scroll',()=>{
   secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top<innerHeight*.4) cur=i; });
   links.forEach((l,i)=>l.classList.toggle('on',i===cur));
 },{passive:true});
-
 /* ---------- mobile menu ---------- */
 const burger = document.getElementById('burger'), mmenu = document.getElementById('mmenu');
 function toggleMenu(force){
@@ -1242,7 +1179,6 @@ function toggleMenu(force){
 }
 burger.addEventListener('click',()=>toggleMenu());
 mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
-
 /* ---------- FAQ ---------- */
 document.querySelectorAll('.faq').forEach(f=>{
   const btn = f.querySelector('.q'), a = f.querySelector('.a');
@@ -1252,7 +1188,6 @@ document.querySelectorAll('.faq').forEach(f=>{
     if(!open){ f.classList.add('open'); a.style.maxHeight = a.scrollHeight+'px'; btn.setAttribute('aria-expanded','true'); }
   });
 });
-
 /* ---------- contact form → mailto ---------- */
 document.getElementById('ctform').addEventListener('submit',e=>{
   e.preventDefault();
@@ -1260,7 +1195,6 @@ document.getElementById('ctform').addEventListener('submit',e=>{
   const body = encodeURIComponent(`Emri: ${f['name'].value}\nEmail: ${f['email'].value}\nLloji: ${f['type'].value}\n\n${f['msg'].value}`);
   location.href = `mailto:arianitk2005@gmail.com?subject=${encodeURIComponent('Projekt i ri — '+f['type'].value)}&body=${body}`;
 });
-
 /* ---------- ripple ---------- */
 document.querySelectorAll('.btn').forEach(b=>{
   b.addEventListener('pointerdown',e=>{
@@ -1271,7 +1205,6 @@ document.querySelectorAll('.btn').forEach(b=>{
     b.appendChild(el); setTimeout(()=>el.remove(),700);
   });
 });
-
 /* ---------- magnetic buttons ---------- */
 if(!touch && !reduced){
   document.querySelectorAll('.magnet').forEach(b=>{
@@ -1282,7 +1215,6 @@ if(!touch && !reduced){
     b.addEventListener('pointerleave',()=>{ b.style.transform=''; });
   });
 }
-
 /* ---------- service card glow follow ---------- */
 document.querySelectorAll('.svc').forEach(c=>{
   c.addEventListener('pointermove',e=>{
@@ -1291,7 +1223,6 @@ document.querySelectorAll('.svc').forEach(c=>{
     c.style.setProperty('--my',(e.clientY-r.top)+'px');
   });
 });
-
 /* ---------- tilt ---------- */
 function bindTilt(root=document){
   if(touch||reduced) return;
@@ -1304,7 +1235,6 @@ function bindTilt(root=document){
     c.addEventListener('pointerleave',()=>{ c.style.transform=''; });
   });
 }
-
 /* ---------- hero parallax ---------- */
 if(!touch && !reduced){
   const plx=[...document.querySelectorAll('.plx')];
@@ -1313,7 +1243,6 @@ if(!touch && !reduced){
     plx.forEach(o=>{ const s=+o.dataset.s; o.style.translate=`${x*s}px ${y*s}px`; });
   },{passive:true});
 }
-
 /* ---------- cursor ---------- */
 if(!touch){
   const dot=document.querySelector('.cur-dot'), ring=document.querySelector('.cur-ring');
@@ -1328,15 +1257,12 @@ if(!touch){
     el.addEventListener('pointerleave',()=>ring.classList.remove('hov'));
   });
 }
-
 /* ---------- marquee duplicate ---------- */
 document.querySelectorAll('.mq-track').forEach(t=>{ t.innerHTML += t.innerHTML; });
-
 /* ---------- year + loader ---------- */
 document.getElementById('yr').textContent = new Date().getFullYear();
 addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('done'),900));
 setTimeout(()=>document.getElementById('loader').classList.add('done'),2600); // fallback
-
 /* ---------- service worker ---------- */
 if('serviceWorker' in navigator){
   addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
