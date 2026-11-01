@@ -1479,7 +1479,7 @@ const PROJECTS = [
    desc:'Platformë interaktive për CV digjitale me stil editorial, tema të personalizueshme dhe link të ndashëm.',tech:['Editorial UI','Themes','Shareable']},
   {id:'tekton',cat:'web-app',catL:'Website',title:'TEKTON',url:'https://tekton-arch.vercel.app',mono:'TK',c:['#c084fc','#38d4ff'],
    desc:'Website prezantues për studio arkitekture — dizajn editorial minimalist, dygjuhësh (SQ/EN), me fokus te drita, hapësira dhe forma.',tech:['Editorial','Bilingual','Responsive']},
-  {id:'endritk',cat:'web-app',catL:'Website',title:'Endrit Krasniqi',url:'https://endritk.vercel.app',mono:'EK',c:['#8b7cff','#c084fc'],
+  {id:'endritk',cat:'web-app',catL:'Website',title:'Endrit Krasniqi',url:'https://endritk.com',mono:'EK',c:['#8b7cff','#c084fc'],
    desc:'Website premium dhe PWA për planifikim e dizajn hapësirash — plane, vizualizime 2D/3D dhe interier, në gjermanisht, anglisht dhe shqip.',tech:['PWA','DE/EN/SQ','Editorial']},
   {id:'kurani',cat:'web-app',catL:'Web App',title:'Lexo Kuranin Shqip',url:'https://lexokuraninshqip.vercel.app',mono:'LK',c:['#1f9d74','#0b4d3b'],
    desc:'Aplikacion web për leximin e Kuranit në gjuhën shqipe — i pastër, i lexueshëm dhe komod në celular.',tech:['Reader','Mobile-first','Shqip']},
@@ -1492,7 +1492,9 @@ const PROJECTS = [
   {id:'osbusiness',cat:'web-app',catL:'Platformë',title:'OS Business',url:'https://osbussines.vercel.app',mono:'OS',c:['#7c6cff','#38d4ff'],
    desc:'Platformë web për biznese — organizim i punës dhe të dhënave në një panel të vetëm e të qartë.',tech:['Dashboard','Business','Web App']},
   {id:'xhamia',cat:'web-app',catL:'Website',title:'Xhamia e Ratkocit',url:'https://xhamiafshatitratkoc.vercel.app/?tab=xhamia',mono:'XT',c:['#38d4ff','#8b7cff'],
-   desc:'Faqe për xhaminë e fshatit Ratkoc — informacione, njoftime dhe përmbajtje për xhematin, e organizuar në seksione.',tech:['Komunitet','Tabs','Mobile']}
+   desc:'Faqe për xhaminë e fshatit Ratkoc — informacione, njoftime dhe përmbajtje për xhematin, e organizuar në seksione.',tech:['Komunitet','Tabs','Mobile']},
+  {id:'ruajesc',cat:'web-app',catL:'Web App',title:'Screenshot Organizer',url:'https://ruajesc.vercel.app',mono:'SO',c:['#38d4ff','#c084fc'],
+   desc:'Web aplikacion për organizimin e screenshot-eve — njohje teksti (OCR) në pajisje, koleksione, zbulim i duplikatave dhe kopje rezervë. Çdo screenshot, i organizuar.',tech:['OCR','Koleksione','Mobile']}
 ];
 const SERVICES = [
   {t:'Zhvillim Website',d:'Faqe biznesi, portofole dhe sisteme prezantuese me dizajn premium dhe performancë ekstreme.',tag:'Web · Landing · Corporate',
@@ -1544,9 +1546,10 @@ const ICONS = {
   bonemenu:'<path d="M2.5 17.5h19"/><path d="M4.5 17.5a7.5 7.5 0 0 1 15 0"/><path d="M12 10V8.6"/><circle cx="12" cy="7.3" r="1.3"/><path d="M5.5 20.5h13"/><path d="M8 14.8a4.6 4.6 0 0 1 2.6-2.4"/>',
   xr:'<rect x="2.5" y="5" width="19" height="13" rx="2.2"/><path d="M8.5 21.5h7M12 18v3.5"/><path d="M13.6 13.9a3.2 3.2 0 1 1-2.2-5.6 2.5 2.5 0 0 0 2.2 5.6Z"/>',
   osbusiness:'<rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M2.5 8.5h19M8 8.5V20"/><path d="m11 16.8 2.5-3 2 1.6 3-4"/><path d="M4.5 11.5H6M4.5 14.2H6M4.5 16.9H6"/>',
+  ruajesc:'<rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="1.8"/><path d="m21 15-4.5-4.5L7 20"/><path d="M14.5 3v4M3 14.5h3" opacity=".6"/>',
   xhamia:'<path d="M5.5 14.5c0-3.4 3-4.8 4.8-6 1-.6 1.7-1.3 1.7-2.5 0 1.2.7 1.9 1.7 2.5 1.8 1.2 4.8 2.6 4.8 6"/><path d="M5.5 14.5h13v6h-13z"/><path d="M10.5 20.5v-2.3a1.5 1.5 0 0 1 3 0v2.3"/><path d="M2.4 20.5V11h1.8v9.5M3.3 11V8.3M19.8 20.5V11h1.8v9.5M20.7 11V8.3"/><path d="M12.9 3.6a1.5 1.5 0 1 1-1.4-2 1.15 1.15 0 0 0 1.4 2Z"/><path d="M1.5 20.5h21"/>'
 };
-const PATS = {"kalkulo": "grid", "bonecv": "lines", "tekton": "blueprint", "endritk": "blueprint", "kurani": "islamic", "cimi": "lines", "bonemenu": "dots", "xr": "plain", "osbusiness": "grid", "xhamia": "plain"};
+const PATS = {"kalkulo": "grid", "bonecv": "lines", "tekton": "blueprint", "endritk": "blueprint", "kurani": "islamic", "cimi": "lines", "bonemenu": "dots", "xr": "plain", "osbusiness": "grid", "xhamia": "plain", "ruajesc": "dots"};
 const ARCH = '<svg viewBox="0 0 190 200" preserveAspectRatio="none" fill="none" stroke="currentColor" aria-hidden="true"><path d="M10 200V92C10 52 50 30 95 6c45 24 85 46 85 86v108" stroke-width="1"/></svg>';
 const ico = (id,cls='')=>`<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[id]||''}</svg>`;
 const RING = '<svg class="ring" viewBox="0 0 132 132" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="66" cy="66" r="64" stroke-width=".6" stroke-dasharray="1 5.7"/><circle cx="66" cy="66" r="54" stroke-width=".5" opacity=".45"/><path d="M66 0v7M66 125v7M0 66h7M125 66h7" stroke-width=".9"/></svg>';
