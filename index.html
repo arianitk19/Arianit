@@ -714,6 +714,288 @@ footer .big-brand{
   footer .big-brand{font-size:19vw;margin-bottom:40px}
   .scroll-hint{display:none}
 }
+[hidden]{display:none!important}
+/* ============================================================
+   PROJEKTET v2 — showcase interaktiv
+   ============================================================ */
+.btn-glow{background:var(--grad);color:#0a0a12;border:none;font-weight:600;box-shadow:0 10px 32px rgba(124,108,255,.38)}
+.btn-glow:hover{transform:translateY(-2px);box-shadow:0 16px 42px rgba(124,108,255,.55)}
+.btn-glow::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.45),transparent 70%);transform:translateX(-120%);transition:transform 1s var(--ease)}
+.btn-glow:hover::after{transform:translateX(120%)}
+.pf-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.pf-filters{position:relative;display:inline-flex;gap:4px;padding:6px;border-radius:99px;border:1px solid var(--line-soft);background:rgba(255,255,255,.02);max-width:100%;overflow-x:auto;scrollbar-width:none}
+.pf-filters::-webkit-scrollbar{display:none}
+.pf-glide{position:absolute;top:6px;bottom:6px;left:6px;width:0;border-radius:99px;z-index:0;background:linear-gradient(120deg,rgba(124,108,255,.32),rgba(56,212,255,.18));border:1px solid rgba(124,108,255,.55);box-shadow:0 0 20px rgba(124,108,255,.25);transition:left .55s var(--ease),width .55s var(--ease)}
+.pf-filter{position:relative;z-index:1;flex:none;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:99px;font-size:.84rem;color:var(--mut);white-space:nowrap;transition:color .35s}
+.pf-filter:hover,.pf-filter.on{color:#fff}
+.pf-filter .fct{font-family:var(--font-m);font-size:9px;padding:2px 7px;border-radius:99px;background:rgba(255,255,255,.07);color:var(--mut);transition:all .35s}
+.pf-filter.on .fct{background:var(--grad);color:#0a0a12}
+.pf-auto{display:inline-flex;align-items:center;gap:9px;height:40px;padding:0 16px;border-radius:99px;border:1px solid var(--line-soft);background:rgba(255,255,255,.02);font-family:var(--font-m);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);transition:color .3s,border-color .3s}
+.pf-auto:hover{color:#fff;border-color:rgba(139,124,255,.5)}
+.pf-auto .ic{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 10px #4ade80}
+.pf-auto.off .ic{background:var(--mut-2);box-shadow:none}
+
+.pf{display:grid;grid-template-columns:minmax(0,1.62fr) minmax(300px,.9fr);gap:18px}
+.pf-stage{position:relative;border-radius:26px;border:1px solid var(--line-soft);padding:20px;overflow:hidden;
+  background:radial-gradient(90% 70% at 25% 0%,rgba(124,108,255,.13),transparent 60%),radial-gradient(60% 60% at 100% 100%,rgba(56,212,255,.07),transparent 60%),var(--bg-2)}
+.pf-browser{position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:#08080d;box-shadow:0 30px 70px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.05)}
+.pf-tb{display:flex;align-items:center;gap:12px;height:44px;padding:0 10px 0 14px;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.07)}
+.pf-dots{display:flex;gap:6px}
+.pf-dots i{width:10px;height:10px;border-radius:50%}
+.pf-dots i:nth-child(1){background:#ff5f57}.pf-dots i:nth-child(2){background:#febc2e}.pf-dots i:nth-child(3){background:#28c840}
+.pf-url{flex:1;min-width:0;height:28px;border-radius:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:8px;padding:0 12px;font:500 11px var(--font-m);letter-spacing:.04em;color:var(--mut);overflow:hidden;white-space:nowrap}
+.pf-url svg{flex:none;color:#4ade80}
+.pf-url span{overflow:hidden;text-overflow:ellipsis}
+.pf-seg{display:flex;padding:3px;border-radius:10px;border:1px solid var(--line-soft);background:rgba(255,255,255,.02)}
+.pf-seg button{width:32px;height:26px;border-radius:7px;display:grid;place-items:center;color:var(--mut);transition:background .3s,color .3s}
+.pf-seg button.on{background:rgba(124,108,255,.28);color:#fff}
+.pf-tbtn{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:var(--mut);border:1px solid var(--line-soft);transition:color .3s,border-color .3s}
+.pf-tbtn:hover{color:#fff;border-color:rgba(139,124,255,.5)}
+.pf-screen{position:relative;aspect-ratio:16/9.6;overflow:hidden;background:#0a0a10;cursor:zoom-in}
+.pf-frame{position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden;transition:opacity .6s var(--ease)}
+.pf-frame iframe{display:block;width:100%;height:100%;border:0;background:#fff;pointer-events:none}
+.pf-screen.mob .pf-frame{border-radius:30px;box-shadow:0 0 0 10px #15151f,0 0 0 11px rgba(255,255,255,.12),0 30px 60px rgba(0,0,0,.6)}
+.pf-screen.mob{background:radial-gradient(70% 80% at 50% 40%,rgba(124,108,255,.18),transparent 70%),#08080d}
+.pf-screen:not(.live) .pf-frame{opacity:0}
+/* cover */
+.pf-cover{position:absolute;inset:0;z-index:2;overflow:hidden;background:linear-gradient(160deg,var(--c1),var(--c2));transition:opacity .8s var(--ease),transform 1.2s var(--ease)}
+.pf-cover::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,6,10,.45),rgba(6,6,10,.86)),radial-gradient(90% 70% at 20% 0%,rgba(255,255,255,.12),transparent 55%)}
+.pf-cover.enter{opacity:0;transform:scale(1.04)}
+.pf-cover.leave{opacity:0;transform:scale(.98)}
+.pf-screen.live .pf-cover{opacity:0;pointer-events:none}
+.pf-cover .pat{position:absolute;inset:0;-webkit-mask-image:radial-gradient(80% 90% at 50% 45%,#000 20%,transparent 85%);mask-image:radial-gradient(80% 90% at 50% 45%,#000 20%,transparent 85%)}
+.pf-cover .pat-grid{background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:30px 30px}
+.pf-cover .pf-glow{position:absolute;width:60%;height:70%;right:-14%;bottom:-26%;border-radius:50%;background:radial-gradient(circle,var(--c1),transparent 70%);opacity:.6;filter:blur(40px);animation:drift 10s ease-in-out infinite alternate}
+.pf-cover .wm{position:absolute;right:-6%;bottom:-22%;width:52%;aspect-ratio:1;color:#fff;opacity:.07}
+.pf-cover .wm svg{width:100%;height:100%;stroke-width:.5}
+.pf-cover .emb{position:absolute;inset:0;display:grid;place-items:center}
+.pf-cover .emb .ring{position:absolute;width:190px;height:190px;color:#fff;opacity:.5;animation:pfspin 30s linear infinite}
+@keyframes pfspin{to{transform:rotate(360deg)}}
+.pf-cover .emb .tile{position:relative;width:104px;height:104px;border-radius:28px;display:grid;place-items:center;color:#fff;background:linear-gradient(150deg,rgba(255,255,255,.17),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.26);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 20px 44px rgba(0,0,0,.45),0 0 50px color-mix(in srgb,var(--c1) 40%,transparent);animation:floaty 5s ease-in-out infinite}
+.pf-cover .emb .tile svg{width:50px;height:50px;stroke-width:1.3;filter:drop-shadow(0 0 12px color-mix(in srgb,var(--c1) 70%,transparent))}
+.pf-cover[data-pat="islamic"] .emb .ring,.pf-cover[data-pat="islamic"] .emb .tile{color:#f1dca0}
+.pf-cname{position:absolute;left:26px;bottom:20px;font-family:var(--font-d);font-weight:500;font-size:clamp(1.3rem,2.6vw,2.1rem);letter-spacing:-.02em;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.5)}
+.pf-load{position:absolute;right:20px;bottom:24px;display:inline-flex;align-items:center;gap:8px;font:500 10px var(--font-m);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.pf-load i{width:12px;height:12px;border-radius:50%;border:1.5px solid rgba(255,255,255,.2);border-top-color:#fff;animation:pfspin .9s linear infinite}
+.pf-screen.nolive .pf-load{display:none}
+.pf-zoom{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%) scale(.9);display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:99px;background:rgba(10,10,16,.72);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:.86rem;font-weight:500;opacity:0;transition:opacity .4s,transform .5s var(--ease);pointer-events:none}
+.pf-screen:hover .pf-zoom{opacity:1;transform:translate(-50%,-50%)}
+.pf-livetag{position:absolute;z-index:3;top:14px;left:14px;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:99px;background:rgba(6,6,10,.75);backdrop-filter:blur(8px);font:500 9.5px var(--font-m);letter-spacing:.18em;text-transform:uppercase;color:#fff;opacity:0;transform:translateY(-6px);transition:opacity .5s,transform .5s var(--ease)}
+.pf-livetag i{width:6px;height:6px;border-radius:50%;background:#ff4d4d;box-shadow:0 0 8px #ff4d4d;animation:pulse 1.6s infinite}
+.pf-screen.live .pf-livetag{opacity:1;transform:none}
+/* info */
+.pf-info{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px 24px;align-items:end;padding:22px 6px 4px}
+.pf-k{display:flex;align-items:center;gap:12px;font-family:var(--font-m);font-size:11px;letter-spacing:.2em;color:var(--mut-2)}
+.pf-k b{color:#fff;font-weight:500}
+.pf-k .cat{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#dcd8ff;background:rgba(124,108,255,.22);border:1px solid rgba(124,108,255,.4);padding:4px 11px;border-radius:99px}
+.pf-info h3{font-family:var(--font-d);font-weight:500;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-.025em;line-height:1.1;margin-top:12px}
+.pf-info p{color:var(--mut);font-size:.95rem;margin-top:10px;max-width:600px}
+.pf-info .badges{margin-top:14px}
+.pf-sw{transition:opacity .45s var(--ease),transform .55s var(--ease)}
+.pf-info.swap .pf-sw{opacity:0;transform:translateY(12px)}
+.pf-acts{display:flex;flex-direction:column;gap:10px;align-items:stretch;min-width:220px}
+.pf-acts .btn{justify-content:center}
+.pf-nav{display:flex;gap:8px}
+.pf-nav button{flex:1;height:44px;border-radius:99px;border:1px solid var(--line-soft);display:grid;place-items:center;color:var(--mut);transition:color .3s,border-color .3s,background .3s}
+.pf-nav button:hover{color:#fff;border-color:rgba(139,124,255,.5);background:rgba(124,108,255,.08)}
+.pf-prog{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.04)}
+.pf-prog i{display:block;height:100%;background:var(--grad);transform-origin:0 50%;transform:scaleX(var(--p,0));box-shadow:0 0 12px rgba(124,108,255,.7)}
+/* side index */
+.pf-side{position:relative}
+.pf-side-in{position:absolute;inset:0;display:flex;flex-direction:column;gap:12px}
+.pf-list{flex:1;min-height:0;list-style:none;overflow:auto;padding:8px;border-radius:26px;border:1px solid var(--line-soft);background:var(--panel);scrollbar-width:thin;scrollbar-color:rgba(124,108,255,.4) transparent}
+.pf-list::-webkit-scrollbar{width:6px}.pf-list::-webkit-scrollbar-thumb{background:rgba(124,108,255,.35);border-radius:6px}
+.pf-it{position:relative}
+.pf-it.hide{display:none}
+.pf-it > button{position:relative;display:grid;grid-template-columns:22px 46px minmax(0,1fr) auto;align-items:center;gap:12px;width:100%;padding:10px 12px;border-radius:16px;text-align:left;border:1px solid transparent;overflow:hidden;transition:background .35s,border-color .35s}
+.pf-it > button:hover{background:rgba(255,255,255,.035)}
+.pf-it.on > button{background:linear-gradient(100deg,rgba(124,108,255,.14),rgba(56,212,255,.04));border-color:rgba(124,108,255,.4)}
+.pf-it .n{font-family:var(--font-m);font-size:10px;color:var(--mut-2);letter-spacing:.1em}
+.pf-it.on .n{color:var(--acc-2)}
+.pf-it .th{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;color:#fff;background:linear-gradient(150deg,var(--c1),var(--c2));position:relative;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.pf-it .th::before{content:"";position:absolute;inset:0;background:rgba(6,6,10,.35)}
+.pf-it .th svg{position:relative;width:22px;height:22px;stroke-width:1.6}
+.pf-it b{display:block;font-family:var(--font-d);font-weight:500;font-size:1rem;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+.pf-it.on b,.pf-it > button:hover b{color:#fff}
+.pf-it small{display:block;font-family:var(--font-m);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut-2);margin-top:2px}
+.pf-it .ar{color:var(--mut-2);opacity:0;transform:translateX(-6px);transition:opacity .3s,transform .4s var(--ease)}
+.pf-it.on .ar,.pf-it > button:hover .ar{opacity:1;transform:none;color:#fff}
+.pf-it .pb{position:absolute;left:12px;right:12px;bottom:0;height:2px;border-radius:2px;background:var(--grad);transform-origin:0 50%;transform:scaleX(0)}
+.pf-it.on .pb{transform:scaleX(var(--p,0))}
+.pf-cta{position:relative;overflow:hidden;padding:20px 22px;border-radius:22px;border:1px solid rgba(124,108,255,.4);background:radial-gradient(120% 120% at 100% 0%,rgba(124,108,255,.25),transparent 60%),var(--bg-2);display:flex;align-items:center;gap:14px;text-align:left;transition:border-color .4s,transform .5s var(--ease),box-shadow .5s}
+.pf-cta:hover{border-color:rgba(139,124,255,.75);transform:translateY(-3px);box-shadow:0 18px 40px rgba(0,0,0,.4),0 0 30px rgba(124,108,255,.2)}
+.pf-cta b{display:block;font-family:var(--font-d);font-weight:500;font-size:1.05rem}
+.pf-cta small{display:block;color:var(--mut);font-size:.82rem;margin-top:2px}
+.pf-cta .go{margin-left:auto;flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--grad);color:#0a0a12;transition:transform .5s var(--ease)}
+.pf-cta:hover .go{transform:rotate(-45deg)}
+@media(max-width:1100px){.pf-info{grid-template-columns:1fr}.pf-acts{flex-direction:row;flex-wrap:wrap;min-width:0}.pf-acts .btn{flex:1 1 auto}.pf-nav{flex:1 1 100%}}
+@media(max-width:960px){
+  .pf{grid-template-columns:minmax(0,1fr)}
+  .pf-side,.pf-stage{min-width:0}
+  .pf-side-in{position:static}
+  .pf-list{display:flex;gap:8px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;padding:8px;border-radius:20px;order:-1}
+  .pf-it{flex:none;width:236px;scroll-snap-align:start}
+  .pf-it > button{grid-template-columns:42px minmax(0,1fr);padding:9px}
+  .pf-it .n,.pf-it .ar{display:none}
+  .pf-it .th{width:42px;height:42px}
+  .pf-screen{cursor:pointer}
+  .pf-zoom{opacity:1;transform:translate(-50%,-50%);top:auto;bottom:16px;left:auto;right:16px;transform:none;padding:9px 14px;font-size:.78rem}
+  .pf-screen:hover .pf-zoom{transform:none}
+  .pf-load{display:none}
+  .pf-cname{left:18px;bottom:16px}
+}
+@media(max-width:640px){
+  .pf-stage{padding:10px;border-radius:22px}
+  .pf-browser{border-radius:12px}
+  .pf-tb{height:38px;gap:8px;padding:0 8px 0 10px}
+  .pf-dots i{width:8px;height:8px}
+  .pf-seg,.pf-tb .pf-tbtn{display:none}
+  .pf-screen{aspect-ratio:4/3.3}
+  .pf-cover .emb .ring{width:140px;height:140px}
+  .pf-cover .emb .tile{width:80px;height:80px;border-radius:22px}
+  .pf-cover .emb .tile svg{width:38px;height:38px}
+  .pf-info{padding:16px 6px 6px}
+  .pf-acts .btn{height:48px;padding:0 18px;font-size:.86rem}
+  .pf-bar{flex-direction:column;align-items:stretch}
+  .pf-auto{display:none}
+}
+
+/* ---------- parapamje në ekran të plotë ---------- */
+.pmodal{position:fixed;inset:0;z-index:600;display:grid;grid-template-columns:minmax(0,1fr);place-items:center;padding:3vh 3vw;visibility:hidden;pointer-events:none}
+.pmodal.open{visibility:visible;pointer-events:auto}
+.pmodal .scrim{position:absolute;inset:0;background:rgba(4,4,8,.75);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;transition:opacity .5s var(--ease)}
+.pmodal.open .scrim{opacity:1}
+.pm-box{position:relative;width:min(1300px,100%);height:min(900px,94vh);display:flex;flex-direction:column;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#07070c;box-shadow:0 40px 120px rgba(0,0,0,.7);opacity:0;transform:translateY(40px) scale(.97);transition:opacity .55s var(--ease),transform .7s var(--ease)}
+.pmodal.open .pm-box{opacity:1;transform:none}
+.pm-tools{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line-soft)}
+.pm-title{font-family:var(--font-d);font-weight:500;font-size:1.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:30%}
+.pm-tools .pf-url{height:34px}
+.pm-view{position:relative;flex:1;min-height:0;display:grid;place-items:center;padding:16px;background:radial-gradient(90% 80% at 50% 0%,rgba(124,108,255,.12),transparent 60%)}
+.pm-device{position:relative;width:100%;height:100%;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:#0a0a10;transition:width .7s var(--ease),height .7s var(--ease),border-radius .7s var(--ease)}
+.pm-device.mob{width:min(390px,100%);height:min(800px,100%);border-radius:36px;border:9px solid #15151f;box-shadow:0 0 0 1px rgba(255,255,255,.12),0 30px 80px rgba(0,0,0,.6)}
+.pm-device iframe{width:100%;height:100%;border:0;display:block;background:#fff}
+.pm-load{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:14px;background:#0a0a10;color:var(--mut);font-family:var(--font-m);font-size:11px;letter-spacing:.2em;text-transform:uppercase;transition:opacity .5s;text-align:center;padding:20px}
+.pm-load.gone{opacity:0;pointer-events:none}
+.pm-load .spin{width:34px;height:34px;border-radius:50%;border:2px solid rgba(255,255,255,.08);border-top-color:var(--acc);animation:pfspin 1s linear infinite}
+.pm-ft{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px 14px;border-top:1px solid var(--line-soft)}
+.pm-ft .btn{height:44px;padding:0 20px;font-size:.86rem}
+.pm-ft .pf-nav{min-width:120px}
+.icon-btn{width:38px;height:38px;flex:none;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-soft);color:var(--mut);transition:color .3s,border-color .3s}
+.icon-btn:hover{color:#fff;border-color:rgba(139,124,255,.5)}
+@media(max-width:700px){
+  .pmodal{padding:0}
+  .pm-box{height:100%;border-radius:0}
+  .pm-title{display:none}
+  .pm-view{padding:10px}
+  .pm-device.mob{border-width:6px;border-radius:28px}
+  .pm-ft .btn-ghost{display:none}
+}
+
+/* ============================================================
+   NIS PROJEKTIN — dock lundrues + wizard i shpejtë
+   ============================================================ */
+.dock{position:fixed;left:50%;bottom:22px;z-index:260;display:flex;align-items:center;gap:6px;padding:6px;border-radius:99px;
+  background:rgba(12,12,20,.8);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
+  border:1px solid rgba(255,255,255,.1);box-shadow:0 18px 50px rgba(0,0,0,.55),0 0 0 1px rgba(124,108,255,.12);
+  transform:translate(-50%,160%);opacity:0;transition:transform .7s var(--ease),opacity .5s}
+.dock.show{transform:translate(-50%,0);opacity:1}
+.dock-main{position:relative;display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px 0 18px;border-radius:99px;background:var(--grad);color:#0a0a12;font-weight:600;font-size:.92rem;overflow:hidden;white-space:nowrap;transition:transform .4s var(--ease),box-shadow .4s}
+.dock-main:hover{transform:scale(1.03);box-shadow:0 0 30px rgba(124,108,255,.55)}
+.dock-main::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:dockShine 4.5s var(--ease) infinite 1s}
+@keyframes dockShine{0%{left:-60%}35%,100%{left:140%}}
+.dock-main .pd{position:relative;width:8px;height:8px;border-radius:50%;background:#0a0a12}
+.dock-main .pd::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid rgba(10,10,18,.6);animation:dockPing 1.8s ease-out infinite}
+@keyframes dockPing{from{transform:scale(.6);opacity:1}to{transform:scale(2.2);opacity:0}}
+.dock-wa{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);background:rgba(255,255,255,.04);transition:border-color .3s,background .3s,transform .4s var(--ease)}
+.dock-wa:hover{border-color:rgba(74,222,128,.6);background:rgba(74,222,128,.08);transform:scale(1.06)}
+.dock-tip{position:fixed;left:50%;bottom:90px;z-index:261;display:flex;align-items:center;gap:12px;padding:12px 10px 12px 16px;border-radius:16px;background:#13131e;border:1px solid rgba(124,108,255,.4);box-shadow:0 18px 40px rgba(0,0,0,.5);font-size:.86rem;color:#e9e9f2;white-space:nowrap;transform:translate(-50%,12px);opacity:0;pointer-events:none;transition:opacity .5s,transform .6s var(--ease)}
+.dock-tip.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.dock-tip::after{content:"";position:absolute;left:50%;bottom:-6px;width:12px;height:12px;margin-left:-6px;background:#13131e;border-right:1px solid rgba(124,108,255,.4);border-bottom:1px solid rgba(124,108,255,.4);transform:rotate(45deg)}
+.dock-tip b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
+.dock-tip button{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:var(--mut);border:1px solid var(--line-soft)}
+.dock-tip button:hover{color:#fff}
+@media(max-width:400px){.dock-wa{display:none}.dock-tip{white-space:normal;width:84vw}}
+@media(max-width:640px){.dock{bottom:16px}#totop{bottom:16px;right:16px}}
+
+.qs{position:fixed;inset:0;z-index:700;display:flex;align-items:center;justify-content:center;padding:16px;visibility:hidden}
+.qs.open{visibility:visible}
+.qs .scrim{position:absolute;inset:0;background:rgba(4,4,8,.66);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;transition:opacity .45s}
+.qs.open .scrim{opacity:1}
+.qs-box{position:relative;width:min(660px,100%);max-height:min(780px,94vh);display:flex;flex-direction:column;border-radius:28px;border:1px solid var(--line);
+  background:radial-gradient(100% 55% at 50% 0%,rgba(124,108,255,.18),transparent 60%),#0b0b12;box-shadow:0 40px 110px rgba(0,0,0,.7),0 0 0 1px rgba(124,108,255,.12);
+  overflow:hidden;opacity:0;transform:translateY(30px) scale(.97);transition:opacity .45s var(--ease),transform .6s var(--ease)}
+.qs.open .qs-box{opacity:1;transform:none}
+.qs-hd{display:flex;align-items:center;gap:14px;padding:22px 22px 0 24px}
+.qs-hd svg.mk{width:40px;height:40px;flex:none;filter:drop-shadow(0 0 14px rgba(124,108,255,.5))}
+.qs-hd b{display:block;font-family:var(--font-d);font-weight:500;font-size:1.15rem}
+.qs-hd small{display:block;color:var(--mut-2);font-size:.8rem}
+.qs-hd .icon-btn{margin-left:auto}
+.qs-steps{display:flex;gap:6px;padding:18px 24px 0}
+.qs-steps i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden;position:relative}
+.qs-steps i::after{content:"";position:absolute;inset:0;background:var(--grad);transform:scaleX(0);transform-origin:0 50%;transition:transform .6s var(--ease)}
+.qs-steps i.done::after{transform:scaleX(1)}
+.qs-body{position:relative;flex:1;min-height:0;overflow:auto;padding:22px 24px 8px}
+.qs-step{display:none}
+.qs-step.on{display:block;animation:qsIn .55s var(--ease)}
+@keyframes qsIn{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+.qs-step.back{animation-name:qsBack}
+@keyframes qsBack{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}
+.qs-step h3{font-family:var(--font-d);font-weight:500;font-size:1.55rem;letter-spacing:-.02em;line-height:1.15}
+.qs-step .h{color:var(--mut);font-size:.9rem;margin-top:6px}
+.qs-opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
+.qs-opt{position:relative;display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;border:1px solid var(--line-soft);background:rgba(255,255,255,.02);text-align:left;transition:border-color .3s,background .3s,box-shadow .3s,transform .4s var(--ease)}
+.qs-opt:hover{border-color:rgba(255,255,255,.2);transform:translateY(-2px)}
+.qs-opt .oi{width:42px;height:42px;flex:none;border-radius:13px;display:grid;place-items:center;background:linear-gradient(140deg,rgba(124,108,255,.18),rgba(56,212,255,.08));border:1px solid rgba(124,108,255,.28)}
+.qs-opt b{display:block;font-family:var(--font-d);font-weight:500;font-size:.98rem;color:#fff}
+.qs-opt small{display:block;font-size:.78rem;color:var(--mut-2);margin-top:1px;line-height:1.35}
+.qs-opt.on{border-color:rgba(124,108,255,.65);background:rgba(124,108,255,.13);box-shadow:0 0 26px rgba(124,108,255,.18)}
+.qs-opt.on::after{content:"";position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;background:var(--grad) ;box-shadow:0 0 10px rgba(124,108,255,.6)}
+.qs-opt.on::before{content:"";position:absolute;top:15px;right:15px;width:8px;height:5px;border-left:2px solid #0a0a12;border-bottom:2px solid #0a0a12;transform:rotate(-45deg);z-index:1}
+.qs-opt.wide{grid-column:span 2}
+.qs-lbl{display:block;margin-top:22px;font-family:var(--font-m);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut-2)}
+.qs-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.qs-chip{padding:10px 16px;border-radius:99px;border:1px solid var(--line-soft);background:rgba(255,255,255,.02);font-size:.86rem;color:var(--mut);transition:all .3s}
+.qs-chip:hover{color:#fff;border-color:rgba(255,255,255,.2)}
+.qs-chip.on{color:#fff;border-color:rgba(124,108,255,.6);background:rgba(124,108,255,.14)}
+.qs-f{display:grid;gap:12px;margin-top:18px}
+.qs-f .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.qs-f input,.qs-f textarea{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--line-soft);border-radius:13px;padding:14px 16px;color:var(--ink);font-family:var(--font-b);font-size:.94rem;transition:border-color .3s,box-shadow .3s;resize:vertical}
+.qs-f textarea{min-height:96px}
+.qs-f input:focus,.qs-f textarea:focus{outline:none;border-color:rgba(124,108,255,.6);box-shadow:0 0 0 3px rgba(124,108,255,.14)}
+.qs-f .err{border-color:rgba(255,99,99,.65)}
+.qs-sum{margin-top:14px;padding:14px 16px;border-radius:14px;border:1px dashed rgba(124,108,255,.35);background:rgba(124,108,255,.05);display:flex;flex-wrap:wrap;gap:8px}
+.qs-sum span{font-family:var(--font-m);font-size:10.5px;letter-spacing:.06em;padding:5px 10px;border-radius:99px;background:rgba(255,255,255,.05);color:#d8d4ff}
+.qs-ft{display:flex;gap:10px;align-items:center;padding:16px 24px 20px;border-top:1px solid var(--line-soft);margin-top:14px}
+.qs-ft .btn{height:48px;padding:0 22px;font-size:.9rem}
+.qs-ft .grow{flex:1}
+.qs-note{padding:0 24px 18px;margin-top:-8px;text-align:center;font-size:.76rem;color:var(--mut-2)}
+.qs-shake{animation:qsShake .45s}
+@keyframes qsShake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+@media(max-width:640px){
+  .qs{align-items:flex-end;padding:0}
+  .qs-box{border-radius:26px 26px 0 0;max-height:94vh;transform:translateY(100%)}
+  .qs-opts{grid-template-columns:1fr}
+  .qs-opt.wide{grid-column:auto}
+  .qs-f .row{grid-template-columns:1fr}
+  .qs-step h3{font-size:1.3rem}
+  .qs-ft{padding:14px 18px 18px}
+  .qs-ft .btn{padding:0 16px}
+  .qs-body{padding:18px 18px 6px}
+}
+body.lock{overflow:hidden}
+
+@media(max-width:960px){
+  .pf{display:flex;flex-direction:column}
+  .pf-side,.pf-side-in{display:contents}
+  .pf-list{order:-1}
+  .pf-stage{order:0}
+  .pf-cta{order:1}
+}
+.pm-ft .pf-nav{min-width:0}
+.pm-ft .pf-nav button{flex:none;width:44px}
+.pm-ft .btn{white-space:nowrap}
+.qs-f .err,.qs-f .err:focus{border-color:rgba(255,99,99,.7);box-shadow:0 0 0 3px rgba(255,99,99,.12)}
+
 /* reduced motion */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important;scroll-behavior:auto!important}
@@ -752,7 +1034,7 @@ footer .big-brand{
       <a href="#projects" class="nav-link">Projektet</a>
       <a href="#process" class="nav-link">Procesi</a>
       <a href="#faq" class="nav-link">FAQ</a>
-      <a href="#contact" class="btn btn-pri btn-sm nav-cta magnet">Nis projektin</a>
+      <a href="#contact" class="btn btn-pri btn-sm nav-cta magnet" data-qs>Nis projektin</a>
     </div>
     <button class="burger" id="burger" aria-label="Hap menynë" aria-expanded="false"><span class="bx"><i></i><i></i><i></i></span></button>
   </div>
@@ -851,7 +1133,56 @@ footer .big-brand{
       <h2 class="sec-title rv d1"><span class="t-grad">Punë e kuruar.</span><br><span class="t-dim">Produkte reale, live.</span></h2>
       <p class="sec-sub rv d2">Çdo projekt është një histori — ndërfaqe, kod dhe vizion në një produkt. Kliko për ta vizituar live.</p>
     </div>
-    <div class="proj-grid" id="projgrid"></div>
+    <div class="pf-bar rv d2">
+      <div class="pf-filters" id="pfFilters" role="tablist" aria-label="Kategoritë e projekteve"><span class="pf-glide" id="pfGlide" aria-hidden="true"></span></div>
+      <button class="pf-auto" id="pfAuto" type="button" aria-pressed="true"><span class="ic"></span><span id="pfAutoT">Autoplay</span></button>
+    </div>
+    <div class="pf rv d2" id="pf" tabindex="-1">
+      <div class="pf-stage" id="pfStage">
+        <div class="pf-browser">
+          <div class="pf-tb">
+            <span class="pf-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="pf-url"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span id="pfUrl">—</span></span>
+            <span class="pf-seg" role="group" aria-label="Pamja">
+              <button type="button" class="on" data-dev="desk" aria-label="Desktop"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
+              <button type="button" data-dev="mob" aria-label="Mobile"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></button>
+            </span>
+            <a class="pf-tbtn" id="pfExt" href="#" target="_blank" rel="noopener" aria-label="Hape në skedë të re"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          </div>
+          <div class="pf-screen" id="pfScreen" role="button" tabindex="0" aria-label="Hape parapamjen në ekran të plotë">
+            <div class="pf-frame" id="pfFrame"><iframe id="pfIframe" title="Parapamje live e projektit" tabindex="-1" aria-hidden="true" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin"></iframe></div>
+            <span class="pf-livetag" aria-hidden="true"><i></i>Live</span>
+            <span class="pf-zoom" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Ekran i plotë</span>
+          </div>
+        </div>
+        <div class="pf-info" id="pfInfo" aria-live="polite">
+          <div>
+            <div class="pf-k pf-sw"><span><b id="pfNum">01</b> / <span id="pfTot">10</span></span><span class="cat" id="pfCat">—</span></div>
+            <h3 class="pf-sw" id="pfTitle">—</h3>
+            <p class="pf-sw" id="pfDesc"></p>
+            <div class="badges pf-sw" id="pfTech"></div>
+          </div>
+          <div class="pf-acts">
+            <a class="btn btn-glow" id="pfVisit" href="#" target="_blank" rel="noopener">Vizito projektin <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+            <button class="btn btn-pri" id="pfLike" type="button">Dua diçka të ngjashme</button>
+            <div class="pf-nav">
+              <button type="button" id="pfPrev" aria-label="Projekti i mëparshëm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
+              <button type="button" id="pfNext" aria-label="Projekti tjetër"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <span class="pf-prog" aria-hidden="true"><i id="pfProg"></i></span>
+      </div>
+      <div class="pf-side">
+        <div class="pf-side-in">
+          <ol class="pf-list" id="pfList"></ol>
+          <button class="pf-cta" type="button" data-qs>
+            <div><b>Projekti yt mund të jetë i radhës.</b><small>Nise në më pak se një minutë.</small></div>
+            <span class="go"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </button>
+        </div>
+      </div>
+    </div>
     <div class="soon rv d1">
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 3c.7 4.2 2.4 6 6.6 6.6-4.2.7-6 2.4-6.6 6.6-.7-4.2-2.4-6-6.6-6.6C9.6 9 11.3 7.2 12 3Z" stroke="url(#ig1)" stroke-width="1.5" stroke-linejoin="round" fill="url(#ig1)" fill-opacity=".25"/><circle cx="19" cy="17.5" r="2.2" stroke="url(#ig2)" stroke-width="1.3" fill="url(#ig2)" fill-opacity=".3"/></svg>
       <h3>Së shpejti — më shumë projekte</h3>
@@ -897,7 +1228,7 @@ footer .big-brand{
           <li>Formë kontakti / WhatsApp</li>
           <li>Dorëzim brenda 7 ditëve</li>
         </ul>
-        <a href="#contact" class="btn btn-pri magnet" style="justify-content:center">Fillo me Starter</a>
+        <a href="#contact" class="btn btn-pri magnet" style="justify-content:center" data-qs data-qs-pkg="0">Fillo me Starter</a>
       </div>
       <div class="pk feat rv d1">
         <span class="pk-tag">Më i kërkuari</span>
@@ -910,7 +1241,7 @@ footer .big-brand{
           <li>SEO teknik i plotë + PWA</li>
           <li>Mbështetje 30 ditë pas lansimit</li>
         </ul>
-        <a href="#contact" class="btn btn-pri magnet" style="justify-content:center">Zgjidh Business</a>
+        <a href="#contact" class="btn btn-pri magnet" style="justify-content:center" data-qs data-qs-pkg="1">Zgjidh Business</a>
       </div>
       <div class="pk rv d2">
         <h3>Premium</h3>
@@ -922,7 +1253,7 @@ footer .big-brand{
           <li>Performancë & siguri e avancuar</li>
           <li>Partneritet afatgjatë zhvillimi</li>
         </ul>
-        <a href="#contact" class="btn btn-pri magnet" style="justify-content:center">Kërko Premium</a>
+        <a href="#contact" class="btn btn-pri magnet" style="justify-content:center" data-qs data-qs-pkg="2">Kërko Premium</a>
       </div>
     </div>
     <div class="stats">
@@ -957,7 +1288,7 @@ footer .big-brand{
       <h2 style="margin-top:18px">Ideja juaj meriton<br><span class="t-grad">një ndërtim premium.</span></h2>
       <p>Na trego çfarë ke në mendje — përgjigjemi brenda 24 orëve me një plan konkret.</p>
       <div class="ctas">
-        <a href="#contact" class="btn btn-pri magnet">Nis projektin tënd
+        <a href="#contact" class="btn btn-pri magnet" data-qs>Nis projektin tënd
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a href="https://wa.me/38345954832" target="_blank" rel="noopener" class="btn btn-ghost magnet">WhatsApp direkt</a>
@@ -1020,6 +1351,88 @@ footer .big-brand{
 <button id="totop" aria-label="Kthehu lart">
   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="url(#ig1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V4M5 11l7-7 7 7"/></svg>
 </button>
+<!-- Parapamje e projektit në ekran të plotë -->
+<div class="pmodal" id="pmodal" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+  <div class="scrim" data-pmclose></div>
+  <div class="pm-box">
+    <div class="pm-tools">
+      <span class="pm-title" id="pmTitle">—</span>
+      <span class="pf-url"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span id="pmUrl">—</span></span>
+      <span class="pf-seg" role="group" aria-label="Pamja">
+        <button type="button" class="on" data-pdev="desk" aria-label="Desktop"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
+        <button type="button" data-pdev="mob" aria-label="Mobile"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></button>
+      </span>
+      <button class="icon-btn" data-pmclose aria-label="Mbyll"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="pm-view">
+      <div class="pm-device" id="pmDev">
+        <iframe id="pmFrame" title="Parapamje live" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+        <div class="pm-load" id="pmLoad"></div>
+      </div>
+    </div>
+    <div class="pm-ft">
+      <div class="pf-nav"><button type="button" id="pmPrev" aria-label="Projekti i mëparshëm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button><button type="button" id="pmNext" aria-label="Projekti tjetër"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+      <div style="display:flex;gap:10px">
+        <button class="btn btn-ghost" id="pmLike" type="button">Dua diçka të ngjashme</button>
+        <a class="btn btn-glow" id="pmOpen" href="#" target="_blank" rel="noopener">Vizito projektin <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Nis projektin: dock lundrues -->
+<div class="dock" id="dock" aria-hidden="true">
+  <button class="dock-main" type="button" data-qs tabindex="-1"><span class="pd"></span>Nis projektin<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  <a class="dock-wa" href="https://wa.me/38345954832" target="_blank" rel="noopener" aria-label="WhatsApp" tabindex="-1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.25A9.5 9.5 0 1 0 12 2.5Z" stroke="url(#ig3)" stroke-width="1.7" stroke-linejoin="round" fill="url(#ig3)" fill-opacity=".12"/><path d="M8.6 7.8c-.5.5-.8 1.2-.6 2 .3 1.4 1.2 2.9 2.5 4.2 1.3 1.3 2.8 2.2 4.2 2.5.8.2 1.5-.1 2-.6l.6-.7c.3-.4.2-1-.2-1.3l-1.6-1c-.3-.2-.8-.2-1.1.1l-.6.5c-.7-.4-2.1-1.5-2.7-2.7l.5-.6c.3-.3.3-.8.1-1.1l-1-1.6c-.3-.4-.9-.5-1.3-.2l-.8.5Z" fill="url(#ig3)" fill-opacity=".85"/></svg></a>
+</div>
+<div class="dock-tip" id="dockTip" role="status"><span>Ke një ide? <b>Nise në 3 hapa</b> — pa scroll.</span><button type="button" id="dockTipX" aria-label="Mbyll"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+
+<!-- Nis projektin: wizard -->
+<div class="qs" id="qs" role="dialog" aria-modal="true" aria-labelledby="qsTitle">
+  <div class="scrim" data-qsclose></div>
+  <div class="qs-box">
+    <div class="qs-hd">
+      <svg class="mk" viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="250" fill="#050507"/><circle cx="256" cy="256" r="240" fill="none" stroke="url(#igr)" stroke-width="14"/><g stroke="#f2f2f7" stroke-width="48" fill="none"><path d="M150 166 332 348"/><path d="M150 238v134"/><path d="M332 142v134"/></g></svg>
+      <div><b id="qsTitle">Nis projektin</b><small id="qsStepT">Hapi 1 nga 3</small></div>
+      <button class="icon-btn" data-qsclose aria-label="Mbyll"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="qs-steps" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="qs-body">
+      <div class="qs-step" data-step="0">
+        <h3>Çfarë do të ndërtojmë?</h3>
+        <p class="h">Zgjidh llojin e projektit — e përshtatim gjithçka sipas teje.</p>
+        <div class="qs-opts" id="qsType"></div>
+      </div>
+      <div class="qs-step" data-step="1">
+        <h3>Cila pako të përshtatet?</h3>
+        <p class="h">Nuk je i sigurt? Asnjë problem — të këshillojmë në konsultimin falas.</p>
+        <div class="qs-opts" id="qsPkg"></div>
+        <span class="qs-lbl">Kur të duhet?</span>
+        <div class="qs-chips" id="qsWhen"></div>
+      </div>
+      <div class="qs-step" data-step="2">
+        <h3>Edhe një hap — si të kontaktojmë?</h3>
+        <p class="h">Plani yt shkon direkt te ne. Përgjigjemi brenda 24 orëve.</p>
+        <div class="qs-sum" id="qsSum"></div>
+        <div class="qs-f">
+          <div class="row">
+            <input id="qsName" type="text" placeholder="Emri i plotë" autocomplete="name" aria-label="Emri i plotë">
+            <input id="qsEmail" type="email" placeholder="Email (opsional)" autocomplete="email" aria-label="Email">
+          </div>
+          <textarea id="qsMsg" placeholder="Përshkruaje shkurt idenë tënde... (opsionale)" aria-label="Mesazhi"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="qs-ft">
+      <button class="btn btn-ghost" id="qsBack" type="button">Mbrapa</button>
+      <span class="grow"></span>
+      <button class="btn btn-pri" id="qsMail" type="button" hidden>Me email</button>
+      <button class="btn btn-glow" id="qsNext" type="button">Vazhdo <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+    <p class="qs-note">Përgjigjemi brenda 24 orëve. Konsultimi i parë është falas.</p>
+  </div>
+</div>
+
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="wrap">
@@ -1137,67 +1550,365 @@ const PATS = {"kalkulo": "grid", "bonecv": "lines", "tekton": "blueprint", "endr
 const ARCH = '<svg viewBox="0 0 190 200" preserveAspectRatio="none" fill="none" stroke="currentColor" aria-hidden="true"><path d="M10 200V92C10 52 50 30 95 6c45 24 85 46 85 86v108" stroke-width="1"/></svg>';
 const ico = (id,cls='')=>`<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[id]||''}</svg>`;
 const RING = '<svg class="ring" viewBox="0 0 132 132" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="66" cy="66" r="64" stroke-width=".6" stroke-dasharray="1 5.7"/><circle cx="66" cy="66" r="54" stroke-width=".5" opacity=".45"/><path d="M66 0v7M66 125v7M0 66h7M125 66h7" stroke-width=".9"/></svg>';
-/* ---------- render projects ---------- */
-const grid = document.getElementById('projgrid');
-function renderProjects(){
-  grid.innerHTML = PROJECTS.map((p,i)=>`
-  <article class="proj rv tilt" data-cat="${p.cat}" style="transition-delay:${i%3*80}ms">
-    <a href="${p.url}" target="_blank" rel="noopener" aria-label="Vizito ${p.title}">
-      <div class="shot" style="--c1:${p.c[0]};--c2:${p.c[1]}">
-        <div class="art" data-pat="${PATS[p.id]||'grid'}">
-          <div class="bar"><i></i><i></i><i></i><span>${p.url.replace('https://','').replace(/[\/?#].*$/,'')}</span></div>
-          <span class="glowb" aria-hidden="true"></span>
-          <span class="pat pat-${PATS[p.id]||'grid'}" aria-hidden="true"></span>
-          <span class="arch" aria-hidden="true">${ARCH}</span>
-          <span class="wm" aria-hidden="true">${ico(p.id)}</span>
-          <span class="emb" aria-hidden="true">${RING}<span class="tile">${ico(p.id)}</span></span>
-        </div>
-        <span class="cat">${p.catL}</span>
-        <span class="num">${String(i+1).padStart(2,'0')}</span>
-        <div class="ovl"><span class="visit">Vizito projektin
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </span></div>
-      </div>
-      <div class="info">
-        <h3>${p.title}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></h3>
-        <p>${p.desc}</p>
-        <div class="badges">${p.tech.map(t=>`<span class="badge">${t}</span>`).join('')}</div>
-      </div>
-    </a>
-  </article>`).join('');
-  /* shfaqje e menjëhershme — pa varësi nga observer-i (rregullon transparencën) */
-  grid.querySelectorAll('.rv').forEach((el,i)=>setTimeout(()=>el.classList.add('in'),120+i*110));
-  bindTilt(grid);
+/* ============================================================
+   PROJEKTET v2 — showcase interaktiv me parapamje live
+   ============================================================ */
+const $1 = (s, r = document) => r.querySelector(s);
+const $all = (s, r = document) => [...r.querySelectorAll(s)];
+const WA_NUM = '38345954832', MAIL_TO = 'arianitk2005@gmail.com';
+const hostOf = u => u.replace('https://', '').replace(/[\/?#].*$/, '');
+const grpOf = p => (p.catL === 'Sistem' || p.catL === 'Platformë') ? 'sys' : p.catL;
+const PF_GROUPS = [
+  {k:'all', l:'Të gjitha'}, {k:'Website', l:'Website'}, {k:'Web App', l:'Web App'},
+  {k:'sys', l:'Sisteme & Platforma'}, {k:'Utility', l:'Utility'}
+];
+const pf = {
+  i:0, filter:'all', auto:!reduced, el:0, dur:8000, vis:false, hover:false, pauseUntil:0, dev:'desk', loadT:null, token:0,
+  stage:$1('#pfStage'), screen:$1('#pfScreen'), frame:$1('#pfFrame'), iframe:$1('#pfIframe'), list:$1('#pfList'), info:$1('#pfInfo')
+};
+const pfSmall = () => innerWidth < 960 || touch;
+const pfIdx = () => PROJECTS.map((p, i) => i).filter(i => pf.filter === 'all' || grpOf(PROJECTS[i]) === pf.filter);
+
+function coverHTML(p){
+  const pat = PATS[p.id] || 'grid';
+  return `<div class="pf-cover enter" style="--c1:${p.c[0]};--c2:${p.c[1]}" data-pat="${pat}">
+    <span class="pf-glow"></span><span class="pat pat-${pat === "islamic" ? "star" : pat}"></span>
+    <span class="wm">${ico(p.id)}</span>
+    <span class="emb">${RING}<span class="tile">${ico(p.id)}</span></span>
+    <span class="pf-cname">${p.title}</span>
+    <span class="pf-load"><i></i>Duke ngarkuar live</span>
+  </div>`;
 }
-/* ---------- filters + glider ---------- */
-const fglide = document.getElementById('fglide');
-function moveGlide(btn){
-  if(!fglide||!btn) return;
-  fglide.style.left = btn.offsetLeft+'px';
-  fglide.style.width = btn.offsetWidth+'px';
-}
-addEventListener('load',()=>moveGlide(document.querySelector('.filter.on')));
-addEventListener('resize',()=>moveGlide(document.querySelector('.filter.on')));
-setTimeout(()=>moveGlide(document.querySelector('.filter.on')),300);
-document.querySelectorAll('.filter').forEach(f=>{
-  f.addEventListener('click',()=>{
-    document.querySelectorAll('.filter').forEach(x=>x.classList.remove('on'));
-    f.classList.add('on');
-    moveGlide(f);
-    const v = f.dataset.f;
-    document.querySelectorAll('.proj').forEach(card=>{
-      const show = v==='all'||card.dataset.cat===v;
-      card.classList.toggle('hide',!show);
-      if(show){card.classList.remove('in');requestAnimationFrame(()=>requestAnimationFrame(()=>card.classList.add('in')));}
+/* filtrat */
+(function pfFilters(){
+  const wrap = $1('#pfFilters');
+  PF_GROUPS.forEach(g => {
+    const n = g.k === 'all' ? PROJECTS.length : PROJECTS.filter(p => grpOf(p) === g.k).length;
+    if(!n) return;
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'pf-filter' + (g.k === 'all' ? ' on' : ''); b.setAttribute('role', 'tab');
+    b.innerHTML = `${g.l}<span class="fct">${n}</span>`;
+    b.addEventListener('click', () => {
+      pf.filter = g.k;
+      $all('.pf-filter').forEach(x => x.classList.toggle('on', x === b)); pfGlide();
+      $all('.pf-it').forEach(li => li.classList.toggle('hide', !(g.k === 'all' || li.dataset.g === g.k)));
+      const ids = pfIdx(); if(!ids.includes(pf.i)) pfSelect(ids[0], 1);
+      $1('#pfTot').textContent = String(ids.length).padStart(2, '0'); pfNum();
+      pf.el = 0;
     });
+    wrap.appendChild(b);
   });
+})();
+function pfGlide(){
+  const b = $1('.pf-filter.on'), g = $1('#pfGlide'); if(!b || !g) return;
+  g.style.left = b.offsetLeft + 'px'; g.style.width = b.offsetWidth + 'px';
+}
+/* indeksi */
+pf.list.innerHTML = PROJECTS.map((p, i) => `
+  <li class="pf-it" data-i="${i}" data-g="${grpOf(p)}">
+    <button type="button" aria-label="${p.title}">
+      <span class="n">${String(i + 1).padStart(2, '0')}</span>
+      <span class="th" style="--c1:${p.c[0]};--c2:${p.c[1]}">${ico(p.id)}</span>
+      <span><b>${p.title}</b><small>${p.catL}</small></span>
+      <svg class="ar" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+    <span class="pb"></span>
+  </li>`).join('');
+$all('.pf-it').forEach(li => li.querySelector('button').addEventListener('click', () => {
+  pfSelect(+li.dataset.i); pf.pauseUntil = performance.now() + 15000;
+}));
+function pfNum(){
+  const ids = pfIdx(); $1('#pfNum').textContent = String(Math.max(1, ids.indexOf(pf.i) + 1)).padStart(2, '0');
+}
+/* shkallëzimi i iframe-it brenda ekranit */
+function pfFit(){
+  const W = pf.screen.clientWidth, H = pf.screen.clientHeight; if(!W) return;
+  const f = pf.frame;
+  if(pf.dev === 'mob'){
+    const bh = H * .9, s = bh / 844, bw = 390 * s;
+    f.style.width = '390px'; f.style.height = '844px';
+    f.style.transform = `translate(${(W - bw) / 2}px,${(H - bh) / 2}px) scale(${s})`;
+  } else {
+    const s = W / 1440;
+    f.style.width = '1440px'; f.style.height = (H / s) + 'px';
+    f.style.transform = `scale(${s})`;
+  }
+}
+if('ResizeObserver' in window) new ResizeObserver(pfFit).observe(pf.screen); else addEventListener('resize', pfFit);
+function pfLoadLive(){
+  clearTimeout(pf.loadT);
+  pf.screen.classList.remove('live');
+  if(pfSmall()){ pf.screen.classList.add('nolive'); pf.iframe.removeAttribute('src'); return; }
+  pf.screen.classList.remove('nolive');
+  const tk = ++pf.token, url = PROJECTS[pf.i].url;
+  pf.loadT = setTimeout(() => {
+    if(!pf.vis) return;
+    pf.iframe.onload = () => { if(tk === pf.token) setTimeout(() => { if(tk === pf.token) pf.screen.classList.add('live'); }, 450); };
+    pf.iframe.src = url;
+  }, 900);
+}
+function pfSelect(i, silent){
+  if(i == null) return;
+  const p = PROJECTS[i]; pf.i = i; pf.el = 0;
+  // cover
+  $all('.pf-cover', pf.screen).forEach(c => { c.classList.add('leave'); setTimeout(() => c.remove(), 800); });
+  pf.screen.insertAdjacentHTML('afterbegin', coverHTML(p));
+  const nc = $1('.pf-cover.enter', pf.screen);
+  requestAnimationFrame(() => requestAnimationFrame(() => nc && nc.classList.remove('enter')));
+  // info
+  const set = () => {
+    $1('#pfCat').textContent = p.catL; $1('#pfTitle').textContent = p.title; $1('#pfDesc').textContent = p.desc;
+    $1('#pfTech').innerHTML = p.tech.map(t => `<span class="badge">${t}</span>`).join('');
+    pfNum();
+  };
+  if(silent || reduced) set(); else { pf.info.classList.add('swap'); setTimeout(() => { set(); pf.info.classList.remove('swap'); }, 260); }
+  $1('#pfUrl').textContent = hostOf(p.url);
+  $1('#pfVisit').href = p.url; $1('#pfExt').href = p.url;
+  $all('.pf-it').forEach(li => { const on = +li.dataset.i === i; li.classList.toggle('on', on); if(!on) li.style.removeProperty('--p'); });
+  const act = $1('.pf-it.on');
+  if(act && !silent){
+    const L = pf.list, r = act.getBoundingClientRect(), lr = L.getBoundingClientRect();
+    if(pfSmall()) L.scrollTo({left: L.scrollLeft + r.left - lr.left - 8, behavior: reduced ? 'auto' : 'smooth'});
+    else if(r.top < lr.top || r.bottom > lr.bottom) L.scrollTo({top: L.scrollTop + r.top - lr.top - 8, behavior: 'smooth'});
+  }
+  pfLoadLive();
+}
+function pfStep(d){
+  const ids = pfIdx(), k = ids.indexOf(pf.i);
+  pfSelect(ids[(k + d + ids.length) % ids.length]);
+}
+$1('#pfPrev').addEventListener('click', () => { pfStep(-1); pf.pauseUntil = performance.now() + 15000; });
+$1('#pfNext').addEventListener('click', () => { pfStep(1); pf.pauseUntil = performance.now() + 15000; });
+$all('.pf-seg [data-dev]').forEach(b => b.addEventListener('click', () => {
+  pf.dev = b.dataset.dev;
+  $all('.pf-seg [data-dev]').forEach(x => x.classList.toggle('on', x === b));
+  pf.screen.classList.toggle('mob', pf.dev === 'mob'); pfFit();
+  pf.pauseUntil = performance.now() + 20000;
+}));
+const pfAutoBtn = $1('#pfAuto');
+function pfSetAuto(on){ pf.auto = on; pfAutoBtn.classList.toggle('off', !on); pfAutoBtn.setAttribute('aria-pressed', on); $1('#pfAutoT').textContent = on ? 'Autoplay' : 'Në pauzë'; }
+pfAutoBtn.addEventListener('click', () => pfSetAuto(!pf.auto));
+pfSetAuto(pf.auto);
+pf.stage.addEventListener('pointerenter', e => { if(e.pointerType === 'mouse') pf.hover = true; });
+pf.stage.addEventListener('pointerleave', () => { pf.hover = false; });
+/* swipe në celular */
+let sx = null, sy = 0;
+pf.screen.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, {passive:true});
+pf.screen.addEventListener('touchend', e => {
+  if(sx == null) return; const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy; sx = null;
+  if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)){ pfStep(dx < 0 ? 1 : -1); pf.pauseUntil = performance.now() + 15000; pf._swiped = true; setTimeout(() => pf._swiped = false, 400); }
+}, {passive:true});
+pf.screen.addEventListener('click', () => { if(!pf._swiped) pmOpenAt(pf.i); });
+pf.screen.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); pmOpenAt(pf.i); } });
+$1('#pf').addEventListener('keydown', e => {
+  if(e.target.closest('input,textarea')) return;
+  if(e.key === 'ArrowRight'){ pfStep(1); pf.pauseUntil = performance.now() + 15000; }
+  if(e.key === 'ArrowLeft'){ pfStep(-1); pf.pauseUntil = performance.now() + 15000; }
 });
+$1('#pfLike').addEventListener('click', () => qsOpen({like: PROJECTS[pf.i]}));
+/* autoplay */
+new IntersectionObserver(es => {
+  const was = pf.vis; pf.vis = es[0].isIntersecting;
+  if(pf.vis && !was && !pf.screen.classList.contains('live')) pfLoadLive();
+}, {threshold:.35}).observe(pf.stage);
+let pfLast = performance.now();
+(function pfTick(now){
+  const dt = Math.min(now - pfLast, 100); pfLast = now;
+  const blocked = document.hidden || !pf.vis || pf.hover || now < pf.pauseUntil || document.body.classList.contains('lock');
+  if(pf.auto && !blocked){
+    pf.el += dt;
+    if(pf.el >= pf.dur){ pfStep(1); }
+  }
+  const p = pf.auto ? Math.min(pf.el / pf.dur, 1) : 0;
+  $1('#pfProg').style.setProperty('--p', p);
+  const act = $1('.pf-it.on'); if(act) act.style.setProperty('--p', p);
+  requestAnimationFrame(pfTick);
+})(pfLast);
+addEventListener('resize', pfGlide);
+addEventListener('load', pfGlide);
+setTimeout(pfGlide, 400);
+
+/* ---------- parapamja në ekran të plotë ---------- */
+const pm = $1('#pmodal'), pmFrame = $1('#pmFrame'), pmLoad = $1('#pmLoad'), pmDev = $1('#pmDev');
+let pmI = 0, pmT, pmLastFocus;
+function pmSetDev(d){ pmDev.classList.toggle('mob', d === 'mob'); $all('[data-pdev]').forEach(b => b.classList.toggle('on', b.dataset.pdev === d)); }
+function pmFill(i){
+  const ids = pfIdx(); if(!ids.includes(i)) i = ids[0];
+  pmI = i; const p = PROJECTS[i];
+  $1('#pmTitle').textContent = p.title; $1('#pmUrl').textContent = hostOf(p.url); $1('#pmOpen').href = p.url;
+  pmLoad.classList.remove('gone');
+  pmLoad.innerHTML = '<span class="spin"></span><span>Duke ngarkuar parapamjen live…</span>';
+  clearTimeout(pmT);
+  pmFrame.onload = () => { if(pmFrame.getAttribute('src')) setTimeout(() => pmLoad.classList.add('gone'), 300); };
+  pmFrame.src = p.url;
+  pmT = setTimeout(() => {
+    if(!pmLoad.classList.contains('gone')) pmLoad.innerHTML = `<span style="max-width:340px;line-height:1.7;letter-spacing:.06em;text-transform:none;font-size:12px">Parapamja po vonohet. Mund ta hapësh projektin direkt.</span><a class="btn btn-glow btn-sm" href="${p.url}" target="_blank" rel="noopener">Vizito projektin ↗</a>`;
+  }, 9000);
+}
+function pmOpenAt(i){
+  pmLastFocus = document.activeElement;
+  pmSetDev(innerWidth < 760 ? 'mob' : 'desk'); pmFill(i);
+  pm.classList.add('open'); document.body.classList.add('lock');
+  setTimeout(() => $1('[data-pmclose].icon-btn', pm).focus(), 60);
+}
+function pmClose(){
+  pm.classList.remove('open'); document.body.classList.remove('lock'); clearTimeout(pmT);
+  setTimeout(() => { if(!pm.classList.contains('open')) pmFrame.removeAttribute('src'); }, 500);
+  if(pmLastFocus) pmLastFocus.focus({preventScroll:true});
+}
+$all('[data-pmclose]', pm).forEach(b => b.addEventListener('click', pmClose));
+$all('[data-pdev]').forEach(b => b.addEventListener('click', () => pmSetDev(b.dataset.pdev)));
+const pmStep = d => { const ids = pfIdx(), k = ids.indexOf(pmI); const n = ids[(k + d + ids.length) % ids.length]; pmFill(n); pfSelect(n, 1); };
+$1('#pmPrev').addEventListener('click', () => pmStep(-1));
+$1('#pmNext').addEventListener('click', () => pmStep(1));
+$1('#pmLike').addEventListener('click', () => { const p = PROJECTS[pmI]; pmClose(); setTimeout(() => qsOpen({like:p}), 350); });
+
+/* ============================================================
+   NIS PROJEKTIN — wizard i shpejtë (3 hapa)
+   ============================================================ */
+const QS_TYPES = [
+  {l:'Webfaqe biznesi', d:'Prezantim, portofol ose landing page', i:'<rect x="2.5" y="4" width="19" height="15" rx="3" stroke="url(#ig1)" stroke-width="1.6"/><path d="M2.5 8.5h19" stroke="url(#ig1)" stroke-width="1.6"/><path d="m7 12.6 2.6 2.6L7 17.8M12 17.4h5" stroke="url(#ig1)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>'},
+  {l:'Web aplikacion / PWA', d:'Aplikacion i instalueshëm, punon offline', i:'<rect x="6.5" y="2.5" width="11" height="19" rx="3" stroke="url(#ig2)" stroke-width="1.6"/><path d="M13.4 7.5 10.6 12h2.8l-2.8 4.5" stroke="url(#ig1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>'},
+  {l:'UI/UX & Branding', d:'Logo, identitet vizual dhe dizajn', i:'<path d="M12 2.5 14.4 9l6.6.6-5 4.4 1.5 6.5L12 17l-5.5 3.5L8 14 3 9.6 9.6 9 12 2.5Z" stroke="url(#ig4)" stroke-width="1.5" stroke-linejoin="round"/>'},
+  {l:'Dashboard / Platformë', d:'Panel administrimi, sisteme, të dhëna', i:'<rect x="2.5" y="2.5" width="8.5" height="8.5" rx="2" stroke="url(#ig1)" stroke-width="1.5"/><rect x="13" y="2.5" width="8.5" height="5" rx="2" stroke="url(#ig2)" stroke-width="1.5"/><rect x="13" y="9.5" width="8.5" height="12" rx="2" stroke="url(#ig3)" stroke-width="1.5"/><rect x="2.5" y="13" width="8.5" height="8.5" rx="2" stroke="url(#ig4)" stroke-width="1.5"/>'},
+  {l:'Tjetër', d:'Diçka ndryshe — na trego idenë', i:'<path d="M12 3c.6 3.8 2.2 5.4 6 6-3.8.6-5.4 2.2-6 6-.6-3.8-2.2-5.4-6-6 3.8-.6 5.4-2.2 6-6Z" stroke="url(#ig1)" stroke-width="1.5" stroke-linejoin="round"/>', wide:1}
+];
+const QS_PKGS = [
+  {l:'Starter', d:'Prezencë profesionale online'},
+  {l:'Business', d:'Webfaqe e plotë me identitet të fortë'},
+  {l:'Premium', d:'Platforma & aplikacione të avancuara'},
+  {l:'Nuk e di ende', d:'Më këshilloni në konsultim'}
+];
+const QS_WHEN = ['Sa më shpejt', 'Brenda muajit', 'Fleksibël'];
+const qsEl = $1('#qs'), qsNext = $1('#qsNext'), qsBack = $1('#qsBack'), qsMail = $1('#qsMail');
+const qs = {step:0, type:null, pkg:null, when:null};
+let qsLastFocus;
+const qsOpt = (o, i, on) => `<button type="button" class="qs-opt${on ? ' on' : ''}${o.wide ? ' wide' : ''}" data-k="${i}" aria-pressed="${on}">${o.i ? `<span class="oi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">${o.i}</svg></span>` : ''}<span><b>${o.l}</b><small>${o.d}</small></span></button>`;
+function qsRender(){
+  $1('#qsType').innerHTML = QS_TYPES.map((o, i) => qsOpt(o, i, qs.type === i)).join('');
+  $1('#qsPkg').innerHTML = QS_PKGS.map((o, i) => qsOpt(o, i, qs.pkg === i)).join('');
+  $1('#qsWhen').innerHTML = QS_WHEN.map((w, i) => `<button type="button" class="qs-chip${qs.when === i ? ' on' : ''}" data-k="${i}">${w}</button>`).join('');
+  $all('#qsType .qs-opt').forEach(b => b.onclick = () => { qs.type = +b.dataset.k; qsMark('#qsType', qs.type); setTimeout(() => qsGo(1), 280); });
+  $all('#qsPkg .qs-opt').forEach(b => b.onclick = () => { qs.pkg = +b.dataset.k; qsMark('#qsPkg', qs.pkg); });
+  $all('#qsWhen .qs-chip').forEach(b => b.onclick = () => { qs.when = +b.dataset.k; qsMark('#qsWhen', qs.when); });
+}
+function qsMark(sel, k){ $all(sel + ' > *').forEach(b => { const on = +b.dataset.k === k; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); }); }
+function qsShow(back){
+  $all('.qs-step').forEach(s => { const on = +s.dataset.step === qs.step; s.classList.toggle('on', on); s.classList.toggle('back', on && !!back); });
+  $all('.qs-steps i').forEach((b, i) => b.classList.toggle('done', i <= qs.step));
+  $1('#qsStepT').textContent = `Hapi ${qs.step + 1} nga 3`;
+  qsBack.style.visibility = qs.step ? 'visible' : 'hidden';
+  qsMail.hidden = qs.step !== 2;
+  qsNext.innerHTML = qs.step === 2
+    ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.25A9.5 9.5 0 1 0 12 2.5Z" stroke-linejoin="round"/></svg>Dërgo në WhatsApp'
+    : 'Vazhdo <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  if(qs.step === 2){
+    const tags = [QS_TYPES[qs.type].l, QS_PKGS[qs.pkg].l, qs.when != null ? QS_WHEN[qs.when] : null].filter(Boolean);
+    $1('#qsSum').innerHTML = tags.map(t => `<span>${t}</span>`).join('');
+    setTimeout(() => $1('#qsName').focus({preventScroll:true}), 350);
+  }
+  $1('.qs-body').scrollTop = 0;
+}
+function qsShake(el){ el.classList.remove('qs-shake'); void el.offsetWidth; el.classList.add('qs-shake'); }
+function qsGo(d){
+  if(d > 0){
+    if(qs.step === 0 && qs.type == null) return qsShake($1('#qsType'));
+    if(qs.step === 1 && qs.pkg == null) return qsShake($1('#qsPkg'));
+  }
+  qs.step = Math.max(0, Math.min(2, qs.step + d)); qsShow(d < 0);
+}
+function qsBody(){
+  const name = $1('#qsName').value.trim(), email = $1('#qsEmail').value.trim(), msg = $1('#qsMsg').value.trim();
+  return [
+    `Emri: ${name}`, email ? `Email: ${email}` : null,
+    `Lloji: ${QS_TYPES[qs.type].l}`, `Pakoja: ${QS_PKGS[qs.pkg].l}`,
+    qs.when != null ? `Afati: ${QS_WHEN[qs.when]}` : null,
+    msg ? `\n${msg}` : null
+  ].filter(Boolean).join('\n');
+}
+function qsValid(){
+  const n = $1('#qsName'), e = $1('#qsEmail'); let ok = true;
+  n.classList.toggle('err', n.value.trim().length < 2); if(n.value.trim().length < 2){ ok = false; n.focus(); }
+  const badMail = e.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.value.trim());
+  e.classList.toggle('err', !!badMail); if(badMail && ok){ ok = false; e.focus(); }
+  if(!ok) qsShake($1('.qs-f'));
+  return ok;
+}
+qsNext.addEventListener('click', () => {
+  if(qs.step < 2) return qsGo(1);
+  if(!qsValid()) return;
+  window.open(`https://wa.me/${WA_NUM}?text=${encodeURIComponent('Përshëndetje builtbyniti! 👋 Dua të nis një projekt.\n\n' + qsBody())}`, '_blank', 'noopener');
+  qsClose();
+});
+qsMail.addEventListener('click', () => {
+  if(!qsValid()) return;
+  location.href = `mailto:${MAIL_TO}?subject=${encodeURIComponent('Projekt i ri — ' + QS_TYPES[qs.type].l)}&body=${encodeURIComponent(qsBody())}`;
+});
+qsBack.addEventListener('click', () => qsGo(-1));
+$all('#qsName,#qsEmail').forEach(i => i.addEventListener('input', () => i.classList.remove('err')));
+function qsOpen(opts = {}){
+  qsLastFocus = document.activeElement;
+  if(opts.pkg != null) qs.pkg = opts.pkg;
+  if(opts.like){
+    const map = {'Website':0, 'Web App':1, 'Sistem':3, 'Platformë':3, 'Utility':1};
+    qs.type = map[opts.like.catL] ?? 0;
+    const m = $1('#qsMsg'); if(!m.value.trim()) m.value = `Dua diçka të ngjashme me ${opts.like.title}.`;
+  }
+  qs.step = 0; qsRender(); qsShow();
+  if(mmenu.classList.contains('open')) toggleMenu(false);
+  qsEl.classList.add('open'); document.body.classList.add('lock');
+  $1('#dockTip').classList.remove('show');
+  setTimeout(() => { const f = $1('#qsType .qs-opt.on') || $1('#qsType .qs-opt'); f && f.focus({preventScroll:true}); }, 80);
+}
+function qsClose(){
+  qsEl.classList.remove('open'); document.body.classList.remove('lock');
+  if(qsLastFocus) qsLastFocus.focus({preventScroll:true});
+}
+$all('[data-qsclose]', qsEl).forEach(b => b.addEventListener('click', qsClose));
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-qs]'); if(!t) return;
+  e.preventDefault(); qsOpen({pkg: t.dataset.qsPkg != null ? +t.dataset.qsPkg : undefined});
+});
+addEventListener('keydown', e => {
+  if(e.key !== 'Escape') return;
+  if(qsEl.classList.contains('open')) qsClose();
+  else if(pm.classList.contains('open')) pmClose();
+});
+addEventListener('keydown', e => {
+  if(!pm.classList.contains('open') || e.target.closest('input,textarea')) return;
+  if(e.key === 'ArrowRight') pmStep(1);
+  if(e.key === 'ArrowLeft') pmStep(-1);
+});
+
+/* ---------- dock lundrues ---------- */
+const dock = $1('#dock'), tip = $1('#dockTip');
+let tipShown = false; try{ tipShown = sessionStorage.getItem('bbn-tip') === '1'; }catch(e){}
+const ctSec = document.getElementById('contact');
+function dockUpd(){
+  const r = ctSec.getBoundingClientRect();
+  const nearContact = r.top < innerHeight * .85;
+  const show = scrollY > innerHeight * .65 && !nearContact && !mmenu.classList.contains('open') && !document.body.classList.contains('lock');
+  dock.classList.toggle('show', show);
+  dock.setAttribute('aria-hidden', !show);
+  $all('a,button', dock).forEach(b => b.tabIndex = show ? 0 : -1);
+  if(!show) tip.classList.remove('show');
+  else if(!tipShown && scrollY > innerHeight * 1.6){
+    tipShown = true; try{ sessionStorage.setItem('bbn-tip', '1'); }catch(e){}
+    setTimeout(() => { if(dock.classList.contains('show')){ tip.classList.add('show'); setTimeout(() => tip.classList.remove('show'), 7000); } }, 600);
+  }
+}
+addEventListener('scroll', dockUpd, {passive:true});
+new MutationObserver(dockUpd).observe(document.body, {attributes:true, attributeFilter:['class']});
+$1('#dockTipX').addEventListener('click', () => tip.classList.remove('show'));
+tip.addEventListener('click', e => { if(!e.target.closest('#dockTipX')){ tip.classList.remove('show'); qsOpen(); } });
+$1('#pfTot').textContent = String(PROJECTS.length).padStart(2, '0');
+pfSelect(0, 1);
+
 /* ---------- reveal observer ---------- */
 const io = new IntersectionObserver(es=>{
   es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
 },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
 function observeAll(root=document){ root.querySelectorAll('.rv,.rv-blur').forEach(el=>io.observe(el)); }
-renderProjects();
 observeAll();
 /* ---------- counters ---------- */
 const cio = new IntersectionObserver(es=>{
