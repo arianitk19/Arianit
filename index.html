@@ -1105,11 +1105,11 @@ body.lock{overflow:hidden}
 .dock.mini .dock-main .pd{opacity:0;margin-right:0;width:0}
 .dock.mini .dock-main .da .ar{opacity:0;transform:scale(.4) rotate(90deg)}
 .dock.mini .dock-main .da .sp{opacity:1;transform:none}
-.dock.mini .dock-wa{width:0;opacity:0;border-width:0;margin-left:-5px;transform:scale(.4)}
-.dock-wa{transition:width .5s var(--ease),opacity .3s,transform .5s cubic-bezier(.34,1.5,.6,1),margin .5s var(--ease),border-color .3s,background .3s}
-.dock.show .dock-wa{animation:dockPop .7s cubic-bezier(.34,1.6,.6,1) .25s both}
+.dock.mini .dock-wa{width:0;opacity:0;visibility:hidden;pointer-events:none;border-width:0;margin-left:-5px;transform:scale(.4)}
+.dock-wa{overflow:hidden;flex:none;transition:visibility .3s,width .5s var(--ease),opacity .3s,transform .5s cubic-bezier(.34,1.5,.6,1),margin .5s var(--ease),border-color .3s,background .3s}
+.dock.show .dock-wa{animation:dockPop .7s cubic-bezier(.34,1.6,.6,1) .25s backwards}
 @keyframes dockPop{from{transform:scale(.3);opacity:0}to{transform:none;opacity:1}}
-.dock.show .dock-main{animation:dockGrow .8s cubic-bezier(.34,1.4,.6,1) .05s both}
+.dock.show .dock-main{animation:dockGrow .8s cubic-bezier(.34,1.4,.6,1) .05s backwards}
 @keyframes dockGrow{from{transform:scale(.7)}to{transform:none}}
 .dock-tip{bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translate(-50%,14px) scale(.92);transition:opacity .45s ease,transform .6s cubic-bezier(.34,1.45,.55,1)}
 .dock-tip.show{transform:translate(-50%,0) scale(1)}
