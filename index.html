@@ -987,18 +987,15 @@ footer .big-brand{
 body.lock{overflow:hidden}
 
 /* ============================================================
-   PROJEKTET — kryesoret + tranzicione smooth
+   PROJEKTET — tranzicione smooth
    ============================================================ */
-.fstar{color:#fcd34d}
 .pf-k{flex-wrap:wrap;row-gap:8px}.pf-k > span{white-space:nowrap}
-@media(max-width:640px){.pf-k{gap:8px}.pf-fchip{padding:4px 9px;letter-spacing:.1em}}
 .pf-cover{transition:opacity .95s cubic-bezier(.22,1,.36,1),transform 1.3s cubic-bezier(.22,1,.36,1),filter .95s cubic-bezier(.22,1,.36,1)}
 .pf-cover.enter{opacity:0;transform:scale(1.07);filter:blur(14px)}
 .pf-cover.leave{opacity:0;transform:scale(.985);filter:blur(10px)}
-.pf-cover .emb,.pf-cover .pf-cname,.pf-cover .pf-ribbon{transition:transform 1.1s cubic-bezier(.22,1,.36,1) .12s,opacity .9s ease .12s}
+.pf-cover .emb,.pf-cover .pf-cname{transition:transform 1.1s cubic-bezier(.22,1,.36,1) .12s,opacity .9s ease .12s}
 .pf-cover.enter .emb{transform:translateY(22px) scale(.88);opacity:0}
 .pf-cover.enter .pf-cname{transform:translateY(16px);opacity:0}
-.pf-cover.enter .pf-ribbon{transform:translateY(-10px);opacity:0}
 .pf-frame{transition:opacity .9s cubic-bezier(.22,1,.36,1),filter .9s cubic-bezier(.22,1,.36,1)}
 .pf-screen:not(.live) .pf-frame{filter:blur(10px)}
 .pf-sw{transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1),filter .6s ease}
@@ -1014,27 +1011,7 @@ body.lock{overflow:hidden}
 @keyframes pfItIn{from{opacity:0;transform:translateY(12px) scale(.97);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 .pf-it > button{transition:background .45s cubic-bezier(.22,1,.36,1),border-color .45s,transform .45s cubic-bezier(.22,1,.36,1)}
 .pf-it > button:active{transform:scale(.98)}
-.pf-gh{list-style:none;display:flex;align-items:center;gap:8px;padding:12px 14px 6px;font-family:var(--font-m);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--mut-2)}
-.pf-gh svg{color:#fcd34d}
-.pf-gh.hide{display:none}
-.pf-it.feat > button::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:3px;background:linear-gradient(180deg,#fde68a,#c084fc,#38d4ff);opacity:.85}
-.pf-it .fs{font-style:normal;display:inline-flex;align-items:center;gap:4px;color:#fcd34d}
-.pf-it.feat .pf-ai{box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 0 0 1px rgba(252,211,77,.35),0 10px 24px rgba(0,0,0,.35)}
-/* stage për projektet kryesore */
-.pf-stage::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;z-index:4;
-  background:conic-gradient(from var(--a,0deg),rgba(252,211,77,.0),rgba(252,211,77,.85),#c084fc,#38d4ff,rgba(252,211,77,0) 55%,rgba(252,211,77,0));
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
-  opacity:0;transition:opacity .9s ease;animation:spin 6s linear infinite}
-.pf-stage.feat::after{opacity:1}
-.pf-stage.feat{box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 60px rgba(252,211,77,.06)}
-.pf-fchip{font-family:var(--font-m);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#fde68a;padding:4px 11px;border-radius:99px;border:1px solid rgba(252,211,77,.45);background:linear-gradient(120deg,rgba(252,211,77,.16),rgba(192,132,252,.12))}
-.pf-ribbon{position:absolute;z-index:3;top:16px;right:16px;display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:99px;
-  font:500 10px var(--font-m);letter-spacing:.16em;text-transform:uppercase;color:#1a1305;background:linear-gradient(120deg,#fde68a,#fbbf24 45%,#f5d08a);
-  box-shadow:0 8px 24px rgba(251,191,36,.35),inset 0 1px 0 rgba(255,255,255,.6)}
-.pf-cover.feat::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.14) 50%,transparent 65%);transform:translateX(-120%);animation:pfSheen 4.5s cubic-bezier(.22,1,.36,1) infinite 1.2s}
-@keyframes pfSheen{0%,40%{transform:translateX(-120%)}75%,100%{transform:translateX(120%)}}
-@media(max-width:960px){.pf-gh{display:none}.pf-it{transform:translateY(10px)}}
-@media(max-width:640px){.pf-ribbon{top:10px;right:10px;padding:5px 10px;font-size:9px}}
+@media(max-width:960px){.pf-it{transform:translateY(10px)}}
 
 /* ============================================================
    BUTONI "KTHEHU LART" v2 — mbushet ngadalë me scroll
@@ -1364,7 +1341,7 @@ body.lock{overflow:hidden}
         </div>
         <div class="pf-info" id="pfInfo" aria-live="polite">
           <div>
-            <div class="pf-k pf-sw"><span class="ai pf-ai-s" id="pfIco"></span><span><b id="pfNum">01</b> / <span id="pfTot">10</span></span><span class="cat" id="pfCat">—</span><span class="pf-fchip" id="pfFeat" hidden>★ Kryesor</span></div>
+            <div class="pf-k pf-sw"><span class="ai pf-ai-s" id="pfIco"></span><span><b id="pfNum">01</b> / <span id="pfTot">10</span></span><span class="cat" id="pfCat">—</span></div>
             <h3 class="pf-sw" id="pfTitle">—</h3>
             <p class="pf-sw" id="pfDesc"></p>
             <div class="badges pf-sw" id="pfTech"></div>
@@ -1709,7 +1686,7 @@ const PROJECTS = [
   {id:'poligoni',cat:'website',catL:'Website',title:'Poligoni Patriot',url:'https://poligonipatriot.com',mono:'PP',c:['#f87171','#7f1d1d'],
    desc:'Website për Poligoni Patriot në Gjakovë — poligon qitjeje, trajnime dhe certifikime, dyqan armësh dhe servis, me orar dhe kontakt në një vend.',tech:['E-commerce','Trajnime','Gjakovë']}
 ];
-/* projektet kryesore — dalin të parat dhe kanë pamje të veçantë */
+/* renditja: këto dalin të parat */
 const FEATURED = ['poligoni', 'cimi', 'tekton', 'endritk'];
 PROJECTS.forEach((p, i) => { p.feat = FEATURED.includes(p.id); p._o = i; });
 PROJECTS.sort((a, b) => (a.feat ? FEATURED.indexOf(a.id) : 100 + a._o) - (b.feat ? FEATURED.indexOf(b.id) : 100 + b._o));
@@ -1847,7 +1824,7 @@ const WA_NUM = '38345954832', MAIL_TO = 'arianitk2005@gmail.com';
 const hostOf = u => u.replace('https://', '').replace(/[\/?#].*$/, '');
 const grpOf = p => (p.catL === 'Sistem' || p.catL === 'Platformë') ? 'sys' : p.catL;
 const PF_GROUPS = [
-  {k:'all', l:'Të gjitha'}, {k:'feat', l:'<span class="fstar">★</span> Kryesorët'}, {k:'Website', l:'Website'}, {k:'Web App', l:'Web App'},
+  {k:'all', l:'Të gjitha'}, {k:'Website', l:'Website'}, {k:'Web App', l:'Web App'},
   {k:'sys', l:'Sisteme & Platforma'}, {k:'Utility', l:'Utility'}
 ];
 const pf = {
@@ -1860,8 +1837,7 @@ const pfIdx = () => PROJECTS.map((p, i) => i).filter(i => pfMatch(PROJECTS[i], p
 
 function coverHTML(p){
   const pat = PATS[p.id] || 'grid';
-  return `<div class="pf-cover enter${p.feat ? ' feat' : ''}" style="--c1:${p.c[0]};--c2:${p.c[1]}" data-pat="${pat}">
-    ${p.feat ? `<span class="pf-ribbon">${STAR}Projekt kryesor</span>` : ''}
+  return `<div class="pf-cover enter" style="--c1:${p.c[0]};--c2:${p.c[1]}" data-pat="${pat}">
     <span class="pf-glow"></span><span class="pat pat-${pat === "islamic" ? "star" : pat}"></span>
     <span class="wm">${ico(p.id)}</span>
     <span class="emb">${RING}<span class="ai ai-xl" style="--c1:${p.c[0]};--c2:${p.c[1]}">${appIco(p.id)}</span></span>
@@ -1887,7 +1863,6 @@ function coverHTML(p){
         li.classList.toggle('hide', !show); li.classList.remove('anim');
         if(show){ void li.offsetWidth; li.style.setProperty('--ad', (d++ * 45) + 'ms'); li.classList.add('anim'); }
       });
-      $all('.pf-gh').forEach(h => h.classList.toggle('hide', g.k !== 'all'));
       const ids = pfIdx(); if(!ids.includes(pf.i)) pfSelect(ids[0], 1);
       $1('#pfTot').textContent = String(ids.length).padStart(2, '0'); pfNum();
       pf.el = 0;
@@ -1901,12 +1876,11 @@ function pfGlide(){
 }
 /* indeksi */
 const STAR = '<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.7 5.9 6.4.7-4.8 4.3 1.4 6.3L12 16.8 6.3 20l1.4-6.3L2.9 9.4l6.4-.7Z"/></svg>';
-pf.list.innerHTML = PROJECTS.map((p, i) => `${i === 0 ? `<li class="pf-gh">${STAR}Projektet kryesore</li>` : ''}${i > 0 && !p.feat && PROJECTS[i - 1].feat ? '<li class="pf-gh">Projekte të tjera</li>' : ''}
-  <li class="pf-it${p.feat ? ' feat' : ''}" data-i="${i}" data-g="${grpOf(p)}" style="--d:${i * 55}">
+pf.list.innerHTML = PROJECTS.map((p, i) => `  <li class="pf-it" data-i="${i}" data-g="${grpOf(p)}" style="--d:${i * 55}">
     <button type="button" aria-label="${p.title}">
       <span class="n">${String(i + 1).padStart(2, '0')}</span>
       <span class="ai pf-ai" style="--c1:${p.c[0]};--c2:${p.c[1]}">${appIco(p.id)}</span>
-      <span><b>${p.title}</b><small>${p.feat ? `<em class="fs">${STAR}Kryesor</em> · ` : ''}${p.catL}</small></span>
+      <span><b>${p.title}</b><small>${p.catL}</small></span>
       <svg class="ar" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </button>
     <span class="pb"></span>
@@ -1946,8 +1920,7 @@ function pfLoadLive(){
 }
 function pfSelect(i, silent){
   if(i == null) return;
-  const p = PROJECTS[i]; pf.i = i; pf.el = 0; pf.dur = p.feat ? 10000 : 7500;
-  pf.stage.classList.toggle('feat', !!p.feat);
+  const p = PROJECTS[i]; pf.i = i; pf.el = 0; pf.dur = 8000;
   // cover
   $all('.pf-cover', pf.screen).forEach(c => { c.classList.add('leave'); setTimeout(() => c.remove(), 950); });
   pf.screen.insertAdjacentHTML('afterbegin', coverHTML(p));
@@ -1955,7 +1928,7 @@ function pfSelect(i, silent){
   requestAnimationFrame(() => requestAnimationFrame(() => nc && nc.classList.remove('enter')));
   // info
   const set = () => {
-    $1('#pfCat').textContent = p.catL; $1('#pfFeat').hidden = !p.feat;
+    $1('#pfCat').textContent = p.catL;
     const pi = $1('#pfIco'); pi.style.setProperty('--c1', p.c[0]); pi.style.setProperty('--c2', p.c[1]); pi.innerHTML = appIco(p.id); $1('#pfTitle').textContent = p.title; $1('#pfDesc').textContent = p.desc;
     $1('#pfTech').innerHTML = p.tech.map(t => `<span class="badge">${t}</span>`).join('');
     pfNum();
