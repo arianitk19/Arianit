@@ -984,6 +984,24 @@ footer .big-brand{
 }
 body.lock{overflow:hidden}
 
+/* ---------- ikonat e projekteve ---------- */
+.ai{position:relative;display:grid;place-items:center;flex:none;border-radius:28%;overflow:hidden;isolation:isolate;
+  background:linear-gradient(145deg,var(--c1),var(--c2));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -10px 18px rgba(0,0,0,.16),0 10px 24px rgba(0,0,0,.35)}
+.ai::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(120% 80% at 18% 0%,rgba(255,255,255,.38),transparent 55%)}
+.ai::after{content:"";position:absolute;inset:0;border-radius:inherit;border:1px solid rgba(255,255,255,.18);pointer-events:none}
+.ai svg{width:68%;height:68%;filter:drop-shadow(0 2px 3px rgba(0,0,0,.2))}
+.ai .k{fill:color-mix(in srgb,var(--c2) 80%,#05050a)}
+.ai .ks{stroke:color-mix(in srgb,var(--c2) 80%,#05050a)}
+.pf-ai{width:46px;height:46px}
+.pf-ai-s{width:30px;height:30px;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 6px 14px rgba(0,0,0,.3)}
+.pm-ai{width:30px;height:30px}
+.ai-xl{width:116px;height:116px;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -14px 26px rgba(0,0,0,.18),0 24px 50px rgba(0,0,0,.5),0 0 60px color-mix(in srgb,var(--c1) 45%,transparent);animation:floaty 5s ease-in-out infinite}
+.pf-cover .emb .ring{width:200px;height:200px}
+.pf-it.on .pf-ai{box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 0 0 2px rgba(255,255,255,.85),0 0 22px color-mix(in srgb,var(--c1) 60%,transparent)}
+@media(max-width:960px){.pf-ai{width:42px;height:42px}}
+@media(max-width:640px){.ai-xl{width:86px;height:86px}.pf-cover .emb .ring{width:150px;height:150px}}
+
 @media(max-width:960px){
   .pf{display:flex;flex-direction:column}
   .pf-side,.pf-side-in{display:contents}
@@ -1157,7 +1175,7 @@ body.lock{overflow:hidden}
         </div>
         <div class="pf-info" id="pfInfo" aria-live="polite">
           <div>
-            <div class="pf-k pf-sw"><span><b id="pfNum">01</b> / <span id="pfTot">10</span></span><span class="cat" id="pfCat">—</span></div>
+            <div class="pf-k pf-sw"><span class="ai pf-ai-s" id="pfIco"></span><span><b id="pfNum">01</b> / <span id="pfTot">10</span></span><span class="cat" id="pfCat">—</span></div>
             <h3 class="pf-sw" id="pfTitle">—</h3>
             <p class="pf-sw" id="pfDesc"></p>
             <div class="badges pf-sw" id="pfTech"></div>
@@ -1356,7 +1374,7 @@ body.lock{overflow:hidden}
   <div class="scrim" data-pmclose></div>
   <div class="pm-box">
     <div class="pm-tools">
-      <span class="pm-title" id="pmTitle">—</span>
+      <span class="ai pm-ai" id="pmIco"></span><span class="pm-title" id="pmTitle">—</span>
       <span class="pf-url"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span id="pmUrl">—</span></span>
       <span class="pf-seg" role="group" aria-label="Pamja">
         <button type="button" class="on" data-pdev="desk" aria-label="Desktop"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
@@ -1473,28 +1491,30 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const touch = matchMedia('(hover: none), (pointer: coarse)').matches;
 /* ---------- data ---------- */
 const PROJECTS = [
-  {id:'kalkulo',cat:'utility',catL:'Utility',title:'Kalkulo',url:'https://kalkulo.vercel.app',mono:'K=',c:['#38d4ff','#8b7cff'],
+  {id:'kalkulo',cat:'utility',catL:'Utility',title:'Kalkulo',url:'https://kalkulo.vercel.app',mono:'K=',c:['#22d3ee','#2563eb'],
    desc:'Web aplikacion utility për llogaritje të shpejta — minimal funksional, punon offline në çdo pajisje.',tech:['Offline','Instant','PWA']},
-  {id:'bonecv',cat:'web-app',catL:'Web App',title:'boneCV',url:'https://bone-cv.vercel.app',mono:'bC',c:['#7c6cff','#38d4ff'],
+  {id:'bonecv',cat:'web-app',catL:'Web App',title:'boneCV',url:'https://bone-cv.vercel.app',mono:'bC',c:['#a78bfa','#5b21b6'],
    desc:'Platformë interaktive për CV digjitale me stil editorial, tema të personalizueshme dhe link të ndashëm.',tech:['Editorial UI','Themes','Shareable']},
-  {id:'tekton',cat:'web-app',catL:'Website',title:'TEKTON',url:'https://tekton-arch.vercel.app',mono:'TK',c:['#c084fc','#38d4ff'],
+  {id:'tekton',cat:'web-app',catL:'Website',title:'TEKTON',url:'https://tekton-arch.vercel.app',mono:'TK',c:['#f5c46b','#9a5b0b'],
    desc:'Website prezantues për studio arkitekture — dizajn editorial minimalist, dygjuhësh (SQ/EN), me fokus te drita, hapësira dhe forma.',tech:['Editorial','Bilingual','Responsive']},
-  {id:'endritk',cat:'web-app',catL:'Website',title:'Endrit Krasniqi',url:'https://endritk.com',mono:'EK',c:['#8b7cff','#c084fc'],
+  {id:'endritk',cat:'web-app',catL:'Website',title:'Endrit Krasniqi',url:'https://endritk.com',mono:'EK',c:['#94a3b8','#1e293b'],
    desc:'Website premium dhe PWA për planifikim e dizajn hapësirash — plane, vizualizime 2D/3D dhe interier, në gjermanisht, anglisht dhe shqip.',tech:['PWA','DE/EN/SQ','Editorial']},
-  {id:'kurani',cat:'web-app',catL:'Web App',title:'Lexo Kuranin Shqip',url:'https://lexokuraninshqip.vercel.app',mono:'LK',c:['#1f9d74','#0b4d3b'],
+  {id:'kurani',cat:'web-app',catL:'Web App',title:'Lexo Kuranin Shqip',url:'https://lexokuraninshqip.vercel.app',mono:'LK',c:['#34d399','#065f46'],
    desc:'Aplikacion web për leximin e Kuranit në gjuhën shqipe — i pastër, i lexueshëm dhe komod në celular.',tech:['Reader','Mobile-first','Shqip']},
-  {id:'cimi',cat:'web-app',catL:'Website',title:'CIMI Group',url:'https://cimigroup.vercel.app',mono:'CG',c:['#7c6cff','#c084fc'],
+  {id:'cimi',cat:'web-app',catL:'Website',title:'CIMI Group',url:'https://cimigroup.vercel.app',mono:'CG',c:['#818cf8','#3730a3'],
    desc:'Website prezantues korporativ për CIMI Group — identitet i fortë, shërbimet dhe kontakti në një vend.',tech:['Corporate','Responsive','SEO']},
-  {id:'bonemenu',cat:'web-app',catL:'Web App',title:'boneMenu',url:'https://bonemenu.vercel.app/#/',mono:'bM',c:['#c084fc','#8b7cff'],
+  {id:'bonemenu',cat:'web-app',catL:'Web App',title:'boneMenu',url:'https://bonemenu.vercel.app/#/',mono:'bM',c:['#fb923c','#b93a0b'],
    desc:'Meny digjitale për restorante dhe kafene — klientët e hapin nga telefoni dhe shohin ofertën menjëherë.',tech:['Digital Menu','QR-ready','Mobile']},
-  {id:'xr',cat:'web-app',catL:'Sistem',title:'Sistemi TV i Xhamisë',url:'https://xr-mu.vercel.app',mono:'TV',c:['#38d4ff','#7c6cff'],
+  {id:'xr',cat:'web-app',catL:'Sistem',title:'Sistemi TV i Xhamisë',url:'https://xr-mu.vercel.app',mono:'TV',c:['#38bdf8','#0c4a6e'],
    desc:'Sistem për ekranin TV të xhamisë — kohët e namazit, ora dhe njoftimet për xhematin, të lexueshme nga larg.',tech:['Vakitet','TV Display','Njoftime']},
-  {id:'osbusiness',cat:'web-app',catL:'Platformë',title:'OS Business',url:'https://osbussines.vercel.app',mono:'OS',c:['#7c6cff','#38d4ff'],
+  {id:'osbusiness',cat:'web-app',catL:'Platformë',title:'OS Business',url:'https://osbussines.vercel.app',mono:'OS',c:['#2dd4bf','#0f766e'],
    desc:'Platformë web për biznese — organizim i punës dhe të dhënave në një panel të vetëm e të qartë.',tech:['Dashboard','Business','Web App']},
-  {id:'xhamia',cat:'web-app',catL:'Website',title:'Xhamia e Ratkocit',url:'https://xhamiafshatitratkoc.vercel.app/?tab=xhamia',mono:'XT',c:['#38d4ff','#8b7cff'],
+  {id:'xhamia',cat:'web-app',catL:'Website',title:'Xhamia e Ratkocit',url:'https://xhamiafshatitratkoc.vercel.app/?tab=xhamia',mono:'XT',c:['#7dd3fc','#4f46e5'],
    desc:'Faqe për xhaminë e fshatit Ratkoc — informacione, njoftime dhe përmbajtje për xhematin, e organizuar në seksione.',tech:['Komunitet','Tabs','Mobile']},
-  {id:'ruajesc',cat:'web-app',catL:'Web App',title:'Screenshot Organizer',url:'https://ruajesc.vercel.app',mono:'SO',c:['#38d4ff','#c084fc'],
-   desc:'Web aplikacion për organizimin e screenshot-eve — njohje teksti (OCR) në pajisje, koleksione, zbulim i duplikatave dhe kopje rezervë. Çdo screenshot, i organizuar.',tech:['OCR','Koleksione','Mobile']}
+  {id:'ruajesc',cat:'web-app',catL:'Web App',title:'Screenshot Organizer',url:'https://ruajesc.vercel.app',mono:'SO',c:['#f472b6','#9d174d'],
+   desc:'Web aplikacion për organizimin e screenshot-eve — njohje teksti (OCR) në pajisje, koleksione, zbulim i duplikatave dhe kopje rezervë. Çdo screenshot, i organizuar.',tech:['OCR','Koleksione','Mobile']},
+  {id:'poligoni',cat:'website',catL:'Website',title:'Poligoni Patriot',url:'https://poligonipatriot.com',mono:'PP',c:['#f87171','#7f1d1d'],
+   desc:'Website për Poligoni Patriot në Gjakovë — poligon qitjeje, trajnime dhe certifikime, dyqan armësh dhe servis, me orar dhe kontakt në një vend.',tech:['E-commerce','Trajnime','Gjakovë']}
 ];
 const SERVICES = [
   {t:'Zhvillim Website',d:'Faqe biznesi, portofole dhe sisteme prezantuese me dizajn premium dhe performancë ekstreme.',tag:'Web · Landing · Corporate',
@@ -1546,13 +1566,51 @@ const ICONS = {
   bonemenu:'<path d="M2.5 17.5h19"/><path d="M4.5 17.5a7.5 7.5 0 0 1 15 0"/><path d="M12 10V8.6"/><circle cx="12" cy="7.3" r="1.3"/><path d="M5.5 20.5h13"/><path d="M8 14.8a4.6 4.6 0 0 1 2.6-2.4"/>',
   xr:'<rect x="2.5" y="5" width="19" height="13" rx="2.2"/><path d="M8.5 21.5h7M12 18v3.5"/><path d="M13.6 13.9a3.2 3.2 0 1 1-2.2-5.6 2.5 2.5 0 0 0 2.2 5.6Z"/>',
   osbusiness:'<rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M2.5 8.5h19M8 8.5V20"/><path d="m11 16.8 2.5-3 2 1.6 3-4"/><path d="M4.5 11.5H6M4.5 14.2H6M4.5 16.9H6"/>',
+  poligoni:'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v4M12 18.5v4M1.5 12h4M18.5 12h4"/>',
   ruajesc:'<rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="1.8"/><path d="m21 15-4.5-4.5L7 20"/><path d="M14.5 3v4M3 14.5h3" opacity=".6"/>',
   xhamia:'<path d="M5.5 14.5c0-3.4 3-4.8 4.8-6 1-.6 1.7-1.3 1.7-2.5 0 1.2.7 1.9 1.7 2.5 1.8 1.2 4.8 2.6 4.8 6"/><path d="M5.5 14.5h13v6h-13z"/><path d="M10.5 20.5v-2.3a1.5 1.5 0 0 1 3 0v2.3"/><path d="M2.4 20.5V11h1.8v9.5M3.3 11V8.3M19.8 20.5V11h1.8v9.5M20.7 11V8.3"/><path d="M12.9 3.6a1.5 1.5 0 1 1-1.4-2 1.15 1.15 0 0 0 1.4 2Z"/><path d="M1.5 20.5h21"/>'
 };
-const PATS = {"kalkulo": "grid", "bonecv": "lines", "tekton": "blueprint", "endritk": "blueprint", "kurani": "islamic", "cimi": "lines", "bonemenu": "dots", "xr": "plain", "osbusiness": "grid", "xhamia": "plain", "ruajesc": "dots"};
+const PATS = {"kalkulo": "grid", "bonecv": "lines", "tekton": "blueprint", "endritk": "blueprint", "kurani": "islamic", "cimi": "lines", "bonemenu": "dots", "xr": "plain", "osbusiness": "grid", "xhamia": "plain", "ruajesc": "dots", "poligoni": "lines"};
 const ARCH = '<svg viewBox="0 0 190 200" preserveAspectRatio="none" fill="none" stroke="currentColor" aria-hidden="true"><path d="M10 200V92C10 52 50 30 95 6c45 24 85 46 85 86v108" stroke-width="1"/></svg>';
 const ico = (id,cls='')=>`<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[id]||''}</svg>`;
 const RING = '<svg class="ring" viewBox="0 0 132 132" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="66" cy="66" r="64" stroke-width=".6" stroke-dasharray="1 5.7"/><circle cx="66" cy="66" r="54" stroke-width=".5" opacity=".45"/><path d="M66 0v7M66 125v7M0 66h7M125 66h7" stroke-width=".9"/></svg>';
+/* ---------- ikonat e projekteve (stil app-icon) ---------- */
+const cres = (cx, cy, R, cls = '') => {
+  const r = R * .84, d = R * .66, x = (R * R - r * r + d * d) / (2 * d), y = Math.sqrt(R * R - x * x);
+  const tx = (cx + x).toFixed(2), ty = (cy - y).toFixed(2), by = (cy + y).toFixed(2);
+  return `<path ${cls} d="M${tx} ${ty}A${R} ${R} 0 1 0 ${tx} ${by}A${r.toFixed(2)} ${r.toFixed(2)} 0 0 1 ${tx} ${ty}Z"/>`;
+};
+const APP = {
+  kalkulo:`<rect x="9" y="9" width="13" height="13" rx="3.6" fill="#fff"/><rect x="26" y="9" width="13" height="13" rx="3.6" fill="#fff"/><rect x="9" y="26" width="13" height="13" rx="3.6" fill="#fff"/><rect x="26" y="26" width="13" height="13" rx="3.6" fill="#fff" fill-opacity=".28"/>
+    <g class="k"><rect x="11.5" y="14.4" width="8" height="2.2" rx="1.1"/><rect x="14.4" y="11.5" width="2.2" height="8" rx="1.1"/><rect x="28.5" y="14.4" width="8" height="2.2" rx="1.1"/><g transform="rotate(45 15.5 32.5)"><rect x="11.5" y="31.4" width="8" height="2.2" rx="1.1"/><rect x="14.4" y="28.5" width="2.2" height="8" rx="1.1"/></g></g>
+    <rect x="28.5" y="29.9" width="8" height="2.2" rx="1.1" fill="#fff"/><rect x="28.5" y="33.9" width="8" height="2.2" rx="1.1" fill="#fff"/>`,
+  bonecv:`<path d="M14 6h14l10 10v23a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z" fill="#fff"/><path d="M28 6v7a3 3 0 0 0 3 3h7Z" fill="#fff" fill-opacity=".45"/>
+    <g class="k"><circle cx="20" cy="21" r="4.2"/><path d="M13 33.5c1.2-3.9 3.9-5.9 7-5.9s5.8 2 7 5.9Z"/><rect x="29" y="20" width="5.5" height="2.4" rx="1.2" opacity=".5"/><rect x="29" y="25.5" width="4.5" height="2.4" rx="1.2" opacity=".5"/><rect x="15" y="37" width="18" height="2.2" rx="1.1" opacity=".35"/></g>`,
+  tekton:`<path d="M24 6.5 41.5 15.5h-35Z" fill="#fff"/><rect x="8.5" y="17.5" width="31" height="3.4" rx="1.2" fill="#fff" fill-opacity=".85"/>
+    <rect x="10.5" y="23" width="4.2" height="13" rx="1" fill="#fff"/><rect x="18.5" y="23" width="4.2" height="13" rx="1" fill="#fff"/><rect x="25.3" y="23" width="4.2" height="13" rx="1" fill="#fff"/><rect x="33.3" y="23" width="4.2" height="13" rx="1" fill="#fff"/>
+    <rect x="6.5" y="37.5" width="35" height="4" rx="1.5" fill="#fff"/><circle class="k" cx="24" cy="12.3" r="2"/>`,
+  endritk:`<g fill="#fff"><rect x="8.5" y="11" width="4.6" height="26" rx="1"/><rect x="8.5" y="11" width="13" height="4.6" rx="1"/><rect x="8.5" y="21.7" width="10.5" height="4.6" rx="1"/><rect x="8.5" y="32.4" width="13" height="4.6" rx="1"/>
+    <rect x="25.5" y="11" width="4.6" height="26" rx="1"/><path d="M30.1 21.6 36 11h5.2l-7.2 12.6Z"/><path d="M30.1 26.2 34 23.6 41.4 37h-5.3Z" fill-opacity=".85"/></g>`,
+  kurani:`${cres(23, 9.5, 4.6, 'fill="#fff"')}<path d="M24 19.5c-4.2-3.1-9.3-4.1-15.5-4.1v20.4c6.2 0 11.3 1 15.5 4.1Z" fill="#fff"/><path d="M24 19.5c4.2-3.1 9.3-4.1 15.5-4.1v20.4c-6.2 0-11.3 1-15.5 4.1Z" fill="#fff" fill-opacity=".8"/>
+    <g class="ks" fill="none" stroke-width="1.6" stroke-linecap="round" opacity=".45"><path d="M12.5 21.5c3 .2 5.6.9 7.8 2M12.5 26c3 .2 5.6.9 7.8 2M12.5 30.5c3 .2 5.6.9 7.8 2"/></g>`,
+  cimi:`<path d="M36 15.2A13.2 13.2 0 1 0 36 32.8" fill="none" stroke="#fff" stroke-width="6.2" stroke-linecap="round"/>
+    <rect x="19" y="25" width="3.6" height="7" rx="1" fill="#fff" fill-opacity=".75"/><rect x="24.2" y="20.5" width="3.6" height="11.5" rx="1" fill="#fff" fill-opacity=".9"/><rect x="29.4" y="16" width="3.6" height="16" rx="1" fill="#fff"/>`,
+  bonemenu:`<circle cx="24" cy="13.6" r="2.6" fill="#fff"/><path d="M9.5 31.5a14.5 14.5 0 0 1 29 0Z" fill="#fff"/><rect x="6" y="32.8" width="36" height="3.8" rx="1.9" fill="#fff"/>
+    <path class="ks" d="M15 27a9.5 9.5 0 0 1 5.2-6.4" fill="none" stroke-width="2.4" stroke-linecap="round" opacity=".6"/><rect x="15" y="39" width="18" height="2.6" rx="1.3" fill="#fff" fill-opacity=".45"/>`,
+  xr:`<rect x="5.5" y="8" width="37" height="26" rx="4.5" fill="#fff"/><rect x="20.5" y="34" width="7" height="3.5" fill="#fff" fill-opacity=".7"/><rect x="13.5" y="37.5" width="21" height="3.3" rx="1.6" fill="#fff"/>
+    ${cres(18.5, 21, 6.2, 'class="k"')}<path class="k" d="m31.5 14.5 1.2 2.6 2.6 1.2-2.6 1.2-1.2 2.6-1.2-2.6-2.6-1.2 2.6-1.2Z"/><g class="k" opacity=".5"><rect x="27" y="25" width="10" height="2" rx="1"/><rect x="27" y="28.6" width="7" height="2" rx="1"/></g>`,
+  osbusiness:`<rect x="6.5" y="8" width="35" height="32" rx="5.5" fill="#fff"/>
+    <g class="k"><rect x="12" y="13.5" width="11" height="2.6" rx="1.3" opacity=".45"/><rect x="12.5" y="27" width="5" height="8" rx="1.4"/><rect x="21.5" y="22.5" width="5" height="12.5" rx="1.4"/><rect x="30.5" y="17" width="5" height="18" rx="1.4"/></g>`,
+  xhamia:`${cres(24, 9.4, 2.1, 'fill="#fff"')}<path d="M13 27.5c0-6 5-8.6 8.4-11 1.4-1 2.3-2.1 2.6-3.6.3 1.5 1.2 2.6 2.6 3.6 3.4 2.4 8.4 5 8.4 11Z" fill="#fff"/>
+    <rect x="11.5" y="27.5" width="25" height="11.5" fill="#fff" fill-opacity=".9"/><path class="k" d="M21.5 39v-4.6a2.5 2.5 0 0 1 5 0V39Z"/>
+    <path d="M5.2 39V18.2h3.8V39ZM5.2 18.2l1.9-4.8 1.9 4.8ZM39 39V18.2h3.8V39ZM39 18.2l1.9-4.8 1.9 4.8Z" fill="#fff"/><rect x="3.5" y="39" width="41" height="3" rx="1.5" fill="#fff"/>`,
+  ruajesc:`<rect x="14.5" y="6.5" width="26" height="21" rx="4" fill="#fff" fill-opacity=".45" transform="rotate(8 27.5 17)"/><rect x="7.5" y="14" width="29" height="25" rx="4.5" fill="#fff"/>
+    <g class="k"><circle cx="28.5" cy="21.5" r="2.8"/><path d="M11 35.5 18.5 26.5l5.3 5.8 3.2-3.4 6.5 6.6Z"/></g>`,
+  poligoni:`<circle cx="24" cy="24" r="14.5" fill="#fff"/><circle class="k" cx="24" cy="24" r="10.4"/><circle cx="24" cy="24" r="6.4" fill="#fff"/><circle class="k" cx="24" cy="24" r="2.6"/>
+    <g stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M24 3.5v4.5M24 40v4.5M3.5 24H8M40 24h4.5"/></g>`
+};
+const appIco = (id, cls = '') => `<svg class="${cls}" viewBox="0 0 48 48" aria-hidden="true">${APP[id] || ''}</svg>`;
+
 /* ============================================================
    PROJEKTET v2 — showcase interaktiv me parapamje live
    ============================================================ */
@@ -1577,7 +1635,7 @@ function coverHTML(p){
   return `<div class="pf-cover enter" style="--c1:${p.c[0]};--c2:${p.c[1]}" data-pat="${pat}">
     <span class="pf-glow"></span><span class="pat pat-${pat === "islamic" ? "star" : pat}"></span>
     <span class="wm">${ico(p.id)}</span>
-    <span class="emb">${RING}<span class="tile">${ico(p.id)}</span></span>
+    <span class="emb">${RING}<span class="ai ai-xl" style="--c1:${p.c[0]};--c2:${p.c[1]}">${appIco(p.id)}</span></span>
     <span class="pf-cname">${p.title}</span>
     <span class="pf-load"><i></i>Duke ngarkuar live</span>
   </div>`;
@@ -1611,7 +1669,7 @@ pf.list.innerHTML = PROJECTS.map((p, i) => `
   <li class="pf-it" data-i="${i}" data-g="${grpOf(p)}">
     <button type="button" aria-label="${p.title}">
       <span class="n">${String(i + 1).padStart(2, '0')}</span>
-      <span class="th" style="--c1:${p.c[0]};--c2:${p.c[1]}">${ico(p.id)}</span>
+      <span class="ai pf-ai" style="--c1:${p.c[0]};--c2:${p.c[1]}">${appIco(p.id)}</span>
       <span><b>${p.title}</b><small>${p.catL}</small></span>
       <svg class="ar" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </button>
@@ -1660,7 +1718,8 @@ function pfSelect(i, silent){
   requestAnimationFrame(() => requestAnimationFrame(() => nc && nc.classList.remove('enter')));
   // info
   const set = () => {
-    $1('#pfCat').textContent = p.catL; $1('#pfTitle').textContent = p.title; $1('#pfDesc').textContent = p.desc;
+    $1('#pfCat').textContent = p.catL;
+    const pi = $1('#pfIco'); pi.style.setProperty('--c1', p.c[0]); pi.style.setProperty('--c2', p.c[1]); pi.innerHTML = appIco(p.id); $1('#pfTitle').textContent = p.title; $1('#pfDesc').textContent = p.desc;
     $1('#pfTech').innerHTML = p.tech.map(t => `<span class="badge">${t}</span>`).join('');
     pfNum();
   };
@@ -1738,7 +1797,8 @@ function pmSetDev(d){ pmDev.classList.toggle('mob', d === 'mob'); $all('[data-pd
 function pmFill(i){
   const ids = pfIdx(); if(!ids.includes(i)) i = ids[0];
   pmI = i; const p = PROJECTS[i];
-  $1('#pmTitle').textContent = p.title; $1('#pmUrl').textContent = hostOf(p.url); $1('#pmOpen').href = p.url;
+  $1('#pmTitle').textContent = p.title;
+  const mi = $1('#pmIco'); mi.style.setProperty('--c1', p.c[0]); mi.style.setProperty('--c2', p.c[1]); mi.innerHTML = appIco(p.id); $1('#pmUrl').textContent = hostOf(p.url); $1('#pmOpen').href = p.url;
   pmLoad.classList.remove('gone');
   pmLoad.innerHTML = '<span class="spin"></span><span>Duke ngarkuar parapamjen live…</span>';
   clearTimeout(pmT);
