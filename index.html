@@ -1136,20 +1136,27 @@ body.lock{overflow:hidden}
 .dock-main .pd{margin-right:10px;transition:margin .5s var(--ease),opacity .3s}
 .dock-main .dl{display:inline-block;max-width:170px;overflow:hidden;white-space:nowrap;opacity:1;
   transition:max-width .6s cubic-bezier(.34,1.25,.6,1),opacity .35s ease .08s,margin .5s var(--ease);margin-right:12px}
-.dock-main .da{position:relative;width:34px;height:34px;flex:none;border-radius:50%;display:grid;place-items:center;background:#0a0a12;color:#fff;
-  box-shadow:0 4px 12px rgba(10,10,18,.35);transition:transform .55s cubic-bezier(.34,1.5,.6,1)}
+.dock-main .da{position:relative;width:34px;height:34px;flex:none;transition:width .55s cubic-bezier(.34,1.3,.6,1),height .55s cubic-bezier(.34,1.3,.6,1),transform .55s cubic-bezier(.34,1.5,.6,1);border-radius:50%;display:grid;place-items:center;background:#0a0a12;color:#fff;
+  box-shadow:0 4px 12px rgba(10,10,18,.35);transition:width .55s cubic-bezier(.34,1.3,.6,1),height .55s cubic-bezier(.34,1.3,.6,1),transform .55s cubic-bezier(.34,1.5,.6,1)}
 .dock-main .da svg{transition:transform .5s var(--ease),opacity .3s}
 .dock-main .da .sp{position:absolute;opacity:0;transform:scale(.4) rotate(-90deg)}
 .dock-main:hover .da{transform:rotate(-12deg)}
 .dock-main:active{transform:scale(.93)}
 /* gjendja kompakte (gjatë scroll-it poshtë) */
-.dock.mini{padding:4px;gap:0}
-.dock.mini .dock-main{padding:0 8px}
+.dock{--dh:50px}
+#totop{bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+.dock-wa{width:var(--dh);height:var(--dh)}
+.dock-main{height:var(--dh)}
+.dock.mini{padding:5px;gap:0}
+.dock.mini .dock-main{padding:0 calc((var(--dh) - 40px) / 2)}
+.dock.mini .dock-main .da{width:40px;height:40px}
+.dock.mini::after{inset:6px 6px -8px}
+.dock.mini .dock-main .pd{display:none}
 .dock.mini .dock-main .dl{max-width:0;opacity:0;margin-right:0;transition:max-width .45s var(--ease),opacity .15s,margin .45s var(--ease)}
 .dock.mini .dock-main .pd{opacity:0;margin-right:0;width:0}
 .dock.mini .dock-main .da .ar{opacity:0;transform:scale(.4) rotate(90deg)}
 .dock.mini .dock-main .da .sp{opacity:1;transform:none}
-.dock.mini .dock-wa{width:0;opacity:0;visibility:hidden;pointer-events:none;border-width:0;margin-left:-5px;transform:scale(.4)}
+.dock.mini .dock-wa{width:0;height:0;opacity:0;visibility:hidden;pointer-events:none;border-width:0;margin:0;transform:scale(.4)}
 .dock-wa{overflow:hidden;flex:none;transition:visibility .3s,width .5s var(--ease),opacity .3s,transform .5s cubic-bezier(.34,1.5,.6,1),margin .5s var(--ease),border-color .3s,background .3s}
 .dock.show .dock-wa{animation:dockPop .7s cubic-bezier(.34,1.6,.6,1) .25s backwards}
 @keyframes dockPop{from{transform:scale(.3);opacity:0}to{transform:none;opacity:1}}
@@ -1159,7 +1166,10 @@ body.lock{overflow:hidden}
 .dock-tip.show{transform:translate(-50%,0) scale(1)}
 @media(max-width:640px){
   .dock{bottom:calc(14px + env(safe-area-inset-bottom,0px))}
-  .dock-main{height:52px;font-size:.95rem}
+  .dock{--dh:52px}
+  .dock,.dock-tip{left:calc(50% - 30px)}
+  #totop{bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+  .dock-main{font-size:.95rem}
   .dock-tip{bottom:calc(84px + env(safe-area-inset-bottom,0px));font-size:.82rem}
 }
 @media(prefers-reduced-motion:reduce){.dock,.dock *{transition-duration:.01s!important;animation:none!important}}
