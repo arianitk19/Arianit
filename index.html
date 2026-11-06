@@ -916,7 +916,7 @@ footer .big-brand{
 .dock-tip b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
 .dock-tip button{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:var(--mut);border:1px solid var(--line-soft)}
 .dock-tip button:hover{color:#fff}
-@media(max-width:400px){.dock-wa{display:none}.dock-tip{white-space:normal;width:84vw}}
+@media(max-width:340px){.dock-wa{display:none}.dock-tip{white-space:normal;width:84vw}}
 @media(max-width:640px){.dock{bottom:16px}#totop{bottom:16px;right:16px}}
 
 .qs{position:fixed;inset:0;z-index:700;display:flex;align-items:center;justify-content:center;padding:16px;visibility:hidden}
@@ -985,6 +985,149 @@ footer .big-brand{
   .qs-body{padding:18px 18px 6px}
 }
 body.lock{overflow:hidden}
+
+/* ============================================================
+   PROJEKTET — kryesoret + tranzicione smooth
+   ============================================================ */
+.fstar{color:#fcd34d}
+.pf-k{flex-wrap:wrap;row-gap:8px}.pf-k > span{white-space:nowrap}
+@media(max-width:640px){.pf-k{gap:8px}.pf-fchip{padding:4px 9px;letter-spacing:.1em}}
+.pf-cover{transition:opacity .95s cubic-bezier(.22,1,.36,1),transform 1.3s cubic-bezier(.22,1,.36,1),filter .95s cubic-bezier(.22,1,.36,1)}
+.pf-cover.enter{opacity:0;transform:scale(1.07);filter:blur(14px)}
+.pf-cover.leave{opacity:0;transform:scale(.985);filter:blur(10px)}
+.pf-cover .emb,.pf-cover .pf-cname,.pf-cover .pf-ribbon{transition:transform 1.1s cubic-bezier(.22,1,.36,1) .12s,opacity .9s ease .12s}
+.pf-cover.enter .emb{transform:translateY(22px) scale(.88);opacity:0}
+.pf-cover.enter .pf-cname{transform:translateY(16px);opacity:0}
+.pf-cover.enter .pf-ribbon{transform:translateY(-10px);opacity:0}
+.pf-frame{transition:opacity .9s cubic-bezier(.22,1,.36,1),filter .9s cubic-bezier(.22,1,.36,1)}
+.pf-screen:not(.live) .pf-frame{filter:blur(10px)}
+.pf-sw{transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1),filter .6s ease}
+.pf-info > div > .pf-sw:nth-child(2){transition-delay:.06s}
+.pf-info > div > .pf-sw:nth-child(3){transition-delay:.12s}
+.pf-info > div > .pf-sw:nth-child(4){transition-delay:.18s}
+.pf-info.swap .pf-sw{opacity:0;transform:translateY(12px);filter:blur(6px);transition-duration:.25s;transition-delay:0s!important}
+.pf-acts .btn{transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s,border-color .4s,background .4s}
+/* lista: hyrje e butë */
+.pf-it{opacity:0;transform:translateX(22px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--d,0) * 1ms + .15s)}
+.pf.in .pf-it{opacity:1;transform:none}
+.pf-it.anim{animation:pfItIn .65s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--ad,0ms)}
+@keyframes pfItIn{from{opacity:0;transform:translateY(12px) scale(.97);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+.pf-it > button{transition:background .45s cubic-bezier(.22,1,.36,1),border-color .45s,transform .45s cubic-bezier(.22,1,.36,1)}
+.pf-it > button:active{transform:scale(.98)}
+.pf-gh{list-style:none;display:flex;align-items:center;gap:8px;padding:12px 14px 6px;font-family:var(--font-m);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--mut-2)}
+.pf-gh svg{color:#fcd34d}
+.pf-gh.hide{display:none}
+.pf-it.feat > button::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:3px;background:linear-gradient(180deg,#fde68a,#c084fc,#38d4ff);opacity:.85}
+.pf-it .fs{font-style:normal;display:inline-flex;align-items:center;gap:4px;color:#fcd34d}
+.pf-it.feat .pf-ai{box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 0 0 1px rgba(252,211,77,.35),0 10px 24px rgba(0,0,0,.35)}
+/* stage për projektet kryesore */
+.pf-stage::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;z-index:4;
+  background:conic-gradient(from var(--a,0deg),rgba(252,211,77,.0),rgba(252,211,77,.85),#c084fc,#38d4ff,rgba(252,211,77,0) 55%,rgba(252,211,77,0));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+  opacity:0;transition:opacity .9s ease;animation:spin 6s linear infinite}
+.pf-stage.feat::after{opacity:1}
+.pf-stage.feat{box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 60px rgba(252,211,77,.06)}
+.pf-fchip{font-family:var(--font-m);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#fde68a;padding:4px 11px;border-radius:99px;border:1px solid rgba(252,211,77,.45);background:linear-gradient(120deg,rgba(252,211,77,.16),rgba(192,132,252,.12))}
+.pf-ribbon{position:absolute;z-index:3;top:16px;right:16px;display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:99px;
+  font:500 10px var(--font-m);letter-spacing:.16em;text-transform:uppercase;color:#1a1305;background:linear-gradient(120deg,#fde68a,#fbbf24 45%,#f5d08a);
+  box-shadow:0 8px 24px rgba(251,191,36,.35),inset 0 1px 0 rgba(255,255,255,.6)}
+.pf-cover.feat::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.14) 50%,transparent 65%);transform:translateX(-120%);animation:pfSheen 4.5s cubic-bezier(.22,1,.36,1) infinite 1.2s}
+@keyframes pfSheen{0%,40%{transform:translateX(-120%)}75%,100%{transform:translateX(120%)}}
+@media(max-width:960px){.pf-gh{display:none}.pf-it{transform:translateY(10px)}}
+@media(max-width:640px){.pf-ribbon{top:10px;right:10px;padding:5px 10px;font-size:9px}}
+
+/* ============================================================
+   BUTONI "KTHEHU LART" v2 — mbushet ngadalë me scroll
+   ============================================================ */
+#totop{width:56px;height:56px;padding:0;overflow:visible;border:none;background:rgba(10,10,16,.72);
+  box-shadow:0 14px 34px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.08);
+  transform:translateY(24px) scale(.5) rotate(-40deg);
+  transition:opacity .5s ease,visibility .5s,transform .75s cubic-bezier(.34,1.5,.55,1),box-shadow .5s}
+#totop.show{transform:none}
+#totop:hover{transform:translateY(-4px) scale(1.06);box-shadow:0 18px 40px rgba(0,0,0,.55),0 0 30px rgba(124,108,255,.35);border:none}
+#totop:active{transform:scale(.9);transition-duration:.15s}
+#totop .tt-ring,#totop:hover .tt-ring{transform:rotate(-90deg)}
+#totop .tt-ar svg{transition:transform .55s cubic-bezier(.22,1,.36,1)}
+#totop .tt-wave{transition:none}
+.tt-ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+.tt-ring circle{fill:none;stroke-width:2.6}
+.tt-ring .bg{stroke:rgba(255,255,255,.09)}
+.tt-ring .fg{stroke-linecap:round;filter:drop-shadow(0 0 4px rgba(124,108,255,.8))}
+.tt-liq{position:absolute;inset:6px;border-radius:50%;overflow:hidden;background:rgba(255,255,255,.03);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);clip-path:circle(50%)}
+.tt-fill{position:absolute;left:0;right:0;bottom:0;height:var(--h,0%);background:linear-gradient(180deg,#8b7cff,#6d7cff 55%,#38d4ff)}
+.tt-wave{position:absolute;left:0;bottom:calc(100% - 1px);width:200%;height:7px;fill:#8b7cff;animation:ttWave 2.4s linear infinite}
+.tt-wave.w2{opacity:.5;animation-duration:3.6s;animation-direction:reverse;bottom:calc(100% - 2px)}
+@keyframes ttWave{to{transform:translateX(-50%)}}
+#totop.full .tt-wave{animation-play-state:paused;opacity:0}
+.tt-ar{position:relative;z-index:2;width:22px;height:22px;display:grid;place-items:center;overflow:hidden;color:#fff;filter:drop-shadow(0 1px 3px rgba(0,0,0,.45))}
+.tt-ar svg{position:absolute;transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.tt-ar .a2{transform:translateY(130%)}
+#totop:hover .tt-ar .a1{transform:translateY(-130%)}
+#totop:hover .tt-ar .a2{transform:none}
+#totop.launch .tt-ar .a1,#totop.launch .tt-ar .a2{animation:ttLaunch .85s cubic-bezier(.65,0,.35,1)}
+@keyframes ttLaunch{0%{transform:none}40%{transform:translateY(-160%)}41%{transform:translateY(160%)}100%{transform:none}}
+.tt-pct{position:absolute;right:calc(100% + 10px);top:50%;transform:translate(8px,-50%);padding:6px 11px;border-radius:99px;background:rgba(14,14,22,.92);border:1px solid rgba(124,108,255,.35);
+  font:500 11px var(--font-m);letter-spacing:.08em;color:#e8e6ff;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .35s,transform .45s cubic-bezier(.22,1,.36,1)}
+#totop:hover .tt-pct{opacity:1;transform:translate(0,-50%)}
+#totop.full{box-shadow:0 14px 34px rgba(0,0,0,.5),0 0 0 0 rgba(124,108,255,.6);animation:ttFull 2s ease-out infinite}
+@keyframes ttFull{0%{box-shadow:0 14px 34px rgba(0,0,0,.5),0 0 0 0 rgba(124,108,255,.55)}100%{box-shadow:0 14px 34px rgba(0,0,0,.5),0 0 0 14px rgba(124,108,255,0)}}
+@media(max-width:640px){#totop{width:50px;height:50px}.tt-liq{inset:5px}}
+@media(hover:none){.tt-pct{display:none}}
+
+/* ============================================================
+   DOCK "Nis projektin" v2 — morph, spring, glow (sidomos mobile)
+   ============================================================ */
+.dock{bottom:calc(18px + env(safe-area-inset-bottom,0px));padding:5px;gap:5px;
+  transform:translate(-50%,170%) scale(.6);opacity:0;filter:blur(6px);
+  transition:transform .75s cubic-bezier(.34,1.45,.55,1),opacity .45s ease,filter .5s ease,padding .5s var(--ease),gap .5s var(--ease);
+  will-change:transform}
+.dock.show{transform:translate(-50%,0) scale(1);opacity:1;filter:none}
+.dock::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;
+  background:conic-gradient(from var(--a,0deg),rgba(255,255,255,.08),#7c6cff,#38d4ff,rgba(255,255,255,.08) 45%,rgba(255,255,255,.08) 60%,#c084fc,rgba(255,255,255,.08));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 4.5s linear infinite}
+.dock::after{content:"";position:absolute;inset:8px 18px -10px;border-radius:inherit;z-index:-1;pointer-events:none;
+  background:linear-gradient(100deg,#8b7cff,#38d4ff,#c084fc);filter:blur(22px);opacity:.45;animation:dockBreath 3.4s ease-in-out infinite}
+@keyframes dockBreath{50%{opacity:.75;transform:scale(1.04)}}
+.dock-main{height:50px;padding:0 8px 0 18px;gap:0;transition:transform .45s cubic-bezier(.34,1.5,.6,1),box-shadow .4s,padding .55s cubic-bezier(.34,1.3,.6,1)}
+.dock-main .pd{margin-right:10px;transition:margin .5s var(--ease),opacity .3s}
+.dock-main .dl{display:inline-block;max-width:170px;overflow:hidden;white-space:nowrap;opacity:1;
+  transition:max-width .6s cubic-bezier(.34,1.25,.6,1),opacity .35s ease .08s,margin .5s var(--ease);margin-right:12px}
+.dock-main .da{position:relative;width:34px;height:34px;flex:none;border-radius:50%;display:grid;place-items:center;background:#0a0a12;color:#fff;
+  box-shadow:0 4px 12px rgba(10,10,18,.35);transition:transform .55s cubic-bezier(.34,1.5,.6,1)}
+.dock-main .da svg{transition:transform .5s var(--ease),opacity .3s}
+.dock-main .da .sp{position:absolute;opacity:0;transform:scale(.4) rotate(-90deg)}
+.dock-main:hover .da{transform:rotate(-12deg)}
+.dock-main:active{transform:scale(.93)}
+/* gjendja kompakte (gjatë scroll-it poshtë) */
+.dock.mini{padding:4px;gap:0}
+.dock.mini .dock-main{padding:0 8px}
+.dock.mini .dock-main .dl{max-width:0;opacity:0;margin-right:0;transition:max-width .45s var(--ease),opacity .15s,margin .45s var(--ease)}
+.dock.mini .dock-main .pd{opacity:0;margin-right:0;width:0}
+.dock.mini .dock-main .da .ar{opacity:0;transform:scale(.4) rotate(90deg)}
+.dock.mini .dock-main .da .sp{opacity:1;transform:none}
+.dock.mini .dock-wa{width:0;opacity:0;border-width:0;margin-left:-5px;transform:scale(.4)}
+.dock-wa{transition:width .5s var(--ease),opacity .3s,transform .5s cubic-bezier(.34,1.5,.6,1),margin .5s var(--ease),border-color .3s,background .3s}
+.dock.show .dock-wa{animation:dockPop .7s cubic-bezier(.34,1.6,.6,1) .25s both}
+@keyframes dockPop{from{transform:scale(.3);opacity:0}to{transform:none;opacity:1}}
+.dock.show .dock-main{animation:dockGrow .8s cubic-bezier(.34,1.4,.6,1) .05s both}
+@keyframes dockGrow{from{transform:scale(.7)}to{transform:none}}
+.dock-tip{bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translate(-50%,14px) scale(.92);transition:opacity .45s ease,transform .6s cubic-bezier(.34,1.45,.55,1)}
+.dock-tip.show{transform:translate(-50%,0) scale(1)}
+@media(max-width:640px){
+  .dock{bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+  .dock-main{height:52px;font-size:.95rem}
+  .dock-tip{bottom:calc(84px + env(safe-area-inset-bottom,0px));font-size:.82rem}
+}
+@media(prefers-reduced-motion:reduce){.dock,.dock *{transition-duration:.01s!important;animation:none!important}}
+
+/* wizard në celular — bottom sheet si iOS, me tërheqje poshtë për ta mbyllur */
+.qs-grab{display:none}
+@media(max-width:640px){
+  .qs-box{transition:opacity .35s ease,transform .6s cubic-bezier(.32,.72,0,1);padding-bottom:env(safe-area-inset-bottom,0px)}
+  .qs-box.drag{transition:none}
+  .qs-grab{display:block;width:44px;height:5px;border-radius:99px;background:rgba(255,255,255,.22);margin:10px auto -8px;flex:none}
+  .qs-hd{touch-action:none}
+}
 
 
 /* ============================================================
@@ -1221,7 +1364,7 @@ body.lock{overflow:hidden}
         </div>
         <div class="pf-info" id="pfInfo" aria-live="polite">
           <div>
-            <div class="pf-k pf-sw"><span class="ai pf-ai-s" id="pfIco"></span><span><b id="pfNum">01</b> / <span id="pfTot">10</span></span><span class="cat" id="pfCat">—</span></div>
+            <div class="pf-k pf-sw"><span class="ai pf-ai-s" id="pfIco"></span><span><b id="pfNum">01</b> / <span id="pfTot">10</span></span><span class="cat" id="pfCat">—</span><span class="pf-fchip" id="pfFeat" hidden>★ Kryesor</span></div>
             <h3 class="pf-sw" id="pfTitle">—</h3>
             <p class="pf-sw" id="pfDesc"></p>
             <div class="badges pf-sw" id="pfTech"></div>
@@ -1413,7 +1556,10 @@ body.lock{overflow:hidden}
 </main>
 <!-- Butoni Lart -->
 <button id="totop" aria-label="Kthehu lart">
-  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="url(#ig1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V4M5 11l7-7 7 7"/></svg>
+  <svg class="tt-ring" viewBox="0 0 60 60" aria-hidden="true"><circle class="bg" cx="30" cy="30" r="27"/><circle class="fg" cx="30" cy="30" r="27" stroke="url(#ig1)"/></svg>
+  <span class="tt-liq" aria-hidden="true"><span class="tt-fill"><svg class="tt-wave w1" viewBox="0 0 120 10" preserveAspectRatio="none"><path d="M0 5 Q15 0 30 5 T60 5 T90 5 T120 5 V10 H0Z"/></svg><svg class="tt-wave w2" viewBox="0 0 120 10" preserveAspectRatio="none"><path d="M0 5 Q15 10 30 5 T60 5 T90 5 T120 5 V10 H0Z"/></svg></span></span>
+  <span class="tt-ar" aria-hidden="true"><svg class="a1" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg><svg class="a2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></span>
+  <span class="tt-pct" aria-hidden="true">0%</span>
 </button>
 <!-- Parapamje e projektit në ekran të plotë -->
 <div class="pmodal" id="pmodal" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
@@ -1446,7 +1592,7 @@ body.lock{overflow:hidden}
 
 <!-- Nis projektin: dock lundrues -->
 <div class="dock" id="dock" aria-hidden="true">
-  <button class="dock-main" type="button" data-qs tabindex="-1"><span class="pd"></span>Nis projektin<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  <button class="dock-main" type="button" data-qs tabindex="-1" aria-label="Nis projektin"><span class="pd"></span><span class="dl">Nis projektin</span><span class="da"><svg class="ar" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg><svg class="sp" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5c.8 4.9 2.8 6.9 7.7 7.7-4.9.8-6.9 2.8-7.7 7.7-.8-4.9-2.8-6.9-7.7-7.7 4.9-.8 6.9-2.8 7.7-7.7Z"/></svg></span></button>
   <a class="dock-wa" href="https://wa.me/38345954832" target="_blank" rel="noopener" aria-label="WhatsApp" tabindex="-1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.25A9.5 9.5 0 1 0 12 2.5Z" stroke="url(#ig3)" stroke-width="1.7" stroke-linejoin="round" fill="url(#ig3)" fill-opacity=".12"/><path d="M8.6 7.8c-.5.5-.8 1.2-.6 2 .3 1.4 1.2 2.9 2.5 4.2 1.3 1.3 2.8 2.2 4.2 2.5.8.2 1.5-.1 2-.6l.6-.7c.3-.4.2-1-.2-1.3l-1.6-1c-.3-.2-.8-.2-1.1.1l-.6.5c-.7-.4-2.1-1.5-2.7-2.7l.5-.6c.3-.3.3-.8.1-1.1l-1-1.6c-.3-.4-.9-.5-1.3-.2l-.8.5Z" fill="url(#ig3)" fill-opacity=".85"/></svg></a>
 </div>
 <div class="dock-tip" id="dockTip" role="status"><span>Ke një ide? <b>Nise në 3 hapa</b> — pa scroll.</span><button type="button" id="dockTipX" aria-label="Mbyll"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
@@ -1455,6 +1601,7 @@ body.lock{overflow:hidden}
 <div class="qs" id="qs" role="dialog" aria-modal="true" aria-labelledby="qsTitle">
   <div class="scrim" data-qsclose></div>
   <div class="qs-box">
+    <span class="qs-grab" aria-hidden="true"></span>
     <div class="qs-hd">
       <svg class="mk" viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="250" fill="#050507"/><circle cx="256" cy="256" r="240" fill="none" stroke="url(#igr)" stroke-width="14"/><g stroke="#f2f2f7" stroke-width="48" fill="none"><path d="M150 166 332 348"/><path d="M150 238v134"/><path d="M332 142v134"/></g></svg>
       <div><b id="qsTitle">Nis projektin</b><small id="qsStepT">Hapi 1 nga 3</small></div>
@@ -1547,7 +1694,7 @@ const PROJECTS = [
    desc:'Website premium dhe PWA për planifikim e dizajn hapësirash — plane, vizualizime 2D/3D dhe interier, në gjermanisht, anglisht dhe shqip.',tech:['PWA','DE/EN/SQ','Editorial']},
   {id:'kurani',cat:'web-app',catL:'Web App',title:'Lexo Kuranin Shqip',url:'https://lexokuraninshqip.vercel.app',mono:'LK',c:['#34d399','#065f46'],
    desc:'Aplikacion web për leximin e Kuranit në gjuhën shqipe — i pastër, i lexueshëm dhe komod në celular.',tech:['Reader','Mobile-first','Shqip']},
-  {id:'cimi',cat:'web-app',catL:'Website',title:'CIMI Group',url:'https://cimigroup.vercel.app',mono:'CG',c:['#818cf8','#3730a3'],
+  {id:'cimi',cat:'web-app',catL:'Website',title:'CIMI Group',url:'https://cimigroup.com',mono:'CG',c:['#818cf8','#3730a3'],
    desc:'Website prezantues korporativ për CIMI Group — identitet i fortë, shërbimet dhe kontakti në një vend.',tech:['Corporate','Responsive','SEO']},
   {id:'bonemenu',cat:'web-app',catL:'Web App',title:'boneMenu',url:'https://bonemenu.vercel.app/#/',mono:'bM',c:['#fb923c','#b93a0b'],
    desc:'Meny digjitale për restorante dhe kafene — klientët e hapin nga telefoni dhe shohin ofertën menjëherë.',tech:['Digital Menu','QR-ready','Mobile']},
@@ -1562,6 +1709,10 @@ const PROJECTS = [
   {id:'poligoni',cat:'website',catL:'Website',title:'Poligoni Patriot',url:'https://poligonipatriot.com',mono:'PP',c:['#f87171','#7f1d1d'],
    desc:'Website për Poligoni Patriot në Gjakovë — poligon qitjeje, trajnime dhe certifikime, dyqan armësh dhe servis, me orar dhe kontakt në një vend.',tech:['E-commerce','Trajnime','Gjakovë']}
 ];
+/* projektet kryesore — dalin të parat dhe kanë pamje të veçantë */
+const FEATURED = ['poligoni', 'cimi', 'tekton', 'endritk'];
+PROJECTS.forEach((p, i) => { p.feat = FEATURED.includes(p.id); p._o = i; });
+PROJECTS.sort((a, b) => (a.feat ? FEATURED.indexOf(a.id) : 100 + a._o) - (b.feat ? FEATURED.indexOf(b.id) : 100 + b._o));
 const SERVICES = [
   {t:'Zhvillim Website',d:'Faqe biznesi, portofole dhe sisteme prezantuese me dizajn premium dhe performancë ekstreme.',tag:'Web · Landing · Corporate',
    i:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="4" width="19" height="15" rx="3" stroke="url(#ig1)" stroke-width="1.6"/><path d="M2.5 8.5h19" stroke="url(#ig1)" stroke-width="1.6"/><rect x="2.5" y="4" width="19" height="4.5" rx="3" fill="url(#ig1)" opacity=".2"/><circle cx="5.7" cy="6.3" r=".85" fill="#38d4ff"/><circle cx="8.4" cy="6.3" r=".85" fill="#c084fc"/><path d="m7 12.6 2.6 2.6L7 17.8" stroke="url(#ig1)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 17.4h5" stroke="url(#ig1)" stroke-width="1.6" stroke-linecap="round"/></svg>'},
@@ -1666,7 +1817,7 @@ document.addEventListener('pointermove', e => {
   b.style.setProperty('--mx', (e.clientX - r.left) + 'px'); b.style.setProperty('--my', (e.clientY - r.top) + 'px');
 }, {passive:true});
 document.addEventListener('pointerdown', e => {
-  const b = e.target.closest && e.target.closest('.hbtn'); if(!b || reduced) return;
+  const b = e.target.closest && e.target.closest('.hbtn, .dock-main, #totop'); if(!b || reduced) return;
   const x = e.clientX, y = e.clientY;
   if(navigator.vibrate) try{ navigator.vibrate(8); }catch(err){}
   const cols = ['#8b7cff', '#38d4ff', '#c084fc', '#ffffff'];
@@ -1696,7 +1847,7 @@ const WA_NUM = '38345954832', MAIL_TO = 'arianitk2005@gmail.com';
 const hostOf = u => u.replace('https://', '').replace(/[\/?#].*$/, '');
 const grpOf = p => (p.catL === 'Sistem' || p.catL === 'Platformë') ? 'sys' : p.catL;
 const PF_GROUPS = [
-  {k:'all', l:'Të gjitha'}, {k:'Website', l:'Website'}, {k:'Web App', l:'Web App'},
+  {k:'all', l:'Të gjitha'}, {k:'feat', l:'<span class="fstar">★</span> Kryesorët'}, {k:'Website', l:'Website'}, {k:'Web App', l:'Web App'},
   {k:'sys', l:'Sisteme & Platforma'}, {k:'Utility', l:'Utility'}
 ];
 const pf = {
@@ -1704,11 +1855,13 @@ const pf = {
   stage:$1('#pfStage'), screen:$1('#pfScreen'), frame:$1('#pfFrame'), iframe:$1('#pfIframe'), list:$1('#pfList'), info:$1('#pfInfo')
 };
 const pfSmall = () => innerWidth < 960 || touch;
-const pfIdx = () => PROJECTS.map((p, i) => i).filter(i => pf.filter === 'all' || grpOf(PROJECTS[i]) === pf.filter);
+const pfMatch = (p, k) => k === 'all' || (k === 'feat' ? !!p.feat : grpOf(p) === k);
+const pfIdx = () => PROJECTS.map((p, i) => i).filter(i => pfMatch(PROJECTS[i], pf.filter));
 
 function coverHTML(p){
   const pat = PATS[p.id] || 'grid';
-  return `<div class="pf-cover enter" style="--c1:${p.c[0]};--c2:${p.c[1]}" data-pat="${pat}">
+  return `<div class="pf-cover enter${p.feat ? ' feat' : ''}" style="--c1:${p.c[0]};--c2:${p.c[1]}" data-pat="${pat}">
+    ${p.feat ? `<span class="pf-ribbon">${STAR}Projekt kryesor</span>` : ''}
     <span class="pf-glow"></span><span class="pat pat-${pat === "islamic" ? "star" : pat}"></span>
     <span class="wm">${ico(p.id)}</span>
     <span class="emb">${RING}<span class="ai ai-xl" style="--c1:${p.c[0]};--c2:${p.c[1]}">${appIco(p.id)}</span></span>
@@ -1720,7 +1873,7 @@ function coverHTML(p){
 (function pfFilters(){
   const wrap = $1('#pfFilters');
   PF_GROUPS.forEach(g => {
-    const n = g.k === 'all' ? PROJECTS.length : PROJECTS.filter(p => grpOf(p) === g.k).length;
+    const n = PROJECTS.filter(p => pfMatch(p, g.k)).length;
     if(!n) return;
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'pf-filter' + (g.k === 'all' ? ' on' : ''); b.setAttribute('role', 'tab');
@@ -1728,7 +1881,13 @@ function coverHTML(p){
     b.addEventListener('click', () => {
       pf.filter = g.k;
       $all('.pf-filter').forEach(x => x.classList.toggle('on', x === b)); pfGlide();
-      $all('.pf-it').forEach(li => li.classList.toggle('hide', !(g.k === 'all' || li.dataset.g === g.k)));
+      let d = 0;
+      $all('.pf-it').forEach(li => {
+        const show = pfMatch(PROJECTS[+li.dataset.i], g.k);
+        li.classList.toggle('hide', !show); li.classList.remove('anim');
+        if(show){ void li.offsetWidth; li.style.setProperty('--ad', (d++ * 45) + 'ms'); li.classList.add('anim'); }
+      });
+      $all('.pf-gh').forEach(h => h.classList.toggle('hide', g.k !== 'all'));
       const ids = pfIdx(); if(!ids.includes(pf.i)) pfSelect(ids[0], 1);
       $1('#pfTot').textContent = String(ids.length).padStart(2, '0'); pfNum();
       pf.el = 0;
@@ -1741,12 +1900,13 @@ function pfGlide(){
   g.style.left = b.offsetLeft + 'px'; g.style.width = b.offsetWidth + 'px';
 }
 /* indeksi */
-pf.list.innerHTML = PROJECTS.map((p, i) => `
-  <li class="pf-it" data-i="${i}" data-g="${grpOf(p)}">
+const STAR = '<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.7 5.9 6.4.7-4.8 4.3 1.4 6.3L12 16.8 6.3 20l1.4-6.3L2.9 9.4l6.4-.7Z"/></svg>';
+pf.list.innerHTML = PROJECTS.map((p, i) => `${i === 0 ? `<li class="pf-gh">${STAR}Projektet kryesore</li>` : ''}${i > 0 && !p.feat && PROJECTS[i - 1].feat ? '<li class="pf-gh">Projekte të tjera</li>' : ''}
+  <li class="pf-it${p.feat ? ' feat' : ''}" data-i="${i}" data-g="${grpOf(p)}" style="--d:${i * 55}">
     <button type="button" aria-label="${p.title}">
       <span class="n">${String(i + 1).padStart(2, '0')}</span>
       <span class="ai pf-ai" style="--c1:${p.c[0]};--c2:${p.c[1]}">${appIco(p.id)}</span>
-      <span><b>${p.title}</b><small>${p.catL}</small></span>
+      <span><b>${p.title}</b><small>${p.feat ? `<em class="fs">${STAR}Kryesor</em> · ` : ''}${p.catL}</small></span>
       <svg class="ar" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </button>
     <span class="pb"></span>
@@ -1786,20 +1946,21 @@ function pfLoadLive(){
 }
 function pfSelect(i, silent){
   if(i == null) return;
-  const p = PROJECTS[i]; pf.i = i; pf.el = 0;
+  const p = PROJECTS[i]; pf.i = i; pf.el = 0; pf.dur = p.feat ? 10000 : 7500;
+  pf.stage.classList.toggle('feat', !!p.feat);
   // cover
-  $all('.pf-cover', pf.screen).forEach(c => { c.classList.add('leave'); setTimeout(() => c.remove(), 800); });
+  $all('.pf-cover', pf.screen).forEach(c => { c.classList.add('leave'); setTimeout(() => c.remove(), 950); });
   pf.screen.insertAdjacentHTML('afterbegin', coverHTML(p));
   const nc = $1('.pf-cover.enter', pf.screen);
   requestAnimationFrame(() => requestAnimationFrame(() => nc && nc.classList.remove('enter')));
   // info
   const set = () => {
-    $1('#pfCat').textContent = p.catL;
+    $1('#pfCat').textContent = p.catL; $1('#pfFeat').hidden = !p.feat;
     const pi = $1('#pfIco'); pi.style.setProperty('--c1', p.c[0]); pi.style.setProperty('--c2', p.c[1]); pi.innerHTML = appIco(p.id); $1('#pfTitle').textContent = p.title; $1('#pfDesc').textContent = p.desc;
     $1('#pfTech').innerHTML = p.tech.map(t => `<span class="badge">${t}</span>`).join('');
     pfNum();
   };
-  if(silent || reduced) set(); else { pf.info.classList.add('swap'); setTimeout(() => { set(); pf.info.classList.remove('swap'); }, 260); }
+  if(silent || reduced) set(); else { pf.info.classList.add('swap'); setTimeout(() => { set(); requestAnimationFrame(() => pf.info.classList.remove('swap')); }, 300); }
   $1('#pfUrl').textContent = hostOf(p.url);
   $1('#pfVisit').href = p.url; $1('#pfExt').href = p.url;
   $all('.pf-it').forEach(li => { const on = +li.dataset.i === i; li.classList.toggle('on', on); if(!on) li.style.removeProperty('--p'); });
@@ -2028,6 +2189,7 @@ function dockUpd(){
   const r = ctSec.getBoundingClientRect();
   const nearContact = r.top < innerHeight * .85;
   const show = scrollY > innerHeight * .65 && !nearContact && !mmenu.classList.contains('open') && !document.body.classList.contains('lock');
+  if(show && !dock.classList.contains('show') && innerWidth <= 768){ dock.classList.add('mini'); clearTimeout(dock._mt); dock._mt = setTimeout(() => dock.classList.remove('mini'), 520); }
   dock.classList.toggle('show', show);
   dock.setAttribute('aria-hidden', !show);
   $all('a,button', dock).forEach(b => b.tabIndex = show ? 0 : -1);
@@ -2040,6 +2202,28 @@ function dockUpd(){
 addEventListener('scroll', dockUpd, {passive:true});
 new MutationObserver(dockUpd).observe(document.body, {attributes:true, attributeFilter:['class']});
 $1('#dockTipX').addEventListener('click', () => tip.classList.remove('show'));
+/* dock: kompakt kur bën scroll poshtë (vetëm celular) */
+let dLastY = scrollY, dIdle;
+addEventListener('scroll', () => {
+  const y = scrollY, d = y - dLastY; dLastY = y;
+  if(innerWidth > 768 || !dock.classList.contains('show')) return;
+  if(d > 7) dock.classList.add('mini'); else if(d < -7) dock.classList.remove('mini');
+  clearTimeout(dIdle); dIdle = setTimeout(() => dock.classList.remove('mini'), 650);
+}, {passive:true});
+/* wizard: tërhiqe poshtë për ta mbyllur (celular) */
+(function qsDrag(){
+  const box = $1('.qs-box'), scrim = $1('.scrim', qsEl); let y0 = null, dy = 0;
+  const start = e => { if(innerWidth > 640) return; y0 = e.touches[0].clientY; dy = 0; box.classList.add('drag'); };
+  const move = e => { if(y0 == null) return; dy = Math.max(0, e.touches[0].clientY - y0); box.style.transform = `translateY(${dy}px)`; scrim.style.opacity = String(1 - Math.min(dy / 420, .8)); };
+  const end = () => {
+    if(y0 == null) return; y0 = null; box.classList.remove('drag'); scrim.style.opacity = '';
+    if(dy > 110){ box.style.transform = 'translateY(105%)'; qsClose(); setTimeout(() => { box.style.transform = ''; }, 650); }
+    else box.style.transform = '';
+  };
+  [$1('.qs-grab'), $1('.qs-hd')].forEach(el => el && el.addEventListener('touchstart', start, {passive:true}));
+  addEventListener('touchmove', move, {passive:true}); addEventListener('touchend', end); addEventListener('touchcancel', end);
+})();
+
 tip.addEventListener('click', e => { if(!e.target.closest('#dockTipX')){ tip.classList.remove('show'); qsOpen(); } });
 $1('#pfTot').textContent = String(PROJECTS.length).padStart(2, '0');
 pfSelect(0, 1);
@@ -2070,7 +2254,28 @@ const links = [...document.querySelectorAll('.nav-link')];
 const secs = links.map(l=>document.querySelector(l.getAttribute('href')));
 const sprog = document.getElementById('sprog');
 const totop = document.getElementById('totop');
-totop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+totop.addEventListener('click',()=>{
+  totop.classList.remove('launch'); void totop.offsetWidth; totop.classList.add('launch');
+  setTimeout(()=>totop.classList.remove('launch'),900);
+  scrollTo({top:0,behavior:'smooth'});
+});
+/* mbushja e butonit — ngadalë, sipas scroll-it */
+(function ttFill(){
+  const fg = totop.querySelector('.fg'), pct = totop.querySelector('.tt-pct'), C = 2 * Math.PI * 27;
+  fg.style.strokeDasharray = C; let cur = 0, run = false;
+  const target = () => { const m = document.documentElement.scrollHeight - innerHeight; return m > 0 ? Math.min(scrollY / m, 1) : 0; };
+  const draw = () => {
+    const t = target(); cur += (t - cur) * (reduced ? 1 : .065);
+    if(Math.abs(t - cur) < .0008) cur = t;
+    totop.style.setProperty('--h', (cur * 100).toFixed(2) + '%');
+    fg.style.strokeDashoffset = (C * (1 - cur)).toFixed(2);
+    pct.textContent = Math.round(cur * 100) + '%';
+    totop.classList.toggle('full', cur > .985);
+    if(cur !== t) requestAnimationFrame(draw); else run = false;
+  };
+  const kick = () => { if(!run){ run = true; requestAnimationFrame(draw); } };
+  addEventListener('scroll', kick, {passive:true}); addEventListener('resize', kick); kick();
+})();
 addEventListener('scroll',()=>{
   nav.classList.toggle('scrolled',scrollY>40);
   totop.classList.toggle('show',scrollY>600);
