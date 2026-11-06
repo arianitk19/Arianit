@@ -594,6 +594,8 @@ footer .big-brand{
 .f-grid h5{font-family:var(--font-m);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mut-2);margin-bottom:18px}
 .f-grid a{display:block;color:var(--mut);font-size:.9rem;padding:5px 0;transition:color .3s,transform .3s var(--ease)}
 .f-grid a:hover{color:#fff;transform:translateX(4px)}
+.f-grid a.logo{display:flex;font-size:1.25rem;color:var(--ink);padding:0}
+.f-grid a.logo:hover{transform:none}
 .f-grid p{color:var(--mut);font-size:.92rem;max-width:340px}
 .f-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:30px;color:var(--mut-2);font-size:.8rem}
 .f-bottom .sig{font-family:var(--font-m);font-size:.74rem;letter-spacing:.12em}
@@ -1033,49 +1035,6 @@ body.lock{overflow:hidden}
   .hbtn{justify-content:space-between;height:58px}
 }
 
-/* ============================================================
-   BIZNESET QË NA BESOJNË — Social Media
-   ============================================================ */
-.sm-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
-.sm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-@media(max-width:1100px){.sm-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.sm-grid{grid-template-columns:1fr}}
-.sm-card{position:relative;display:flex;flex-direction:column;padding:20px;border-radius:24px;overflow:hidden;
-  border:1px solid var(--line-soft);background:linear-gradient(170deg,rgba(255,255,255,.035),rgba(255,255,255,.008));
-  transition:transform .6s var(--ease),border-color .5s,box-shadow .6s}
-.sm-card::before{content:"";position:absolute;inset:-1px;z-index:0;pointer-events:none;background:radial-gradient(90% 60% at 50% 0%,color-mix(in srgb,var(--c1) 22%,transparent),transparent 70%);opacity:.55;transition:opacity .5s}
-.sm-card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--c1) 55%,transparent);box-shadow:0 26px 60px rgba(0,0,0,.5),0 0 40px color-mix(in srgb,var(--c1) 18%,transparent)}
-.sm-card:hover::before{opacity:1}
-.sm-card > *{position:relative;z-index:1}
-.sm-top{display:flex;align-items:center;gap:14px}
-.sm-ai{width:52px;height:52px}
-.sm-top h3{font-family:var(--font-d);font-weight:500;font-size:1.12rem;line-height:1.2}
-.sm-top small{display:block;margin-top:3px;font-family:var(--font-m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut-2)}
-.sm-feed{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:18px;border-radius:14px;overflow:hidden}
-.sm-feed i{position:relative;aspect-ratio:1;display:grid;place-items:center;overflow:hidden;
-  background:linear-gradient(var(--g,150deg),color-mix(in srgb,var(--c1) var(--m1,70%),#0b0b12),color-mix(in srgb,var(--c2) var(--m2,60%),#0b0b12));
-  transition:transform .6s var(--ease),filter .5s}
-.sm-feed i::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.22) 50%,transparent 65%);transform:translateX(-120%);animation:smSh 5s var(--ease) infinite;animation-delay:var(--d,0s)}
-@keyframes smSh{0%,55%{transform:translateX(-120%)}85%,100%{transform:translateX(120%)}}
-.sm-feed i svg{width:42%;height:42%;opacity:.55}
-.sm-feed i.pl svg{width:30%;height:30%;opacity:.9}
-.sm-card:hover .sm-feed i{transform:scale(.94);filter:brightness(1.12)}
-.sm-card:hover .sm-feed i:nth-child(2n){transform:scale(.94) translateY(-3px)}
-.sm-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
-.sm-tags span{font-family:var(--font-m);font-size:9.5px;letter-spacing:.06em;padding:5px 10px;border-radius:99px;border:1px solid var(--line-soft);color:var(--mut);background:rgba(255,255,255,.02)}
-.sm-link{margin-top:auto;padding-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:.84rem;color:var(--mut);transition:color .3s}
-.sm-link svg{transition:transform .4s var(--ease)}
-.sm-link:hover{color:#fff}
-.sm-link:hover svg{transform:translate(3px,-3px)}
-.sm-cta{justify-content:center;text-align:left;border-style:dashed;border-color:rgba(124,108,255,.45);--c1:#7c6cff;--c2:#38d4ff;
-  background:radial-gradient(120% 90% at 100% 0%,rgba(124,108,255,.2),transparent 60%),var(--bg-2)}
-.sm-cta .plus{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;border:1px dashed rgba(139,124,255,.6);color:#cfc8ff;margin-bottom:18px;transition:transform .6s var(--ease)}
-.sm-cta:hover .plus{transform:rotate(90deg)}
-.sm-cta h3{font-family:var(--font-d);font-weight:500;font-size:1.35rem;line-height:1.2}
-.sm-cta p{color:var(--mut);font-size:.9rem;margin-top:8px}
-.sm-cta .hbtn{margin-top:22px;align-self:flex-start;height:52px;padding-left:22px;font-size:.88rem}
-.sm-cta .hbtn .hb-ic{width:38px;height:38px}
-
 /* ---------- ikonat e projekteve ---------- */
 .ai{position:relative;display:grid;place-items:center;flex:none;border-radius:28%;overflow:hidden;isolation:isolate;
   background:linear-gradient(145deg,var(--c1),var(--c2));
@@ -1137,7 +1096,7 @@ body.lock{overflow:hidden}
 <!-- Navigation -->
 <nav id="topnav" aria-label="Navigimi kryesor">
   <div class="nav-in">
-    <a href="#home" class="logo"><svg class="mark-img" width="34" height="34" viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="250" fill="#050507"/><circle cx="256" cy="256" r="240" fill="none" stroke="url(#igr)" stroke-width="14"/><g stroke="#f2f2f7" stroke-width="48" fill="none"><path d="M150 166 332 348"/><path d="M150 238v134"/><path d="M332 142v134"/></g></svg>builtby<em>niti</em></a>
+    <a href="#home" class="logo"><svg class="mark-img" width="34" height="34" viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="250" fill="#050507"/><circle cx="256" cy="256" r="240" fill="none" stroke="url(#igr)" stroke-width="14"/><g stroke="#f2f2f7" stroke-width="48" fill="none"><path d="M150 166 332 348"/><path d="M150 238v134"/><path d="M332 142v134"/></g></svg><span class="logo-t">builtby<em>niti</em></span></a>
     <div class="nav-links">
       <a href="#about" class="nav-link">Studio</a>
       <a href="#services" class="nav-link">Shërbimet</a>
@@ -1294,20 +1253,6 @@ body.lock{overflow:hidden}
       <h3>Së shpejti — më shumë projekte</h3>
       <p>Të gjitha projektet e builtbyniti do të publikohen së shpejti, një nga një. Ndiqe <a href="https://www.instagram.com/builtbyniti" target="_blank" rel="noopener">@builtbyniti</a> në Instagram për çdo lansim të ri.</p>
     </div>
-  </div>
-</section>
-<div class="glow-line"></div>
-<!-- ================= BIZNESET QË NA BESOJNË ================= -->
-<section id="klientet">
-  <div class="wrap">
-    <div class="sec-head sm-head">
-      <div>
-        <span class="eyebrow rv">Social Media</span>
-        <h2 class="sec-title rv d1"><span class="t-grad">Bizneset që na besojnë</span><br><span class="t-dim">rrjetet e tyre sociale.</span></h2>
-      </div>
-      <p class="sec-sub rv d2">Menaxhojmë prezencën online të bizneseve — strategji, përmbajtje dhe video promo që e mbajnë brandin të fortë dhe konsistent në çdo postim.</p>
-    </div>
-    <div class="sm-grid" id="smGrid"></div>
   </div>
 </section>
 <div class="glow-line"></div>
@@ -1559,7 +1504,7 @@ body.lock{overflow:hidden}
     <div class="big-brand" aria-hidden="true">builtbyniti</div>
     <div class="f-grid">
       <div>
-        <a href="#home" class="logo" style="margin-bottom:18px"><svg class="mark-img" width="34" height="34" viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="250" fill="#050507"/><circle cx="256" cy="256" r="240" fill="none" stroke="url(#igr)" stroke-width="14"/><g stroke="#f2f2f7" stroke-width="48" fill="none"><path d="M150 166 332 348"/><path d="M150 238v134"/><path d="M332 142v134"/></g></svg>builtby<em>niti</em></a>
+        <a href="#home" class="logo" style="margin-bottom:18px"><svg class="mark-img" width="34" height="34" viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="250" fill="#050507"/><circle cx="256" cy="256" r="240" fill="none" stroke="url(#igr)" stroke-width="14"/><g stroke="#f2f2f7" stroke-width="48" fill="none"><path d="M150 166 332 348"/><path d="M150 238v134"/><path d="M332 142v134"/></g></svg><span class="logo-t">builtby<em>niti</em></span></a>
         <p>Studio premium e produkteve digjitale. Dizajn, kod dhe strategji — të ndërtuara me perfeksion, nga Prishtina për botën.</p>
       </div>
       <div>
@@ -1712,46 +1657,6 @@ const APP = {
     <g stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M24 3.5v4.5M24 40v4.5M3.5 24H8M40 24h4.5"/></g>`
 };
 const appIco = (id, cls = '') => `<svg class="${cls}" viewBox="0 0 48 48" aria-hidden="true">${APP[id] || ''}</svg>`;
-
-/* ============================================================
-   BIZNESET QË NA BESOJNË — Social Media
-   ============================================================ */
-APP.morina = `<path d="M24 5.5c1.6 6.6 9.8 10.2 9.8 19.8a9.8 9.8 0 0 1-19.6 0c0-4.8 2.7-7.9 5.2-10.4.3 3.1 1.9 5 3.7 5.8C22 15.4 22.5 10 24 5.5Z" fill="#fff"/>
-  <path class="k" d="M24 24.2c1 2.7 4.1 4.2 4.1 7.9a4.1 4.1 0 0 1-8.2 0c0-2.4 1.5-3.8 2.7-5 .2 1.1.7 1.7 1.4 2-.4-2-.5-3.2 0-4.9Z"/>
-  <rect x="11" y="38.6" width="26" height="3.2" rx="1.6" fill="#fff" fill-opacity=".75"/>`;
-const SM = [
-  {id:'morina', name:'Morina Grill Snack', meta:'Restorant · Mainburg, DE', c:['#fb923c','#9a1f0b'], tags:['Social Media','Video promo','Motion design'],
-   link:{href:'https://maps.app.goo.gl/vTPXHYKrQicNt84LA', t:'Shiko në hartë'}},
-  {id:'poligoni', name:'Poligoni Patriot', meta:'Poligon qitjeje · Gjakovë', c:['#f87171','#7f1d1d'], tags:['Social Media','Video promo','Website'],
-   link:{href:'https://poligonipatriot.com', t:'Vizito faqen'}},
-  {id:'cimi', name:'Cimi Group SARL', meta:'Kompani · SARL', c:['#818cf8','#3730a3'], tags:['Social Media','Website'],
-   link:{href:'https://cimigroup.vercel.app', t:'Vizito faqen'}}
-];
-const PLAY = '<svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13l10.5-6.5Z"/></svg>';
-const smFeed = b => {
-  const g = ['150deg','200deg','120deg','170deg','230deg','140deg','190deg','110deg','160deg'];
-  const m = [[70,55],[40,70],[85,45],[55,80],[100,90],[45,50],[75,65],[60,85],[90,40]];
-  return [...Array(9)].map((_, i) => {
-    const inner = i === 4 ? appIco(b.id) : (i === 0 || i === 7) ? PLAY : '';
-    return `<i class="${i === 0 || i === 7 ? 'pl' : ''}" style="--g:${g[i]};--m1:${m[i][0]}%;--m2:${m[i][1]}%;--d:${(i * .18).toFixed(2)}s">${inner}</i>`;
-  }).join('');
-};
-(function smRender(){
-  const grid = document.getElementById('smGrid'); if(!grid) return;
-  grid.innerHTML = SM.map((b, i) => `
-    <article class="sm-card rv d${i + 1}" style="--c1:${b.c[0]};--c2:${b.c[1]}">
-      <div class="sm-top"><span class="ai sm-ai">${appIco(b.id)}</span><div><h3>${b.name}</h3><small>${b.meta}</small></div></div>
-      <div class="sm-feed" aria-hidden="true">${smFeed(b)}</div>
-      <div class="sm-tags">${b.tags.map(t => `<span>${t}</span>`).join('')}</div>
-      <a class="sm-link" href="${b.link.href}" target="_blank" rel="noopener">${b.link.t}<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-    </article>`).join('') + `
-    <article class="sm-card sm-cta rv d4">
-      <span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
-      <h3>Biznesi yt këtu?</h3>
-      <p>Le t'ia rrisim prezencën online edhe biznesit tënd — me përmbajtje që duket premium në çdo postim.</p>
-      <button type="button" class="hbtn hbtn-a" data-qs data-qs-type="4"><span class="hb-glow"></span><span class="hb-sh"></span><span class="hb-lbl"><span data-t="Nis bashkëpunimin">Nis bashkëpunimin</span></span><span class="hb-ic"><svg class="i1" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg><svg class="i2" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
-    </article>`;
-})();
 
 /* ============================================================
    BUTONAT HERO v2 — spotlight + burst në klik
@@ -2006,8 +1911,7 @@ const QS_TYPES = [
   {l:'Web aplikacion / PWA', d:'Aplikacion i instalueshëm, punon offline', i:'<rect x="6.5" y="2.5" width="11" height="19" rx="3" stroke="url(#ig2)" stroke-width="1.6"/><path d="M13.4 7.5 10.6 12h2.8l-2.8 4.5" stroke="url(#ig1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>'},
   {l:'UI/UX & Branding', d:'Logo, identitet vizual dhe dizajn', i:'<path d="M12 2.5 14.4 9l6.6.6-5 4.4 1.5 6.5L12 17l-5.5 3.5L8 14 3 9.6 9.6 9 12 2.5Z" stroke="url(#ig4)" stroke-width="1.5" stroke-linejoin="round"/>'},
   {l:'Dashboard / Platformë', d:'Panel administrimi, sisteme, të dhëna', i:'<rect x="2.5" y="2.5" width="8.5" height="8.5" rx="2" stroke="url(#ig1)" stroke-width="1.5"/><rect x="13" y="2.5" width="8.5" height="5" rx="2" stroke="url(#ig2)" stroke-width="1.5"/><rect x="13" y="9.5" width="8.5" height="12" rx="2" stroke="url(#ig3)" stroke-width="1.5"/><rect x="2.5" y="13" width="8.5" height="8.5" rx="2" stroke="url(#ig4)" stroke-width="1.5"/>'},
-  {l:'Menaxhim i rrjeteve sociale', d:'Strategji, përmbajtje dhe video promo', i:'<rect x="3" y="3" width="18" height="18" rx="5.5" stroke="url(#ig2)" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="url(#ig1)" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.2" fill="url(#ig4)"/>'},
-  {l:'Tjetër', d:'Diçka ndryshe — na trego idenë', i:'<path d="M12 3c.6 3.8 2.2 5.4 6 6-3.8.6-5.4 2.2-6 6-.6-3.8-2.2-5.4-6-6 3.8-.6 5.4-2.2 6-6Z" stroke="url(#ig1)" stroke-width="1.5" stroke-linejoin="round"/>'}
+  {l:'Tjetër', d:'Diçka ndryshe — na trego idenë', i:'<path d="M12 3c.6 3.8 2.2 5.4 6 6-3.8.6-5.4 2.2-6 6-.6-3.8-2.2-5.4-6-6 3.8-.6 5.4-2.2 6-6Z" stroke="url(#ig1)" stroke-width="1.5" stroke-linejoin="round"/>', wide:1}
 ];
 const QS_PKGS = [
   {l:'Starter', d:'Prezencë profesionale online'},
