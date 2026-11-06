@@ -943,7 +943,7 @@ footer .big-brand{
 .qs-step h3{font-family:var(--font-d);font-weight:500;font-size:1.55rem;letter-spacing:-.02em;line-height:1.15}
 .qs-step .h{color:var(--mut);font-size:.9rem;margin-top:6px}
 .qs-opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
-.qs-opt{position:relative;display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;border:1px solid var(--line-soft);background:rgba(255,255,255,.02);text-align:left;transition:border-color .3s,background .3s,box-shadow .3s,transform .4s var(--ease)}
+.qs-opt{position:relative;display:flex;align-items:center;gap:12px;padding:14px 30px 14px 14px;border-radius:16px;border:1px solid var(--line-soft);background:rgba(255,255,255,.02);text-align:left;transition:border-color .3s,background .3s,box-shadow .3s,transform .4s var(--ease)}
 .qs-opt:hover{border-color:rgba(255,255,255,.2);transform:translateY(-2px)}
 .qs-opt .oi{width:42px;height:42px;flex:none;border-radius:13px;display:grid;place-items:center;background:linear-gradient(140deg,rgba(124,108,255,.18),rgba(56,212,255,.08));border:1px solid rgba(124,108,255,.28)}
 .qs-opt b{display:block;font-family:var(--font-d);font-weight:500;font-size:.98rem;color:#fff}
@@ -983,6 +983,98 @@ footer .big-brand{
   .qs-body{padding:18px 18px 6px}
 }
 body.lock{overflow:hidden}
+
+
+/* ============================================================
+   BUTONAT E HERO-s — v2 (spotlight, text-roll, burst në klik)
+   ============================================================ */
+.hbtn{position:relative;display:inline-flex;align-items:center;gap:14px;height:60px;padding:0 9px 0 28px;border-radius:99px;
+  font-size:.95rem;font-weight:600;letter-spacing:.005em;white-space:nowrap;isolation:isolate;cursor:pointer;
+  transition:transform .55s var(--ease),box-shadow .55s var(--ease);-webkit-tap-highlight-color:transparent}
+.hbtn:active{transform:scale(.955)!important;transition-duration:.12s}
+.hbtn .hb-sh{position:absolute;inset:0;border-radius:inherit;overflow:hidden;z-index:-1}
+.hbtn .hb-sh::after{content:"";position:absolute;inset:0;background:radial-gradient(140px circle at var(--mx,50%) var(--my,50%),var(--spot),transparent 70%);opacity:0;transition:opacity .4s}
+.hbtn:hover .hb-sh::after{opacity:1}
+.hb-lbl{position:relative;display:block;height:1.35em;line-height:1.35em;overflow:hidden}
+.hb-lbl span{display:block;transition:transform .6s var(--ease)}
+.hb-lbl span::after{content:attr(data-t);position:absolute;left:0;top:100%}
+.hbtn:hover .hb-lbl span{transform:translateY(-100%)}
+.hb-ic{position:relative;width:44px;height:44px;flex:none;border-radius:50%;clip-path:circle(50%);display:grid;place-items:center;overflow:hidden;transition:transform .6s var(--ease),background .5s}
+.hb-ic svg{position:absolute;transition:transform .6s var(--ease)}
+.hb-ic .i2{transform:translateX(-230%)}
+.hbtn:hover .hb-ic .i1{transform:translateX(230%)}
+.hbtn:hover .hb-ic .i2{transform:none}
+/* A — gradient, glow i gjallë */
+.hbtn-a{--spot:rgba(255,255,255,.55);color:#0a0a12;box-shadow:0 14px 40px rgba(124,108,255,.42),inset 0 1px 0 rgba(255,255,255,.5)}
+.hbtn-a .hb-sh{background:linear-gradient(110deg,#8b7cff,#c084fc 30%,#38d4ff 55%,#c084fc 78%,#8b7cff);background-size:220% 100%;animation:hbFlow 7s linear infinite}
+@keyframes hbFlow{to{background-position:-220% 0}}
+.hbtn-a .hb-glow{position:absolute;inset:6px 10px -6px;border-radius:inherit;z-index:-2;background:linear-gradient(110deg,#8b7cff,#38d4ff,#c084fc);filter:blur(18px);opacity:.55;transition:opacity .5s,inset .5s var(--ease);animation:hbPulse 3.2s ease-in-out infinite}
+@keyframes hbPulse{50%{opacity:.85}}
+.hbtn-a:hover{transform:translateY(-3px);box-shadow:0 22px 54px rgba(124,108,255,.6),inset 0 1px 0 rgba(255,255,255,.6)}
+.hbtn-a:hover .hb-glow{inset:2px 4px -10px;opacity:.95}
+.hbtn-a .hb-ic{background:#0a0a12;color:#fff;box-shadow:0 4px 14px rgba(10,10,18,.35)}
+.hbtn-a:hover .hb-ic{transform:rotate(-8deg) scale(1.05)}
+/* B — xham me kufi gradient që rrotullohet */
+.hbtn-b{--spot:rgba(139,124,255,.32);color:#fff;background:rgba(255,255,255,.035);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 14px 36px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08)}
+.hbtn-b::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;z-index:1;pointer-events:none;
+  background:conic-gradient(from var(--a,0deg),rgba(255,255,255,.12),#7c6cff,#38d4ff,rgba(255,255,255,.12) 40%,rgba(255,255,255,.12) 60%,#c084fc,rgba(255,255,255,.12));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 5s linear infinite;opacity:.75;transition:opacity .4s}
+.hbtn-b:hover{transform:translateY(-3px);background:rgba(124,108,255,.08);box-shadow:0 20px 46px rgba(0,0,0,.55),0 0 32px rgba(124,108,255,.25)}
+.hbtn-b:hover::before{opacity:1;animation-duration:2.2s}
+.hbtn-b .hb-ic{background:linear-gradient(140deg,rgba(124,108,255,.35),rgba(56,212,255,.18));border:1px solid rgba(139,124,255,.45);color:#fff}
+.hbtn-b:hover .hb-ic{animation:hbWig .7s var(--ease)}
+.hbtn-b .hb-ic svg{transform:none}
+@keyframes hbWig{25%{transform:rotate(-12deg)}55%{transform:rotate(9deg)}80%{transform:rotate(-4deg)}}
+/* efekti në klik */
+.hb-spark{position:fixed;z-index:9999;width:7px;height:7px;border-radius:50%;pointer-events:none;left:0;top:0}
+.hb-shock{position:fixed;z-index:9998;width:16px;height:16px;border-radius:50%;pointer-events:none;border:2px solid rgba(160,145,255,.9);box-shadow:0 0 18px rgba(124,108,255,.8)}
+@media(max-width:640px){
+  .hero .ctas{flex-direction:column;align-items:stretch;width:min(340px,100%);margin-inline:auto}
+  .hbtn{justify-content:space-between;height:58px}
+}
+
+/* ============================================================
+   BIZNESET QË NA BESOJNË — Social Media
+   ============================================================ */
+.sm-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.sm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1100px){.sm-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.sm-grid{grid-template-columns:1fr}}
+.sm-card{position:relative;display:flex;flex-direction:column;padding:20px;border-radius:24px;overflow:hidden;
+  border:1px solid var(--line-soft);background:linear-gradient(170deg,rgba(255,255,255,.035),rgba(255,255,255,.008));
+  transition:transform .6s var(--ease),border-color .5s,box-shadow .6s}
+.sm-card::before{content:"";position:absolute;inset:-1px;z-index:0;pointer-events:none;background:radial-gradient(90% 60% at 50% 0%,color-mix(in srgb,var(--c1) 22%,transparent),transparent 70%);opacity:.55;transition:opacity .5s}
+.sm-card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--c1) 55%,transparent);box-shadow:0 26px 60px rgba(0,0,0,.5),0 0 40px color-mix(in srgb,var(--c1) 18%,transparent)}
+.sm-card:hover::before{opacity:1}
+.sm-card > *{position:relative;z-index:1}
+.sm-top{display:flex;align-items:center;gap:14px}
+.sm-ai{width:52px;height:52px}
+.sm-top h3{font-family:var(--font-d);font-weight:500;font-size:1.12rem;line-height:1.2}
+.sm-top small{display:block;margin-top:3px;font-family:var(--font-m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut-2)}
+.sm-feed{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:18px;border-radius:14px;overflow:hidden}
+.sm-feed i{position:relative;aspect-ratio:1;display:grid;place-items:center;overflow:hidden;
+  background:linear-gradient(var(--g,150deg),color-mix(in srgb,var(--c1) var(--m1,70%),#0b0b12),color-mix(in srgb,var(--c2) var(--m2,60%),#0b0b12));
+  transition:transform .6s var(--ease),filter .5s}
+.sm-feed i::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.22) 50%,transparent 65%);transform:translateX(-120%);animation:smSh 5s var(--ease) infinite;animation-delay:var(--d,0s)}
+@keyframes smSh{0%,55%{transform:translateX(-120%)}85%,100%{transform:translateX(120%)}}
+.sm-feed i svg{width:42%;height:42%;opacity:.55}
+.sm-feed i.pl svg{width:30%;height:30%;opacity:.9}
+.sm-card:hover .sm-feed i{transform:scale(.94);filter:brightness(1.12)}
+.sm-card:hover .sm-feed i:nth-child(2n){transform:scale(.94) translateY(-3px)}
+.sm-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.sm-tags span{font-family:var(--font-m);font-size:9.5px;letter-spacing:.06em;padding:5px 10px;border-radius:99px;border:1px solid var(--line-soft);color:var(--mut);background:rgba(255,255,255,.02)}
+.sm-link{margin-top:auto;padding-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:.84rem;color:var(--mut);transition:color .3s}
+.sm-link svg{transition:transform .4s var(--ease)}
+.sm-link:hover{color:#fff}
+.sm-link:hover svg{transform:translate(3px,-3px)}
+.sm-cta{justify-content:center;text-align:left;border-style:dashed;border-color:rgba(124,108,255,.45);--c1:#7c6cff;--c2:#38d4ff;
+  background:radial-gradient(120% 90% at 100% 0%,rgba(124,108,255,.2),transparent 60%),var(--bg-2)}
+.sm-cta .plus{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;border:1px dashed rgba(139,124,255,.6);color:#cfc8ff;margin-bottom:18px;transition:transform .6s var(--ease)}
+.sm-cta:hover .plus{transform:rotate(90deg)}
+.sm-cta h3{font-family:var(--font-d);font-weight:500;font-size:1.35rem;line-height:1.2}
+.sm-cta p{color:var(--mut);font-size:.9rem;margin-top:8px}
+.sm-cta .hbtn{margin-top:22px;align-self:flex-start;height:52px;padding-left:22px;font-size:.88rem}
+.sm-cta .hbtn .hb-ic{width:38px;height:38px}
 
 /* ---------- ikonat e projekteve ---------- */
 .ai{position:relative;display:grid;place-items:center;flex:none;border-radius:28%;overflow:hidden;isolation:isolate;
@@ -1090,12 +1182,8 @@ body.lock{overflow:hidden}
     </h1>
     <p class="sub">builtbyniti — brand premium për web dhe aplikacione. Dizajn high-end, kod modern dhe strategji, të bashkuara në produkte që lënë gjurmë.</p>
     <div class="ctas">
-      <a href="#projects" class="btn btn-pri magnet">Shiko punën tonë
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a href="#contact" class="btn btn-pri magnet">Rezervo konsultim
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 2v3M16 2v3M3.5 9h17M5 4.5h14a1.5 1.5 0 0 1 1.5 1.5v14a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 20V6A1.5 1.5 0 0 1 5 4.5Z"/></svg>
-      </a>
+      <a href="#projects" class="hbtn hbtn-a magnet"><span class="hb-glow"></span><span class="hb-sh"></span><span class="hb-lbl"><span data-t="Shiko punën tonë">Shiko punën tonë</span></span><span class="hb-ic"><svg class="i1" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg><svg class="i2" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a href="#contact" class="hbtn hbtn-b magnet"><span class="hb-sh"></span><span class="hb-lbl"><span data-t="Rezervo konsultim">Rezervo konsultim</span></span><span class="hb-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v3M16 2v3M3.5 9h17M5 4.5h14a1.5 1.5 0 0 1 1.5 1.5v14a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 20V6A1.5 1.5 0 0 1 5 4.5Z"/><path d="M8.5 14.5l2.3 2.3 4.7-4.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
     </div>
   </div>
   <div class="scroll-hint" aria-hidden="true"><span class="sline"><i></i></span>Scroll</div>
@@ -1206,6 +1294,20 @@ body.lock{overflow:hidden}
       <h3>Së shpejti — më shumë projekte</h3>
       <p>Të gjitha projektet e builtbyniti do të publikohen së shpejti, një nga një. Ndiqe <a href="https://www.instagram.com/builtbyniti" target="_blank" rel="noopener">@builtbyniti</a> në Instagram për çdo lansim të ri.</p>
     </div>
+  </div>
+</section>
+<div class="glow-line"></div>
+<!-- ================= BIZNESET QË NA BESOJNË ================= -->
+<section id="klientet">
+  <div class="wrap">
+    <div class="sec-head sm-head">
+      <div>
+        <span class="eyebrow rv">Social Media</span>
+        <h2 class="sec-title rv d1"><span class="t-grad">Bizneset që na besojnë</span><br><span class="t-dim">rrjetet e tyre sociale.</span></h2>
+      </div>
+      <p class="sec-sub rv d2">Menaxhojmë prezencën online të bizneseve — strategji, përmbajtje dhe video promo që e mbajnë brandin të fortë dhe konsistent në çdo postim.</p>
+    </div>
+    <div class="sm-grid" id="smGrid"></div>
   </div>
 </section>
 <div class="glow-line"></div>
@@ -1612,6 +1714,76 @@ const APP = {
 const appIco = (id, cls = '') => `<svg class="${cls}" viewBox="0 0 48 48" aria-hidden="true">${APP[id] || ''}</svg>`;
 
 /* ============================================================
+   BIZNESET QË NA BESOJNË — Social Media
+   ============================================================ */
+APP.morina = `<path d="M24 5.5c1.6 6.6 9.8 10.2 9.8 19.8a9.8 9.8 0 0 1-19.6 0c0-4.8 2.7-7.9 5.2-10.4.3 3.1 1.9 5 3.7 5.8C22 15.4 22.5 10 24 5.5Z" fill="#fff"/>
+  <path class="k" d="M24 24.2c1 2.7 4.1 4.2 4.1 7.9a4.1 4.1 0 0 1-8.2 0c0-2.4 1.5-3.8 2.7-5 .2 1.1.7 1.7 1.4 2-.4-2-.5-3.2 0-4.9Z"/>
+  <rect x="11" y="38.6" width="26" height="3.2" rx="1.6" fill="#fff" fill-opacity=".75"/>`;
+const SM = [
+  {id:'morina', name:'Morina Grill Snack', meta:'Restorant · Mainburg, DE', c:['#fb923c','#9a1f0b'], tags:['Social Media','Video promo','Motion design'],
+   link:{href:'https://maps.app.goo.gl/vTPXHYKrQicNt84LA', t:'Shiko në hartë'}},
+  {id:'poligoni', name:'Poligoni Patriot', meta:'Poligon qitjeje · Gjakovë', c:['#f87171','#7f1d1d'], tags:['Social Media','Video promo','Website'],
+   link:{href:'https://poligonipatriot.com', t:'Vizito faqen'}},
+  {id:'cimi', name:'Cimi Group SARL', meta:'Kompani · SARL', c:['#818cf8','#3730a3'], tags:['Social Media','Website'],
+   link:{href:'https://cimigroup.vercel.app', t:'Vizito faqen'}}
+];
+const PLAY = '<svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13l10.5-6.5Z"/></svg>';
+const smFeed = b => {
+  const g = ['150deg','200deg','120deg','170deg','230deg','140deg','190deg','110deg','160deg'];
+  const m = [[70,55],[40,70],[85,45],[55,80],[100,90],[45,50],[75,65],[60,85],[90,40]];
+  return [...Array(9)].map((_, i) => {
+    const inner = i === 4 ? appIco(b.id) : (i === 0 || i === 7) ? PLAY : '';
+    return `<i class="${i === 0 || i === 7 ? 'pl' : ''}" style="--g:${g[i]};--m1:${m[i][0]}%;--m2:${m[i][1]}%;--d:${(i * .18).toFixed(2)}s">${inner}</i>`;
+  }).join('');
+};
+(function smRender(){
+  const grid = document.getElementById('smGrid'); if(!grid) return;
+  grid.innerHTML = SM.map((b, i) => `
+    <article class="sm-card rv d${i + 1}" style="--c1:${b.c[0]};--c2:${b.c[1]}">
+      <div class="sm-top"><span class="ai sm-ai">${appIco(b.id)}</span><div><h3>${b.name}</h3><small>${b.meta}</small></div></div>
+      <div class="sm-feed" aria-hidden="true">${smFeed(b)}</div>
+      <div class="sm-tags">${b.tags.map(t => `<span>${t}</span>`).join('')}</div>
+      <a class="sm-link" href="${b.link.href}" target="_blank" rel="noopener">${b.link.t}<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    </article>`).join('') + `
+    <article class="sm-card sm-cta rv d4">
+      <span class="plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+      <h3>Biznesi yt këtu?</h3>
+      <p>Le t'ia rrisim prezencën online edhe biznesit tënd — me përmbajtje që duket premium në çdo postim.</p>
+      <button type="button" class="hbtn hbtn-a" data-qs data-qs-type="4"><span class="hb-glow"></span><span class="hb-sh"></span><span class="hb-lbl"><span data-t="Nis bashkëpunimin">Nis bashkëpunimin</span></span><span class="hb-ic"><svg class="i1" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg><svg class="i2" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+    </article>`;
+})();
+
+/* ============================================================
+   BUTONAT HERO v2 — spotlight + burst në klik
+   ============================================================ */
+document.addEventListener('pointermove', e => {
+  const b = e.target.closest && e.target.closest('.hbtn'); if(!b) return;
+  const r = b.getBoundingClientRect();
+  b.style.setProperty('--mx', (e.clientX - r.left) + 'px'); b.style.setProperty('--my', (e.clientY - r.top) + 'px');
+}, {passive:true});
+document.addEventListener('pointerdown', e => {
+  const b = e.target.closest && e.target.closest('.hbtn'); if(!b || reduced) return;
+  const x = e.clientX, y = e.clientY;
+  if(navigator.vibrate) try{ navigator.vibrate(8); }catch(err){}
+  const cols = ['#8b7cff', '#38d4ff', '#c084fc', '#ffffff'];
+  for(let i = 0; i < 14; i++){
+    const s = document.createElement('i'); s.className = 'hb-spark';
+    const a = (Math.PI * 2 * i) / 14 + Math.random() * .4, d = 38 + Math.random() * 46, sz = 4 + Math.random() * 5;
+    s.style.cssText = `width:${sz}px;height:${sz}px;background:${cols[i % 4]};box-shadow:0 0 10px ${cols[i % 4]}`;
+    document.body.appendChild(s);
+    s.animate([
+      {transform:`translate(${x - sz / 2}px,${y - sz / 2}px) scale(1)`, opacity:1},
+      {transform:`translate(${x - sz / 2 + Math.cos(a) * d}px,${y - sz / 2 + Math.sin(a) * d}px) scale(0)`, opacity:0}
+    ], {duration:620 + Math.random() * 280, easing:'cubic-bezier(.22,1,.36,1)'}).onfinish = () => s.remove();
+  }
+  const sh = document.createElement('i'); sh.className = 'hb-shock'; document.body.appendChild(sh);
+  sh.animate([
+    {transform:`translate(${x - 8}px,${y - 8}px) scale(.3)`, opacity:1},
+    {transform:`translate(${x - 8}px,${y - 8}px) scale(7)`, opacity:0}
+  ], {duration:650, easing:'cubic-bezier(.22,1,.36,1)'}).onfinish = () => sh.remove();
+});
+
+/* ============================================================
    PROJEKTET v2 — showcase interaktiv me parapamje live
    ============================================================ */
 const $1 = (s, r = document) => r.querySelector(s);
@@ -1834,7 +2006,8 @@ const QS_TYPES = [
   {l:'Web aplikacion / PWA', d:'Aplikacion i instalueshëm, punon offline', i:'<rect x="6.5" y="2.5" width="11" height="19" rx="3" stroke="url(#ig2)" stroke-width="1.6"/><path d="M13.4 7.5 10.6 12h2.8l-2.8 4.5" stroke="url(#ig1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>'},
   {l:'UI/UX & Branding', d:'Logo, identitet vizual dhe dizajn', i:'<path d="M12 2.5 14.4 9l6.6.6-5 4.4 1.5 6.5L12 17l-5.5 3.5L8 14 3 9.6 9.6 9 12 2.5Z" stroke="url(#ig4)" stroke-width="1.5" stroke-linejoin="round"/>'},
   {l:'Dashboard / Platformë', d:'Panel administrimi, sisteme, të dhëna', i:'<rect x="2.5" y="2.5" width="8.5" height="8.5" rx="2" stroke="url(#ig1)" stroke-width="1.5"/><rect x="13" y="2.5" width="8.5" height="5" rx="2" stroke="url(#ig2)" stroke-width="1.5"/><rect x="13" y="9.5" width="8.5" height="12" rx="2" stroke="url(#ig3)" stroke-width="1.5"/><rect x="2.5" y="13" width="8.5" height="8.5" rx="2" stroke="url(#ig4)" stroke-width="1.5"/>'},
-  {l:'Tjetër', d:'Diçka ndryshe — na trego idenë', i:'<path d="M12 3c.6 3.8 2.2 5.4 6 6-3.8.6-5.4 2.2-6 6-.6-3.8-2.2-5.4-6-6 3.8-.6 5.4-2.2 6-6Z" stroke="url(#ig1)" stroke-width="1.5" stroke-linejoin="round"/>', wide:1}
+  {l:'Menaxhim i rrjeteve sociale', d:'Strategji, përmbajtje dhe video promo', i:'<rect x="3" y="3" width="18" height="18" rx="5.5" stroke="url(#ig2)" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="url(#ig1)" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.2" fill="url(#ig4)"/>'},
+  {l:'Tjetër', d:'Diçka ndryshe — na trego idenë', i:'<path d="M12 3c.6 3.8 2.2 5.4 6 6-3.8.6-5.4 2.2-6 6-.6-3.8-2.2-5.4-6-6 3.8-.6 5.4-2.2 6-6Z" stroke="url(#ig1)" stroke-width="1.5" stroke-linejoin="round"/>'}
 ];
 const QS_PKGS = [
   {l:'Starter', d:'Prezencë profesionale online'},
@@ -1912,6 +2085,7 @@ $all('#qsName,#qsEmail').forEach(i => i.addEventListener('input', () => i.classL
 function qsOpen(opts = {}){
   qsLastFocus = document.activeElement;
   if(opts.pkg != null) qs.pkg = opts.pkg;
+  if(opts.type != null) qs.type = opts.type;
   if(opts.like){
     const map = {'Website':0, 'Web App':1, 'Sistem':3, 'Platformë':3, 'Utility':1};
     qs.type = map[opts.like.catL] ?? 0;
@@ -1930,7 +2104,7 @@ function qsClose(){
 $all('[data-qsclose]', qsEl).forEach(b => b.addEventListener('click', qsClose));
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-qs]'); if(!t) return;
-  e.preventDefault(); qsOpen({pkg: t.dataset.qsPkg != null ? +t.dataset.qsPkg : undefined});
+  e.preventDefault(); qsOpen({pkg: t.dataset.qsPkg != null ? +t.dataset.qsPkg : undefined, type: t.dataset.qsType != null ? +t.dataset.qsType : undefined});
 });
 addEventListener('keydown', e => {
   if(e.key !== 'Escape') return;
