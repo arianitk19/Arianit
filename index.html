@@ -1342,6 +1342,16 @@ body.lock{overflow:hidden}
 .ai svg [stroke="#fff"]{stroke:var(--gl)}
 .ai .k{fill:#10101b}
 .ai .ks{stroke:#10101b}
+
+/* ---------- parapamja në telefon: respekto zonën e orës/baterisë (notch) ---------- */
+#pmodal [data-pmclose].icon-btn{width:42px;height:42px;flex:none;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:#fff}
+#pmodal [data-pmclose].icon-btn:active{transform:scale(.92)}
+@media(max-width:700px){
+  .pm-tools{padding:calc(10px + env(safe-area-inset-top,0px)) 12px 10px 14px;gap:10px}
+  .pm-tools .pf-url{height:38px}
+  .pm-ft{padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px))}
+  .pm-view{padding:10px 12px}
+}
 </style>
 </head>
 <body>
