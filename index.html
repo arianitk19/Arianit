@@ -992,6 +992,69 @@ footer .big-brand{
 body.lock{overflow:hidden}
 
 /* ============================================================
+   PROJEKTET — rrjet i thjeshtë, të gjitha në një vështrim
+   ============================================================ */
+.pg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media(max-width:1020px){.pg{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pc{position:relative;display:flex;flex-direction:column;min-height:240px;padding:22px;border-radius:24px;overflow:hidden;isolation:isolate;text-align:left;
+  border:1px solid var(--line-soft);background:linear-gradient(170deg,rgba(255,255,255,.035),rgba(255,255,255,.008));
+  opacity:0;transform:translateY(26px);
+  transition:opacity .8s cubic-bezier(.22,1,.36,1) calc(var(--d) * 55ms),transform .9s cubic-bezier(.22,1,.36,1) calc(var(--d) * 55ms),border-color .5s,box-shadow .6s,background .5s}
+.pg.in .pc{opacity:1;transform:none}
+.pg.in .pc:hover{transform:translateY(-6px);transition-delay:0s}
+.pc::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(90% 70% at 0% 0%,color-mix(in srgb,var(--c1) 16%,transparent),transparent 60%);opacity:.7;transition:opacity .5s}
+.pc::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(260px circle at var(--x,50%) var(--y,0%),color-mix(in srgb,var(--c1) 18%,transparent),transparent 70%);opacity:0;transition:opacity .4s}
+.pc:hover{border-color:color-mix(in srgb,var(--c1) 50%,transparent);box-shadow:0 26px 60px rgba(0,0,0,.5),0 0 40px color-mix(in srgb,var(--c1) 14%,transparent)}
+.pc:hover::before,.pc:hover::after{opacity:1}
+.pc.hide{display:none}
+.pc.anim{animation:pcIn .6s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--ad,0ms)}
+@keyframes pcIn{from{opacity:0;transform:translateY(14px) scale(.97);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+.pc-hit{position:absolute;inset:0;z-index:1;border-radius:inherit;cursor:pointer}
+.pc-hit:focus-visible{outline:2px solid var(--acc);outline-offset:-2px}
+.pc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.pc-ai{width:56px;height:56px;transition:transform .6s cubic-bezier(.34,1.5,.6,1)}
+.pc:hover .pc-ai{transform:rotate(-6deg) scale(1.06)}
+.pc-cat{font-family:var(--font-m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);padding:5px 10px;border-radius:99px;border:1px solid var(--line-soft);background:rgba(255,255,255,.02);white-space:nowrap}
+.pc h3{font-family:var(--font-d);font-weight:500;font-size:1.28rem;letter-spacing:-.015em;line-height:1.2;margin-top:18px}
+.pc p{color:var(--mut);font-size:.88rem;line-height:1.55;margin-top:7px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pc-ft{margin-top:auto;padding-top:18px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pc-live{display:inline-flex;align-items:center;gap:9px;font-size:.84rem;font-weight:500;color:#fff}
+.pc-live .pl{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--grad);color:#0a0a12;box-shadow:0 4px 14px rgba(124,108,255,.35);transition:transform .5s cubic-bezier(.34,1.5,.6,1)}
+.pc:hover .pc-live .pl{transform:scale(1.12)}
+.pc-ext{position:relative;z-index:2;display:inline-flex;align-items:center;gap:6px;max-width:55%;font-family:var(--font-m);font-size:10.5px;color:var(--mut-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+.pc-ext svg{flex:none;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.pc-ext:hover{color:#fff}
+.pc-ext:hover svg{transform:translate(2px,-2px)}
+.pc-arr{display:none}
+.pc-cta{align-items:flex-start;justify-content:center;gap:6px;border-style:dashed;border-color:rgba(124,108,255,.45);cursor:pointer;color:var(--ink);
+  background:radial-gradient(120% 90% at 100% 0%,rgba(124,108,255,.2),transparent 60%),var(--bg-2)}
+.pc-cta .pc-plus{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;border:1px dashed rgba(139,124,255,.6);color:#cfc8ff;margin-bottom:12px;transition:transform .6s cubic-bezier(.34,1.5,.6,1)}
+.pc-cta:hover .pc-plus{transform:rotate(90deg)}
+.pc-cta b{font-family:var(--font-d);font-weight:500;font-size:1.2rem;line-height:1.25}
+.pc-cta small{color:var(--mut);font-size:.86rem}
+.pc-cta .pc-go{margin-top:14px;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--grad);color:#0a0a12;transition:transform .5s cubic-bezier(.34,1.5,.6,1)}
+.pc-cta:hover .pc-go{transform:rotate(-45deg)}
+/* celular: rreshta kompaktë — të gjitha projektet shihen shpejt */
+@media(max-width:640px){
+  .pg{grid-template-columns:1fr;gap:8px}
+  .pc{display:grid;grid-template-columns:48px minmax(0,1fr) auto;grid-template-areas:"ic t ar" "ic c ar";align-items:center;column-gap:14px;row-gap:3px;min-height:0;padding:12px 14px 12px 12px;border-radius:20px}
+  .pc-top{display:contents}
+  .pc-ai{grid-area:ic;width:48px;height:48px}
+  .pc h3{grid-area:t;margin:0;font-size:1.06rem;align-self:end}
+  .pc-cat{grid-area:c;justify-self:start;align-self:start;padding:0;border:none;background:none;font-size:9px;color:var(--mut-2)}
+  .pc p,.pc-ft{display:none}
+  .pc-arr{grid-area:ar;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.1);color:var(--mut);transition:background .4s,color .3s,border-color .3s,transform .5s cubic-bezier(.34,1.5,.6,1)}
+  .pc:active .pc-arr{background:var(--grad);color:#0a0a12;border-color:transparent;transform:rotate(-45deg)}
+  .pc:active{transform:scale(.98)!important;transition:transform .15s!important}
+  .pc-cta{display:flex;flex-direction:row;align-items:center;gap:14px;padding:14px}
+  .pc-cta .pc-plus{margin:0;width:48px;height:48px;flex:none}
+  .pc-cta b{font-size:1rem}
+  .pc-cta small{display:none}
+  .pc-cta .pc-go{margin:0 0 0 auto;flex:none;width:34px;height:34px}
+}
+
+
+/* ============================================================
    PWA — instalo si aplikacion
    ============================================================ */
 .pwa-ic{border-radius:24%;flex:none;box-shadow:0 8px 22px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.08)}
@@ -1267,6 +1330,18 @@ body.lock{overflow:hidden}
   *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important;scroll-behavior:auto!important}
   .rv,.rv-blur{opacity:1;transform:none;filter:none}
 }
+/* ============================================================
+   IKONAT — stil modern "glass", me ngjyrën e projektit
+   ============================================================ */
+.ai{background:radial-gradient(120% 110% at 0% 0%,color-mix(in srgb,var(--c1) 34%,transparent),transparent 62%),linear-gradient(160deg,#17172a,#0b0b13);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c1) 42%,transparent),inset 0 1px 0 rgba(255,255,255,.1),0 10px 26px rgba(0,0,0,.42)}
+.ai::before{background:radial-gradient(90% 60% at 30% 0%,rgba(255,255,255,.12),transparent 60%)}
+.ai::after{border-color:rgba(255,255,255,.05)}
+.ai svg{--gl:color-mix(in srgb,var(--c1) 42%,#fff);width:62%;height:62%;filter:drop-shadow(0 0 7px color-mix(in srgb,var(--c1) 65%,transparent))}
+.ai svg [fill="#fff"]{fill:var(--gl)}
+.ai svg [stroke="#fff"]{stroke:var(--gl)}
+.ai .k{fill:#10101b}
+.ai .ks{stroke:#10101b}
 </style>
 </head>
 <body>
@@ -1395,54 +1470,8 @@ body.lock{overflow:hidden}
     </div>
     <div class="pf-bar rv d2">
       <div class="pf-filters" id="pfFilters" role="tablist" aria-label="Kategoritë e projekteve"><span class="pf-glide" id="pfGlide" aria-hidden="true"></span></div>
-      <button class="pf-auto" id="pfAuto" type="button" aria-pressed="true"><span class="ic"></span><span id="pfAutoT">Autoplay</span></button>
     </div>
-    <div class="pf rv d2" id="pf" tabindex="-1">
-      <div class="pf-stage" id="pfStage">
-        <div class="pf-browser">
-          <div class="pf-tb">
-            <span class="pf-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span class="pf-url"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span id="pfUrl">—</span></span>
-            <span class="pf-seg" role="group" aria-label="Pamja">
-              <button type="button" class="on" data-dev="desk" aria-label="Desktop"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
-              <button type="button" data-dev="mob" aria-label="Mobile"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></button>
-            </span>
-            <a class="pf-tbtn" id="pfExt" href="#" target="_blank" rel="noopener" aria-label="Hape në skedë të re"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-          </div>
-          <div class="pf-screen" id="pfScreen" role="button" tabindex="0" aria-label="Hape parapamjen në ekran të plotë">
-            <div class="pf-frame" id="pfFrame"><iframe id="pfIframe" title="Parapamje live e projektit" tabindex="-1" aria-hidden="true" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin"></iframe></div>
-            <span class="pf-livetag" aria-hidden="true"><i></i>Live</span>
-            <span class="pf-zoom" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Ekran i plotë</span>
-          </div>
-        </div>
-        <div class="pf-info" id="pfInfo" aria-live="polite">
-          <div>
-            <div class="pf-k pf-sw"><span class="ai pf-ai-s" id="pfIco"></span><span><b id="pfNum">01</b> / <span id="pfTot">10</span></span><span class="cat" id="pfCat">—</span></div>
-            <h3 class="pf-sw" id="pfTitle">—</h3>
-            <p class="pf-sw" id="pfDesc"></p>
-            <div class="badges pf-sw" id="pfTech"></div>
-          </div>
-          <div class="pf-acts">
-            <a class="btn btn-glow" id="pfVisit" href="#" target="_blank" rel="noopener">Vizito projektin <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-            <button class="btn btn-pri" id="pfLike" type="button">Dua diçka të ngjashme</button>
-            <div class="pf-nav">
-              <button type="button" id="pfPrev" aria-label="Projekti i mëparshëm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
-              <button type="button" id="pfNext" aria-label="Projekti tjetër"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            </div>
-          </div>
-        </div>
-        <span class="pf-prog" aria-hidden="true"><i id="pfProg"></i></span>
-      </div>
-      <div class="pf-side">
-        <div class="pf-side-in">
-          <ol class="pf-list" id="pfList"></ol>
-          <button class="pf-cta" type="button" data-qs>
-            <div><b>Projekti yt mund të jetë i radhës.</b><small>Nise në më pak se një minutë.</small></div>
-            <span class="go"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </button>
-        </div>
-      </div>
-    </div>
+    <div class="pg" id="pg"></div>
     <div class="soon rv d1">
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 3c.7 4.2 2.4 6 6.6 6.6-4.2.7-6 2.4-6.6 6.6-.7-4.2-2.4-6-6.6-6.6C9.6 9 11.3 7.2 12 3Z" stroke="url(#ig1)" stroke-width="1.5" stroke-linejoin="round" fill="url(#ig1)" fill-opacity=".25"/><circle cx="19" cy="17.5" r="2.2" stroke="url(#ig2)" stroke-width="1.3" fill="url(#ig2)" fill-opacity=".3"/></svg>
       <h3>Së shpejti — më shumë projekte</h3>
@@ -1770,7 +1799,7 @@ const PROJECTS = [
    desc:'Website premium dhe PWA për planifikim e dizajn hapësirash — plane, vizualizime 2D/3D dhe interier, në gjermanisht, anglisht dhe shqip.',tech:['PWA','DE/EN/SQ','Editorial']},
   {id:'kurani',cat:'web-app',catL:'Web App',title:'Lexo Kuranin Shqip',url:'https://lexokuraninshqip.vercel.app',mono:'LK',c:['#34d399','#065f46'],
    desc:'Aplikacion web për leximin e Kuranit në gjuhën shqipe — i pastër, i lexueshëm dhe komod në celular.',tech:['Reader','Mobile-first','Shqip']},
-  {id:'cimi',cat:'web-app',catL:'Website',title:'CIMI Group',url:'https://cimigroup.com',mono:'CG',c:['#818cf8','#3730a3'],
+  {id:'cimi',cat:'web-app',catL:'Website',title:'CIMI Group',url:'https://cimigroupsarl.com',mono:'CG',c:['#818cf8','#3730a3'],
    desc:'Website prezantues korporativ për CIMI Group — identitet i fortë, shërbimet dhe kontakti në një vend.',tech:['Corporate','Responsive','SEO']},
   {id:'bonemenu',cat:'web-app',catL:'Web App',title:'boneMenu',url:'https://bonemenu.vercel.app/#/',mono:'bM',c:['#fb923c','#b93a0b'],
    desc:'Meny digjitale për restorante dhe kafene — klientët e hapin nga telefoni dhe shohin ofertën menjëherë.',tech:['Digital Menu','QR-ready','Mobile']},
@@ -1926,45 +1955,54 @@ const PF_GROUPS = [
   {k:'all', l:'Të gjitha'}, {k:'Website', l:'Website'}, {k:'Web App', l:'Web App'},
   {k:'sys', l:'Sisteme & Platforma'}, {k:'Utility', l:'Utility'}
 ];
-const pf = {
-  i:0, filter:'all', auto:!reduced, el:0, dur:8000, vis:false, hover:false, pauseUntil:0, dev:'desk', loadT:null, token:0,
-  stage:$1('#pfStage'), screen:$1('#pfScreen'), frame:$1('#pfFrame'), iframe:$1('#pfIframe'), list:$1('#pfList'), info:$1('#pfInfo')
-};
-const pfSmall = () => innerWidth < 960 || touch;
-const pfMatch = (p, k) => k === 'all' || (k === 'feat' ? !!p.feat : grpOf(p) === k);
-const pfIdx = () => PROJECTS.map((p, i) => i).filter(i => pfMatch(PROJECTS[i], pf.filter));
-
-function coverHTML(p){
-  const pat = PATS[p.id] || 'grid';
-  return `<div class="pf-cover enter" style="--c1:${p.c[0]};--c2:${p.c[1]}" data-pat="${pat}">
-    <span class="pf-glow"></span><span class="pat pat-${pat === "islamic" ? "star" : pat}"></span>
-    <span class="wm">${ico(p.id)}</span>
-    <span class="emb">${RING}<span class="ai ai-xl" style="--c1:${p.c[0]};--c2:${p.c[1]}">${appIco(p.id)}</span></span>
-    <span class="pf-cname">${p.title}</span>
-    <span class="pf-load"><i></i>Duke ngarkuar live</span>
-  </div>`;
-}
+let pfFilter = 'all';
+const pfMatch = (p, k) => k === 'all' || grpOf(p) === k;
+const pfIdx = () => PROJECTS.map((p, i) => i).filter(i => pfMatch(PROJECTS[i], pfFilter));
+const UPR = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+const PLAY = '<svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15L19.5 12Z"/></svg>';
+const RARR = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+/* rrjeti i projekteve — të gjitha në një vështrim */
+const pg = $1('#pg');
+pg.innerHTML = PROJECTS.map((p, i) => `
+  <article class="pc" data-i="${i}" style="--c1:${p.c[0]};--c2:${p.c[1]};--d:${i}">
+    <button class="pc-hit" type="button" aria-label="Shiko ${p.title} live"></button>
+    <div class="pc-top"><span class="ai pc-ai">${appIco(p.id)}</span><span class="pc-cat">${p.catL}</span></div>
+    <h3>${p.title}</h3>
+    <p>${p.desc}</p>
+    <div class="pc-ft"><span class="pc-live"><span class="pl">${PLAY}</span>Shiko live</span><a class="pc-ext" href="${p.url}" target="_blank" rel="noopener" aria-label="Hape ${p.title} në skedë të re">${hostOf(p.url)}${UPR}</a></div>
+    <span class="pc-arr" aria-hidden="true">${RARR}</span>
+  </article>`).join('') + `
+  <button class="pc pc-cta" type="button" data-qs style="--c1:#7c6cff;--c2:#38d4ff;--d:${PROJECTS.length}">
+    <span class="pc-plus"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+    <b>Projekti yt mund të jetë i radhës.</b>
+    <small>Nise në më pak se një minutë.</small>
+    <span class="pc-go">${RARR}</span>
+  </button>`;
+$all('.pc[data-i]', pg).forEach(c => {
+  c.querySelector('.pc-hit').addEventListener('click', () => pmOpenAt(+c.dataset.i));
+});
+pg.addEventListener('pointermove', e => {
+  const c = e.target.closest('.pc'); if(!c) return;
+  const r = c.getBoundingClientRect(); c.style.setProperty('--x', (e.clientX - r.left) + 'px'); c.style.setProperty('--y', (e.clientY - r.top) + 'px');
+}, {passive:true});
+new IntersectionObserver((es, o) => { if(es[0].isIntersecting){ pg.classList.add('in'); o.disconnect(); } }, {threshold:.08}).observe(pg);
 /* filtrat */
 (function pfFilters(){
   const wrap = $1('#pfFilters');
   PF_GROUPS.forEach(g => {
-    const n = PROJECTS.filter(p => pfMatch(p, g.k)).length;
-    if(!n) return;
+    const n = PROJECTS.filter(p => pfMatch(p, g.k)).length; if(!n) return;
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'pf-filter' + (g.k === 'all' ? ' on' : ''); b.setAttribute('role', 'tab');
     b.innerHTML = `${g.l}<span class="fct">${n}</span>`;
     b.addEventListener('click', () => {
-      pf.filter = g.k;
+      pfFilter = g.k;
       $all('.pf-filter').forEach(x => x.classList.toggle('on', x === b)); pfGlide();
       let d = 0;
-      $all('.pf-it').forEach(li => {
-        const show = pfMatch(PROJECTS[+li.dataset.i], g.k);
-        li.classList.toggle('hide', !show); li.classList.remove('anim');
-        if(show){ void li.offsetWidth; li.style.setProperty('--ad', (d++ * 45) + 'ms'); li.classList.add('anim'); }
+      $all('.pc[data-i]', pg).forEach(c => {
+        const show = pfMatch(PROJECTS[+c.dataset.i], g.k);
+        c.classList.toggle('hide', !show); c.classList.remove('anim');
+        if(show){ void c.offsetWidth; c.style.setProperty('--ad', (d++ * 50) + 'ms'); c.classList.add('anim'); }
       });
-      const ids = pfIdx(); if(!ids.includes(pf.i)) pfSelect(ids[0], 1);
-      $1('#pfTot').textContent = String(ids.length).padStart(2, '0'); pfNum();
-      pf.el = 0;
     });
     wrap.appendChild(b);
   });
@@ -1973,131 +2011,7 @@ function pfGlide(){
   const b = $1('.pf-filter.on'), g = $1('#pfGlide'); if(!b || !g) return;
   g.style.left = b.offsetLeft + 'px'; g.style.width = b.offsetWidth + 'px';
 }
-/* indeksi */
-const STAR = '<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.7 5.9 6.4.7-4.8 4.3 1.4 6.3L12 16.8 6.3 20l1.4-6.3L2.9 9.4l6.4-.7Z"/></svg>';
-pf.list.innerHTML = PROJECTS.map((p, i) => `  <li class="pf-it" data-i="${i}" data-g="${grpOf(p)}" style="--d:${i * 55}">
-    <button type="button" aria-label="${p.title}">
-      <span class="n">${String(i + 1).padStart(2, '0')}</span>
-      <span class="ai pf-ai" style="--c1:${p.c[0]};--c2:${p.c[1]}">${appIco(p.id)}</span>
-      <span><b>${p.title}</b><small>${p.catL}</small></span>
-      <svg class="ar" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </button>
-    <span class="pb"></span>
-  </li>`).join('');
-$all('.pf-it').forEach(li => li.querySelector('button').addEventListener('click', () => {
-  pfSelect(+li.dataset.i); pf.pauseUntil = performance.now() + 15000;
-}));
-function pfNum(){
-  const ids = pfIdx(); $1('#pfNum').textContent = String(Math.max(1, ids.indexOf(pf.i) + 1)).padStart(2, '0');
-}
-/* shkallëzimi i iframe-it brenda ekranit */
-function pfFit(){
-  const W = pf.screen.clientWidth, H = pf.screen.clientHeight; if(!W) return;
-  const f = pf.frame;
-  if(pf.dev === 'mob'){
-    const bh = H * .9, s = bh / 844, bw = 390 * s;
-    f.style.width = '390px'; f.style.height = '844px';
-    f.style.transform = `translate(${(W - bw) / 2}px,${(H - bh) / 2}px) scale(${s})`;
-  } else {
-    const s = W / 1440;
-    f.style.width = '1440px'; f.style.height = (H / s) + 'px';
-    f.style.transform = `scale(${s})`;
-  }
-}
-if('ResizeObserver' in window) new ResizeObserver(pfFit).observe(pf.screen); else addEventListener('resize', pfFit);
-function pfLoadLive(){
-  clearTimeout(pf.loadT);
-  pf.screen.classList.remove('live');
-  if(pfSmall()){ pf.screen.classList.add('nolive'); pf.iframe.removeAttribute('src'); return; }
-  pf.screen.classList.remove('nolive');
-  const tk = ++pf.token, url = PROJECTS[pf.i].url;
-  pf.loadT = setTimeout(() => {
-    if(!pf.vis) return;
-    pf.iframe.onload = () => { if(tk === pf.token) setTimeout(() => { if(tk === pf.token) pf.screen.classList.add('live'); }, 450); };
-    pf.iframe.src = url;
-  }, 900);
-}
-function pfSelect(i, silent){
-  if(i == null) return;
-  const p = PROJECTS[i]; pf.i = i; pf.el = 0; pf.dur = 8000;
-  // cover
-  $all('.pf-cover', pf.screen).forEach(c => { c.classList.add('leave'); setTimeout(() => c.remove(), 950); });
-  pf.screen.insertAdjacentHTML('afterbegin', coverHTML(p));
-  const nc = $1('.pf-cover.enter', pf.screen);
-  requestAnimationFrame(() => requestAnimationFrame(() => nc && nc.classList.remove('enter')));
-  // info
-  const set = () => {
-    $1('#pfCat').textContent = p.catL;
-    const pi = $1('#pfIco'); pi.style.setProperty('--c1', p.c[0]); pi.style.setProperty('--c2', p.c[1]); pi.innerHTML = appIco(p.id); $1('#pfTitle').textContent = p.title; $1('#pfDesc').textContent = p.desc;
-    $1('#pfTech').innerHTML = p.tech.map(t => `<span class="badge">${t}</span>`).join('');
-    pfNum();
-  };
-  if(silent || reduced) set(); else { pf.info.classList.add('swap'); setTimeout(() => { set(); requestAnimationFrame(() => pf.info.classList.remove('swap')); }, 300); }
-  $1('#pfUrl').textContent = hostOf(p.url);
-  $1('#pfVisit').href = p.url; $1('#pfExt').href = p.url;
-  $all('.pf-it').forEach(li => { const on = +li.dataset.i === i; li.classList.toggle('on', on); if(!on) li.style.removeProperty('--p'); });
-  const act = $1('.pf-it.on');
-  if(act && !silent){
-    const L = pf.list, r = act.getBoundingClientRect(), lr = L.getBoundingClientRect();
-    if(pfSmall()) L.scrollTo({left: L.scrollLeft + r.left - lr.left - 8, behavior: reduced ? 'auto' : 'smooth'});
-    else if(r.top < lr.top || r.bottom > lr.bottom) L.scrollTo({top: L.scrollTop + r.top - lr.top - 8, behavior: 'smooth'});
-  }
-  pfLoadLive();
-}
-function pfStep(d){
-  const ids = pfIdx(), k = ids.indexOf(pf.i);
-  pfSelect(ids[(k + d + ids.length) % ids.length]);
-}
-$1('#pfPrev').addEventListener('click', () => { pfStep(-1); pf.pauseUntil = performance.now() + 15000; });
-$1('#pfNext').addEventListener('click', () => { pfStep(1); pf.pauseUntil = performance.now() + 15000; });
-$all('.pf-seg [data-dev]').forEach(b => b.addEventListener('click', () => {
-  pf.dev = b.dataset.dev;
-  $all('.pf-seg [data-dev]').forEach(x => x.classList.toggle('on', x === b));
-  pf.screen.classList.toggle('mob', pf.dev === 'mob'); pfFit();
-  pf.pauseUntil = performance.now() + 20000;
-}));
-const pfAutoBtn = $1('#pfAuto');
-function pfSetAuto(on){ pf.auto = on; pfAutoBtn.classList.toggle('off', !on); pfAutoBtn.setAttribute('aria-pressed', on); $1('#pfAutoT').textContent = on ? 'Autoplay' : 'Në pauzë'; }
-pfAutoBtn.addEventListener('click', () => pfSetAuto(!pf.auto));
-pfSetAuto(pf.auto);
-pf.stage.addEventListener('pointerenter', e => { if(e.pointerType === 'mouse') pf.hover = true; });
-pf.stage.addEventListener('pointerleave', () => { pf.hover = false; });
-/* swipe në celular */
-let sx = null, sy = 0;
-pf.screen.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, {passive:true});
-pf.screen.addEventListener('touchend', e => {
-  if(sx == null) return; const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy; sx = null;
-  if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)){ pfStep(dx < 0 ? 1 : -1); pf.pauseUntil = performance.now() + 15000; pf._swiped = true; setTimeout(() => pf._swiped = false, 400); }
-}, {passive:true});
-pf.screen.addEventListener('click', () => { if(!pf._swiped) pmOpenAt(pf.i); });
-pf.screen.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); pmOpenAt(pf.i); } });
-$1('#pf').addEventListener('keydown', e => {
-  if(e.target.closest('input,textarea')) return;
-  if(e.key === 'ArrowRight'){ pfStep(1); pf.pauseUntil = performance.now() + 15000; }
-  if(e.key === 'ArrowLeft'){ pfStep(-1); pf.pauseUntil = performance.now() + 15000; }
-});
-$1('#pfLike').addEventListener('click', () => qsOpen({like: PROJECTS[pf.i]}));
-/* autoplay */
-new IntersectionObserver(es => {
-  const was = pf.vis; pf.vis = es[0].isIntersecting;
-  if(pf.vis && !was && !pf.screen.classList.contains('live')) pfLoadLive();
-}, {threshold:.35}).observe(pf.stage);
-let pfLast = performance.now();
-(function pfTick(now){
-  const dt = Math.min(now - pfLast, 100); pfLast = now;
-  const blocked = document.hidden || !pf.vis || pf.hover || now < pf.pauseUntil || document.body.classList.contains('lock');
-  if(pf.auto && !blocked){
-    pf.el += dt;
-    if(pf.el >= pf.dur){ pfStep(1); }
-  }
-  const p = pf.auto ? Math.min(pf.el / pf.dur, 1) : 0;
-  $1('#pfProg').style.setProperty('--p', p);
-  const act = $1('.pf-it.on'); if(act) act.style.setProperty('--p', p);
-  requestAnimationFrame(pfTick);
-})(pfLast);
-addEventListener('resize', pfGlide);
-addEventListener('load', pfGlide);
-setTimeout(pfGlide, 400);
+addEventListener('resize', pfGlide); addEventListener('load', pfGlide); setTimeout(pfGlide, 400);
 
 /* ---------- parapamja në ekran të plotë ---------- */
 const pm = $1('#pmodal'), pmFrame = $1('#pmFrame'), pmLoad = $1('#pmLoad'), pmDev = $1('#pmDev');
@@ -2130,7 +2044,7 @@ function pmClose(){
 }
 $all('[data-pmclose]', pm).forEach(b => b.addEventListener('click', pmClose));
 $all('[data-pdev]').forEach(b => b.addEventListener('click', () => pmSetDev(b.dataset.pdev)));
-const pmStep = d => { const ids = pfIdx(), k = ids.indexOf(pmI); const n = ids[(k + d + ids.length) % ids.length]; pmFill(n); pfSelect(n, 1); };
+const pmStep = d => { const ids = pfIdx(), k = ids.indexOf(pmI); const n = ids[(k + d + ids.length) % ids.length]; pmFill(n); };
 $1('#pmPrev').addEventListener('click', () => pmStep(-1));
 $1('#pmNext').addEventListener('click', () => pmStep(1));
 $1('#pmLike').addEventListener('click', () => { const p = PROJECTS[pmI]; pmClose(); setTimeout(() => qsOpen({like:p}), 350); });
@@ -2297,8 +2211,6 @@ addEventListener('scroll', () => {
 })();
 
 tip.addEventListener('click', e => { if(!e.target.closest('#dockTipX')){ tip.classList.remove('show'); qsOpen(); } });
-$1('#pfTot').textContent = String(PROJECTS.length).padStart(2, '0');
-pfSelect(0, 1);
 
 /* ---------- reveal observer ---------- */
 const io = new IntersectionObserver(es=>{
