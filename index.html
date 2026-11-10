@@ -1034,24 +1034,31 @@ body.lock{overflow:hidden}
 .pc-cta small{color:var(--mut);font-size:.86rem}
 .pc-cta .pc-go{margin-top:14px;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--grad);color:#0a0a12;transition:transform .5s cubic-bezier(.34,1.5,.6,1)}
 .pc-cta:hover .pc-go{transform:rotate(-45deg)}
-/* celular: rreshta kompaktë — të gjitha projektet shihen shpejt */
+/* celular: rrjet 2 kolona me pllaka si aplikacione */
 @media(max-width:640px){
-  .pg{grid-template-columns:1fr;gap:8px}
-  .pc{display:grid;grid-template-columns:48px minmax(0,1fr) auto;grid-template-areas:"ic t ar" "ic c ar";align-items:center;column-gap:14px;row-gap:3px;min-height:0;padding:12px 14px 12px 12px;border-radius:20px}
-  .pc-top{display:contents}
-  .pc-ai{grid-area:ic;width:48px;height:48px}
-  .pc h3{grid-area:t;margin:0;font-size:1.06rem;align-self:end}
-  .pc-cat{grid-area:c;justify-self:start;align-self:start;padding:0;border:none;background:none;font-size:9px;color:var(--mut-2)}
+  .pg{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .pc{min-height:0;aspect-ratio:1/1.12;padding:14px;border-radius:22px;
+    background:radial-gradient(120% 90% at 0% 0%,color-mix(in srgb,var(--c1) 26%,transparent),transparent 62%),linear-gradient(170deg,rgba(255,255,255,.045),rgba(255,255,255,.01))}
+  .pc::before{background:radial-gradient(80% 60% at 100% 100%,color-mix(in srgb,var(--c2) 22%,transparent),transparent 70%);opacity:1}
+  .pc-top{display:block}
+  .pc-ai{width:54px;height:54px}
+  .pc-ai::after{border-color:rgba(255,255,255,.08)}
+  .pc-cat{position:absolute;left:14px;bottom:14px;padding:0;border:none;background:none;font-size:8.5px;letter-spacing:.14em;color:var(--mut-2)}
+  .pc h3{position:absolute;left:14px;right:14px;bottom:31px;margin:0;font-size:1.02rem;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .pc p,.pc-ft{display:none}
-  .pc-arr{grid-area:ar;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.1);color:var(--mut);transition:background .4s,color .3s,border-color .3s,transform .5s cubic-bezier(.34,1.5,.6,1)}
-  .pc:active .pc-arr{background:var(--grad);color:#0a0a12;border-color:transparent;transform:rotate(-45deg)}
-  .pc:active{transform:scale(.98)!important;transition:transform .15s!important}
-  .pc-cta{display:flex;flex-direction:row;align-items:center;gap:14px;padding:14px}
+  .pc-arr{display:grid;place-items:center;position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--mut);transform:rotate(-45deg);
+    transition:background .4s,color .3s,border-color .3s,transform .5s cubic-bezier(.34,1.5,.6,1)}
+  .pc:active .pc-arr{background:var(--grad);color:#0a0a12;border-color:transparent;transform:rotate(-45deg) scale(1.1)}
+  .pc:active{transform:scale(.96)!important;transition:transform .15s!important}
+  .pc:active .pc-ai{transform:rotate(-6deg) scale(1.06)}
+  .pc-cta{grid-column:1 / -1;aspect-ratio:auto;display:flex;flex-direction:row;align-items:center;gap:14px;padding:16px}
   .pc-cta .pc-plus{margin:0;width:48px;height:48px;flex:none}
   .pc-cta b{font-size:1rem}
   .pc-cta small{display:none}
-  .pc-cta .pc-go{margin:0 0 0 auto;flex:none;width:34px;height:34px}
+  .pc-cta .pc-go{margin:0 0 0 auto;flex:none;width:38px;height:38px}
 }
+@media(max-width:360px){.pc{aspect-ratio:1/1.2}.pc h3{font-size:.95rem}}
 
 
 /* ============================================================
